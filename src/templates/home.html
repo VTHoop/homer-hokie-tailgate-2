@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Email" aria-label="email">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="password">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign-In</button>
+                <span><a href="{{ url_for('users.new_user') }}">New User?</a></span>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Homer Hokie Tailgate</h1>
+            <p>Welcome to v2.0 of the online community of your favorite tailgaters where you can plan the perfect
+                tailgate and engage with your friends between Saturdays.</p>
+            <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-circle" src="../../static/images/pickem.png" alt="Generic placeholder image" width="140"
+                     height="140">
+                <h2>Hokie Pick'em</h2>
+                <p>Predict the score of the upcoming game and earn more points than the rest of your friends. </p>
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            </div>
+            <div class="col-md-4">
+                <img class="img-circle" src="../../static/images/tickets.jpg" alt="Generic placeholder image"
+                     width="140"
+                     height="140">
+                <h2>Ticket Exchange</h2>
+                <p>Do you have extra tickets? Do you need extra tickets? Let your friends know so you don't
+                    have to deal with those ticket scalpers outside of the stadium.</p>
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            </div>
+            <div class="col-md-4">
+                <img class="img-circle" src="../../static/images/microphone.jpg" alt="Generic placeholder image"
+                     width="140"
+                     height="140">
+                <h2>Game Conversations</h2>
+                <p>Have some special insight into the next game that your friends need to know? Want to tell them bad
+                    the ruling was on the UNCheat case? Post your thoughts here.</p>
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            </div>
+        </div>
+
+        <hr>
+    </div> <!-- /container -->
+
+
+
+{% endblock %}

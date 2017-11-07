@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+    <ul id="breadcrumb">
+        <li><a href="{{ url_for('users.new_user') }}">Basic Details</a></li>
+        <li><a href="#">Notification Settings</a></li>
+        <li><a href="#">Game Attendance</a></li>
+    </ul>
+
+    <br>
+    <div class="panel-title text-center">
+        <h1>
+            Notification Settings
+        </h1>
+    </div>
+    <hr/>
+    <div class="main-login main-center">
+        <form role="form" method="post">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col">
+                        <label class=" control-label">Email version and notification when HHT Preview is Posted</label>
+                    </div>
+                    <div class="col">
+                        <div class=" btn-group" data-toggle="buttons">
+                            {% if hht_preview == 'On' %}
+                            <label class="btn btn-secondary btn-sm active">
+                            <input type="radio" name="hht_preview" id="preview_on" value="On" checked> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm">
+                            <input type="radio" name="hht_preview" value="Off" id="preview_off"> Off
+                            </label>
+                            {% else %}
+                            <label class="btn btn-secondary btn-sm">
+                            <input type="radio" name="hht_preview" id="preview_on" value="On"> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm active">
+                            <input type="radio" name="hht_preview" value="Off" id="preview_off" checked> Off
+                            </label>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col">
+                        <label class=" control-label">Reminder to post score predictions for upcoming game</label>
+                    </div>
+                    <div class="col">
+                        <div class=" btn-group" data-toggle="buttons">
+                            {% if score == 'On' %}
+                            <label class="btn btn-secondary btn-sm active">
+                                <input type="radio" name="score" id="score_on" value="On" checked> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm">
+                                <input type="radio" name="score" id="score_off" value="Off"> Off
+                            </label>
+                            {% else %}
+                            <label class="btn btn-secondary btn-sm">
+                                <input type="radio" name="score" id="score_on" value="On"> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm active">
+                                <input type="radio" name="score" id="score_off" value="Off" checked> Off
+                            </label>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col">
+                        <label class=" control-label"><p class="text-right">Notification when new tickets are
+                            available</p>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <div class=" btn-group" data-toggle="buttons">
+                            {% if tickets == 'On' %}
+                            <label class="btn btn-secondary btn-sm active">
+                                <input type="radio" name="tickets" id="tickets_on" value="On" checked> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm">
+                                <input type="radio" name="tickets" value="Off" id="tickets_off"> Off
+                            </label>
+                            {% else %}
+                           <label class="btn btn-secondary btn-sm">
+                                <input type="radio" name="tickets" id="tickets_on" value="On"> On
+                            </label>
+                            <label class="btn btn-secondary btn-sm active">
+                                <input type="radio" name="tickets" value="Off" id="tickets_off" checked> Off
+                            </label>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" name="basic_details" class="btn btn-secondary">Prev</button>
+                <button type="submit" name="game_attendance" class="btn btn-secondary float-right">Next</button>
+                <input type="hidden" name="fname" value="{{ user.f_name }}">
+                <input type="hidden" name="lname" value="{{ user.l_name }}">
+                <input type="hidden" name="email" value="{{ user.email }}">
+                <input type="hidden" name="pword" value="{{ user.password }}">
+                {% for i in attendance %}
+                    <input type="text" name="attendance{{ i }}" value="{{ attendance[i] }}">
+                {% endfor %}
+                <div>&nbsp;</div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
