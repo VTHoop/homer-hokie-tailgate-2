@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+	  <header>
+		  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#">HHT Logo</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+ 			  <ul class="navbar-nav mr-auto">
+			<!--	<li class="nav-item active">
+				  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link disabled" href="#">Disabled</a>
+				</li>-->
+			  </ul> 
+			  <form class="form-inline mt-2 mt-md-0">
+				<a type="button" href="#" class="form-control mr-sm-2">Sign-In</a>
+				<a type="button" href="#" class="btn btn-outline-success my-2 my-sm-0">Register</a>
+			  </form>
+			</div>
+			
+		  </nav>
+		</header>
+<div class="container">
+    <form>
+	<div class="panel-title text-center">
+        <h1>Dashboard</h1>
+    </div>
+	<table class="table table-striped">
+	    <colgroup>
+	        <col style="width:10%"/>
+	        <col style="width:10%"/>
+	        <col style="width:20%"/>
+	        <col style="width:15%"/>
+	        <col style="width:15%"/>
+	        <col style="width:10%"/>
+	        <col style="width:10%"/>
+	    </colgroup>
+		<thead>
+			<tr>
+				<th scope="col">Date</th>
+				<th scope="col">Time</th>
+				<th scope="col">Opponent</th>
+				<th scope="col">Location</th>
+				<th scope="col">Score Prediction</th>
+				<th scope="col">Attending?</th>
+				<th scope="col">Save</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>9/30/2017</td>
+				<td>
+					8:00 PM
+				</td>
+				<td>
+					<img src="http://www.hokiesports.com/livelogos/120/277.png" style="width:30px"/>
+					<a href="{{ url_for(games.game_detail), game_num=game.game.game_num}}">West Virginia</a>
+				</td>
+				<td>FedEx Field</td>
+				<td>
+				    <div class="form-row">
+				        <div class="col">
+				    <input class="col form-control form-control-sm" type="text" name="away_score" value="0"></div>-
+				    <div class="col">
+				    <input class="col form-control form-control-sm" type="text" name="home_score" value="0"></div>
+				    </td>
+				<td>Attending?</td>
+				<td><button class="btn btn-sm btn-dark" name='save_game' type='submit'>Save One</button></td>
+			</tr>
+			<tr>
+				<td>9/30/2017</td>
+				<td>
+					8:00 PM
+				</td>
+				<td>
+					West Virginia
+				</td>
+				<td>FedEx Field</td>
+				<td>
+				    <div class="form-row">
+				        <div class="col">
+				    <input class="col form-control form-control-sm" type="text" name="away_score" value="0"></div>-
+				    <div class="col">
+				    <input class="col form-control form-control-sm" type="text" name="home_score" value="0"></div>
+				    </td>
+				<td>Attending?</td>
+				<td><button class="btn btn-sm btn-dark" name='save_game' type='submit'>Save One</button></td>
+			</tr>
+		</tbody>
+	</table>
+    </form>
+</div>
+
+	
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
