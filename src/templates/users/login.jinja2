@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <div class="container">
+        <br>
+        <div class="panel-title text-center">
+            <h1>Login</h1>
+        </div>
+        <hr/>
+        <div class="main-login main-center">
+            <form method="post">
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="emailsuccess">
+                            <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-11-envelope.png') }}">
+                        </span>
+                        <input type="email" name="email" id="email" class="form-control" aria-describedby="emailsuccess"
+                               , placeholder="youremail@domain.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <div class="input-group">
+                                <span class="input-group-addon" id="pwordsuccess">
+                                    <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-204-lock.png') }}">
+                                </span>
+                        <input type="password" name="pword" id="pword" class="form-control"
+                               aria-describedby="pwordsuccess" , placeholder="Enter your password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <button type="submit" class="btn btn-hokie float-right">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

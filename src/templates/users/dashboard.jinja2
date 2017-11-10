@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-left" href="#"><img style="max-width:100px; margin-top: -7px;"
+                                             src="{{ url_for('static', filename='images/hht_logo.jpg') }}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <!--	<li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>-->
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <a type="button" href="#" class="form-control mr-sm-2">Sign-In</a>
+                <a type="button" href="#" class="btn btn-outline-danger my-2 my-sm-0">Log Out</a>
+            </form>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main">
+
+        <div class="panel-title text-center">
+            <h1>Dashboard</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Opponent</th>
+                <th>Location</th>
+                <th>Score Prediction</th>
+                <th>Attending?</th>
+                <th>Save</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for game in attendance %}
+            <tr>
+                <td>{{ game.game.date }}</td>
+                <td>
+                    {% if game.game.time is none %}
+                    TBD
+                    {% else %}
+                    {{ game.game.time }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game.game.home_team.school_name == 'Virginia Tech' %}
+                    {{ game.game.away_team.school_name }}
+                    {% else %}
+                    {{ game.game.home_team.school_name }}
+                    {% endif %}
+                </td>
+                <td>{{ game.game.location }}</td>
+                <td><input type="text" name="away_score" value="{{ game.away_score }}">-<input type="text" name="home_score"
+                                                                                         value="{{ game.home_score }}"></td>
+                <td>
+                    <div class="btn-group" data-toggle="buttons">
+                        {% if game.attendance == 'Yes' %}
+                        <label class="btn btn-hokie-group btn-sm active">
+                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                   autocomplete='off'
+                                   checked>Yes!
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
+                                   autocomplete="off">Maybe?
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
+                                   autocomplete="off">No
+                        </label>
+                        {% elif game.attendance == 'Maybe' %}
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                   autocomplete='off'>Yes!
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm active">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
+                                   autocomplete="off" checked>Maybe?
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
+                                   autocomplete="off">No
+                        </label>
+                        {% else %}
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                   autocomplete='off'>Yes!
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
+                                   autocomplete="off">Maybe?
+                        </label>
+                        <label class="btn btn-hokie-group btn-sm active">
+                            <input type="radio" name="attendance{{ game.game.game_num }}" id="No" value="No"
+                                   autocomplete="off" checked>No
+                        </label>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>
+                    <button class='btn btn-hokie btn-sm' name='save_game_{{ game.game.game_num }}' type='submit'>Save
+                        One
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </main>
+</div>
+{% endblock %}

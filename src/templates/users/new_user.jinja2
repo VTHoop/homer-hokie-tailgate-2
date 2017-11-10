@@ -19,8 +19,9 @@
                 <div class="form-group">
                     <label class="control-label">First Name</label>
                     <div class="input-group">
-                                <span class="input-group-addon" id="fnamesuccess"><span
-                                        class="glyphicon glyphicon-envelope"></span></span>
+                                <span class="input-group-addon" id="fnamesuccess">
+                                    <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-4-user.png') }}">
+                                </span>
                         <input type="text" name="fname" id="fname" class="form-control" aria-describedby="fnamesuccess"
                                , placeholder="First Name" value="{{ user.f_name }}" required>
                     </div>
@@ -28,8 +29,9 @@
                 <div class="form-group">
                     <label class="control-label">Last Name</label>
                     <div class="input-group">
-                                <span class="input-group-addon" id="lnamesuccess"><span
-                                        class="glyphicon glyphicon-envelope"></span></span>
+                                <span class="input-group-addon" id="lnamesuccess">
+                                    <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-4-user.png') }}">
+                                </span>
                         <input type="text" name="lname" id="lname" class="form-control" aria-describedby="lnamesuccess"
                                , placeholder="Last Name" value="{{ user.l_name }}" required>
                     </div>
@@ -37,8 +39,9 @@
                 <div class="form-group">
                     <label class="control-label">Email</label>
                     <div class="input-group">
-                        <span class="input-group-addon" id="emailsuccess"><span
-                                class="glyphicons glyphicons-user"></span></span>
+                        <span class="input-group-addon" id="emailsuccess">
+                            <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-11-envelope.png') }}">
+                        </span>
                         <input type="email" name="email" id="email" class="form-control" aria-describedby="emailsuccess"
                                , placeholder="youremail@domain.com" value="{{ user.email }}" required>
                     </div>
@@ -46,8 +49,9 @@
                 <div class="form-group">
                     <label class="control-label">Password</label>
                     <div class="input-group">
-                                <span class="input-group-addon" id="pwordsuccess"><span
-                                        class="glyphicon glyphicon-lock"></span></span>
+                                <span class="input-group-addon" id="pwordsuccess">
+                                    <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-204-lock.png') }}">
+                                </span>
                         <input type="password" name="pword" id="pword" class="form-control"
                                aria-describedby="pwordsuccess" , placeholder="Enter your password" required>
                     </div>
@@ -55,8 +59,9 @@
                 <div class="form-group">
                     <label class="control-label">Confirm Password</label>
                     <div class="input-group">
-                                <span class="input-group-addon" id="confirmpwordsuccess"><span
-                                        class="glyphicon glyphicon-lock"></span></span>
+                                <span class="input-group-addon" id="confirmpwordsuccess">
+                                    <img src="{{ url_for('static', filename='images/glyphicons/glyphicons-204-lock.png') }}">
+                                </span>
                         <input type="password" name="confirmpword" id="confirmpword" class="form-control"
                                aria-describedby="confirmpwordsuccess" , placeholder="Re-enter your password" required>
                     </div>
@@ -69,18 +74,17 @@
                                 Previous</a>
                         </div>
                         <div class="col-4">
-                            <button type="submit" name="notification_settings" class="btn btn-secondary float-right">Next</button>
+                            <button type="submit" name="notification_settings" class="btn btn-hokie float-right">Next</button>
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="hht_preview" value="{{ hht_preview }}">
-                <input type="hidden" name="score" value="{{ score }}">
-                <input type="hidden" name="tickets" value="{{ tickets }}">
+                {% for a in alerts %}
+                <input type="hidden" name="alerts_{{ a }}" value="{{ alerts[a] }}">
+                {% endfor %}
                 <input type="hidden" name="user_id" value="{{ user._id }}">
                 {% for i in attendance %}
-                    <input type="text" name="attendance{{ i }}" value="{{ attendance[i] }}">
+                    <input type="hidden" name="attendance{{ i }}" value="{{ attendance[i] }}">
                 {% endfor %}
-                <div>&nbsp;</div>
             </form>
         </div>
     </div>

@@ -3,14 +3,16 @@ import uuid
 from src.common.database import Database
 import src.models.alerts.constants as AlertConstants
 
+from src.models.users.user import User
+
 __author__ = 'hooper-p'
 
 
 class Alert(object):
     def __init__(self, user, alert, yesno, _id=None):
-        self.user = user
+        self.user = User.get_user_by_id(user)
         self.alert = alert
-        self.yes_no = yesno
+        self.yes_no = yesno # this can include maybe
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -43,6 +45,6 @@ class Alert(object):
             "_id": self._id,
             "alert": self.alert,
             "yes_no": self.yes_no,
-            "user": self.user
+            "user": self.user._id
         }
 

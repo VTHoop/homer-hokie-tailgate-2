@@ -1,4 +1,4 @@
-from flask import session
+import uuid
 
 from src.common.database import Database
 from src.models.games.game import Game
@@ -10,20 +10,30 @@ __author__ = 'hooper-p'
 
 
 class UserGame(object):
-    def __init__(self, user, game, attendance):
-        self.user = User.get_user_by_id(session['user'])
+    def __init__(self, user, game, attendance, home_score, away_score, _id=None):
+        self.user = User.get_user_by_id(user)
         self.game = Game.get_game_by_num(game)
         self.attendance = attendance
+        self.home_score = home_score
+        self.away_score = away_score
+        self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
-        return "{} says for game {} that their status is {}".format()
+        return "{} says for game {} that their status is {}".format(self.user.f_name, self.game.game_num, self.attendance)
+
+    @classmethod
+    def get_attendance_by_user(cls, user):
+        return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {"user": user})]
 
     def save_to_mongo(self):
         Database.insert(UserGameConstants.COLLECTION, self.json())
 
     def json(self):
         return {
-            "user": session['user'],
+            "user": self.user._id,
             "game": self.game.game_num,
-            "attendance": self.attendance
+            "attendance": self.attendance,
+            "home_score": self.home_score,
+            "away_score": self.away_score,
+            "_id": self._id
         }
