@@ -1,8 +1,4 @@
 Flask==0.12.2
 pymongo==3.4.0
-<<<<<<< HEAD
-passlib==1.7.1
-=======
 passlib==1.7.1
 uwsgi
->>>>>>> ed6dfed98ad0a960ad7329388118b62714a3ed51
