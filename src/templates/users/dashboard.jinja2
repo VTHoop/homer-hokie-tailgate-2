@@ -22,105 +22,154 @@
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <a type="button" href="#" class="form-control mr-sm-2">Sign-In</a>
-                <a type="button" href="#" class="btn btn-outline-danger my-2 my-sm-0">Log Out</a>
+                <a type="button" href="{{ url_for('users.logout') }}" class="btn btn-outline-danger my-2 my-sm-0">Log
+                    Out</a>
             </form>
         </div>
     </nav>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
 </header>
 <div class="container">
-    <main role="main">
-
-        <div class="panel-title text-center">
-            <h1>Dashboard</h1>
-        </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Opponent</th>
-                <th>Location</th>
-                <th>Score Prediction</th>
-                <th>Attending?</th>
-                <th>Save</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for game in attendance %}
-            <tr>
-                <td>{{ game.game.date }}</td>
-                <td>
-                    {% if game.game.time is none %}
-                    TBD
-                    {% else %}
-                    {{ game.game.time }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if game.game.home_team.school_name == 'Virginia Tech' %}
-                    {{ game.game.away_team.school_name }}
-                    {% else %}
-                    {{ game.game.home_team.school_name }}
-                    {% endif %}
-                </td>
-                <td>{{ game.game.location }}</td>
-                <td><input type="text" name="away_score" value="{{ game.away_score }}">-<input type="text" name="home_score"
-                                                                                         value="{{ game.home_score }}"></td>
-                <td>
-                    <div class="btn-group" data-toggle="buttons">
-                        {% if game.attendance == 'Yes' %}
-                        <label class="btn btn-hokie-group btn-sm active">
-                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
-                                   autocomplete='off'
-                                   checked>Yes!
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
-                                   autocomplete="off">Maybe?
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
-                                   autocomplete="off">No
-                        </label>
-                        {% elif game.attendance == 'Maybe' %}
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
-                                   autocomplete='off'>Yes!
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm active">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
-                                   autocomplete="off" checked>Maybe?
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
-                                   autocomplete="off">No
-                        </label>
-                        {% else %}
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
-                                   autocomplete='off'>Yes!
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe" value="Maybe"
-                                   autocomplete="off">Maybe?
-                        </label>
-                        <label class="btn btn-hokie-group btn-sm active">
-                            <input type="radio" name="attendance{{ game.game.game_num }}" id="No" value="No"
-                                   autocomplete="off" checked>No
-                        </label>
-                        {% endif %}
-                    </div>
-                </td>
-                <td>
-                    <button class='btn btn-hokie btn-sm' name='save_game_{{ game.game.game_num }}' type='submit'>Save
-                        One
+    <form method="post">
+        <main role="main">
+            <div class="panel-title text-center">
+                <h1>Dashboard</h1>
+            </div>
+            <div clas="col">
+                    <button class='btn btn-outline-success btn-lg float-right' name='save' type='submit'>Save changes
                     </button>
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+            </div>
+            <div class="col">&nbsp;</div>
+            <div>
+                <table class="table table-striped">
+                    <colgroup>
+                        <col style="width:10%"/>
+                        <col style="width:10%"/>
+                        <col style="width:15%"/>
+                        <col style="width:15%"/>
+                        <col style="width:15%"/>
+                        <col style="width:10%"/>
+                        <col style="width:10%"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Opponent</th>
+                        <th>Location</th>
+                        <th>Score Prediction</th>
+                        <th>Attending?</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for game in attendance %}
+                    <tr>
+                        <td>{{ game.game.date }}</td>
+                        <td>
+                            {% if game.game.time is none %}
+                            TBD
+                            {% else %}
+                            {{ game.game.time }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if game.game.home_team.school_name == 'Virginia Tech' %}
+                            <img src="../static/images/teams/{{ game.game.away_team.logo }}" style="width:30px"/>
+                            {{ game.game.away_team.school_name }}
+                            {% else %}
+                            <img src="../static/images/teams/{{ game.game.home_team.logo }}" style="width:30px"/>
+                            {{ game.game.home_team.school_name }}
+                            {% endif %}
+                            </a>
+                        </td>
+                        <td>{{ game.game.location }}</td>
+                        <td>
+                            <div class="form-row">
 
-    </main>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>{{ game.game.away_team.short_name
+                                            }}</strong></label>
+                                        <input class="col-8 form-control form-control-sm" type="text" name="away_score{{ game.game.game_num }}"
+                                               value="{{ game.away_score }}">
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>{{ game.game.home_team.short_name
+                                            }}</strong></label>
+                                        <input class="col-8 form-control form-control-sm" type="text" name="home_score{{ game.game.game_num }}"
+                                               value="{{ game.home_score }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group" data-toggle="buttons">
+                                {% if game.attendance == 'Yes' %}
+                                <label class="btn btn-hokie-group btn-sm active">
+                                    <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                           autocomplete='off'
+                                           checked>Yes!
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
+                                           value="Maybe"
+                                           autocomplete="off">Maybe?
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
+                                           autocomplete="off">No
+                                </label>
+                                {% elif game.attendance == 'Maybe' %}
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                           autocomplete='off'>Yes!
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm active">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
+                                           value="Maybe"
+                                           autocomplete="off" checked>Maybe?
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
+                                           autocomplete="off">No
+                                </label>
+                                {% else %}
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
+                                           autocomplete='off'>Yes!
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
+                                           value="Maybe"
+                                           autocomplete="off">Maybe?
+                                </label>
+                                <label class="btn btn-hokie-group btn-sm active">
+                                    <input type="radio" name="attendance{{ game.game.game_num }}" id="No" value="No"
+                                           autocomplete="off" checked>No
+                                </label>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('games.detail', game_num=game.game.game_num) }}" type="button"
+                               class='btn btn-hokie btn-sm'>View Details >>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <button class='btn btn-outline-success btn-lg float-right' name='save' type='submit'>Save changes</button>
+
+        </main>
+    </form>
 </div>
 {% endblock %}

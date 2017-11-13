@@ -3,20 +3,22 @@ import uuid
 from src.common.database import Database
 from src.models.teams.team import Team
 import src.models.games.constants as GameConstants
+from datetime import datetime
 
 __author__ = 'hooper-p'
 
 
 class Game(object):
-    def __init__(self, game_num, home_team, away_team, date=None, time=None, location=None ,stadium=None, theme=None, _id=None):
+    def __init__(self, game_num, home_team, away_team, date=None, time=None, location=None ,stadium=None, theme=None, TV=None, _id=None):
         self.game_num = game_num
         self.home_team = Team.get_by_school_name(home_team)
         self.away_team = Team.get_by_school_name(away_team)
         self.location = Team.get_by_school_name(home_team).location if location is None else location
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
         self.date = date
-        self.time = 'TBD' if time is None else time
+        self.time = 'TBD' if time is None else datetime.strftime(datetime.strptime(time, "%I:%M:%S %p"), "%I:%M %p")
         self.theme = theme
+        self.TV = TV
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -57,5 +59,6 @@ class Game(object):
             "location": self.location,
             "stadium": self.stadium,
             "theme": self.theme,
+            "TV": self.TV,
             "_id": self._id
         }

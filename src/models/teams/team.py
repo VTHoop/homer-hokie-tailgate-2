@@ -8,9 +8,10 @@ __author__ = 'hooper-p'
 
 
 class Team(object):
-    def __init__(self, school_name, mascot, conference, wins, losses, logo, location, stadium, _id=None):
+    def __init__(self, school_name, mascot, conference, wins, losses, logo, location, stadium, short_name=None, _id=None):
         self.school_name = school_name
         self.mascot = mascot
+        self.short_name = short_name
         self.conference = conference
         self.wins = wins
         self.losses = losses
@@ -43,6 +44,7 @@ class Team(object):
         return{
             "school_name": self.school_name,
             "mascot": self.mascot,
+            "short_name": self.short_name,
             "conference": self.conference,
             "wins": self.wins,
             "losses": self.losses,
@@ -53,4 +55,4 @@ class Team(object):
         }
 
     def save_to_mongo(self):
-        Database.insert(TeamConstants.COLLECTION, self.json())
+        Database.update(TeamConstants.COLLECTION, {"_id": self._id}, self.json())

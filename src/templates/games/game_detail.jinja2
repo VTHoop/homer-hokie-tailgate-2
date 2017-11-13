@@ -3,44 +3,44 @@
 
 <div class="container">
     <div class="row text-center">
-        <div class="col"><h1><strong>November 4 @ 8:00 PM</strong></h1></div>
+        <div class="col"><h1><strong>{{ game.date }} @ {{ game.time }}</strong></h1></div>
     </div>
     <div class="row text-center">
-        <div class="col-lg"><h2></h2></div>
+        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.away_team.logo }}"/></h2></div>
         <div class="col-sm"><h2></h2></div>
-        <div class="col-lg"><h2><img src="http://www.hokiesports.com/livelogos/120/2390.png"></h2></div>
+        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.home_team.logo }}"/></h2></div>
     </div>
     <div class="row text-center">
-        <div class="col-lg"><h3><strong>VIRGINIA TECH</strong></h3></div>
+        <div class="col-lg"><h3><strong>{{ game.away_team.school_name }}</strong></h3></div>
         <div class="col-sm"><h2></h2></div>
-        <div class="col-lg"><h3><strong>MIAMI</strong></h3></div>
+        <div class="col-lg"><h3><strong>{{ game.home_team.school_name }}</strong></h3></div>
     </div>
     <div class="row text-center">
-        <div class="col-lg"><h4>Hokies</h4></div>
+        <div class="col-lg"><h4>{{ game.away_team.mascot }}</h4></div>
         <div class="col-sm"><h2>@</h2></div>
-        <div class="col-lg"><h4>Hurricanes</h4></div>
+        <div class="col-lg"><h4>{{ game.home_team.mascot }}</h4></div>
     </div>
     <div class="row text-center">
-        <div class="col-lg"><h5><strong>Conference:</strong> ACC</h5></div>
+        <div class="col-lg"><h5><strong>Conference:</strong> {{ game.away_team.conference }}</h5></div>
         <div class="col-sm"><h2></h2></div>
-        <div class="col-lg"><h5><strong>Conference:</strong> ACC</h5></div>
+        <div class="col-lg"><h5><strong>Conference:</strong> {{ game.home_team.conference }}</h5></div>
     </div>
     <div class="row text-center">
-        <div class="col-lg"><h5><strong>Record:</strong> 8-1</h5></div>
+        <div class="col-lg"><h5><strong>Record:</strong> {{ game.away_team.wins }}-{{ game.away_team.losses }}</h5></div>
         <div class="col-sm"><h2></h2></div>
-        <div class="col-lg"><h5><strong>Record:</strong> 9-0</h5></div>
+        <div class="col-lg"><h5><strong>Record:</strong> {{ game.home_team.wins }}-{{ game.home_team.losses }}</h5></div>
     </div>
     <div class="row text-center">
-        <div class="col"><strong>Orange Effect</strong></div>
+        <div class="col"><strong>{{ game.theme if game.theme}}</strong></div>
     </div>
     <div class="row text-center">
-        <div class="col"><strong>Location:</strong> Miami Gardens, FL</div>
+        <div class="col"><strong>Location:</strong> {{ game.location }}</div>
     </div>
     <div class="row text-center">
-        <div class="col"><strong>Spread:</strong> Virginia Tech by 2.5</div>
+        <div class="col"><strong>Spread:</strong> </div>
     </div>
     <div class="row text-center">
-        <div class="col"><strong>TV:</strong> ABC</div>
+        <div class="col"><strong>TV:</strong> </div>
     </div>
 </div>
 

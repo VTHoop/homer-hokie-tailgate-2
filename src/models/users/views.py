@@ -32,6 +32,12 @@ def login_user():
     return render_template("users/login.jinja2")
 
 
+@users_blueprint.route('/logout')
+def logout():
+    session['user'] = None
+    return redirect(url_for('home'))
+
+
 @users_blueprint.route('/updateprofile')
 def update_profile():
     if request.method == 'POST':
@@ -57,10 +63,11 @@ def new_user():
         games = Game.get_all_games()
         for i in games:
             if i.home_team.location == 'Blacksburg, VA':
-                attendance[i.game_num]='Yes'
+                attendance[i.game_num] = 'Yes'
             else:
-                attendance[i.game_num]='No'
-        return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance, a_constants=AlertConstants.ALERTS)
+                attendance[i.game_num] = 'No'
+        return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
+                               a_constants=AlertConstants.ALERTS)
     elif request.method == 'POST':
         fname = request.form['fname']
         lname = request.form['lname']
@@ -70,18 +77,21 @@ def new_user():
         # user_id = request.form['user_id']
         alerts = {}
         for a in AlertConstants.ALERTS:
-            alerts[a] = request.form['alerts_'+a]
+            alerts[a] = request.form['alerts_' + a]
         user = User(fname, lname, email, pword)
         games = Game.get_all_games()
         attendance = {}
         for i in games:
-            attendance[i.game_num] = request.form['attendance'+i.game_num]
+            attendance[i.game_num] = request.form['attendance' + i.game_num]
         if 'notification_settings' in request.form:
-            return render_template("users/notification_settings.jinja2", user=user, alerts=alerts, attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
+            return render_template("users/notification_settings.jinja2", user=user, alerts=alerts,
+                                   attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
         elif 'basic_details' in request.form:
-            return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
+            return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance,
+                                   games=games, a_constants=AlertConstants.ALERTS)
         elif 'game_attendance' in request.form:
-            return render_template("users/game_attendance.jinja2", user=user, alerts=alerts, attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
+            return render_template("users/game_attendance.jinja2", user=user, alerts=alerts, attendance=attendance,
+                                   games=games, a_constants=AlertConstants.ALERTS)
         elif 'register_user' in request.form:
             pword = Utils.hash_password(request.form['pword'])
             user = User(fname, lname, email, pword)
@@ -104,6 +114,7 @@ def new_user():
             user_scores = UserScore.get_scores_by_user(session['user'])
 
             return redirect(url_for('.user_dashboard'))
+
 
 @users_blueprint.route('/notificationsettings', methods=['GET', 'POST'])
 def notification_settings():
@@ -129,6 +140,14 @@ def create_user_games(user):
 
 @users_blueprint.route('/dashboard', methods=['GET', 'POST'])
 def user_dashboard():
-    attendance = UserGame.get_attendance_by_user(session['user'])
-    user_scores = UserScore.get_scores_by_user(session['user'])
-    return render_template("users/dashboard.jinja2", attendance=attendance, user_scores=user_scores)
+    if request.method == 'POST':
+        attendance = UserGame.get_attendance_by_user(session['user'])
+        for game in attendance:
+            game.home_score = request.form['home_score' + game.game.game_num]
+            game.away_score = request.form['away_score' + game.game.game_num]
+            game.attendance = request.form['attendance' + game.game.game_num]
+            game.save_to_mongo()
+    else:
+        attendance = UserGame.get_attendance_by_user(session['user'])
+
+    return render_template("users/dashboard.jinja2", attendance=attendance)

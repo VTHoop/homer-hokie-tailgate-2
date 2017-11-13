@@ -26,7 +26,7 @@ class UserGame(object):
         return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {"user": user})]
 
     def save_to_mongo(self):
-        Database.insert(UserGameConstants.COLLECTION, self.json())
+        Database.update(UserGameConstants.COLLECTION, {"_id": self._id}, self.json())
 
     def json(self):
         return {
