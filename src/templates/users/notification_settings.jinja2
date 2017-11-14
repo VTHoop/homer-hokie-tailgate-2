@@ -17,42 +17,32 @@
     </div>
     <hr/>
     <div class="main-login main-center">
-        <div class="container">
-            <form role="form" method="post">
-                {% for a in alerts %}
-
-                <div class="row justify-content-center">
-                    <div class="col-9">
-                        <div class="form-group row">
-
-                                <label class="col-form-label">
-                                    {{ a_constants[a] }}
-                                </label>
-
-                            <div class="col">
-                                <div class=" btn-group" data-toggle="buttons">
-                                    {% if alerts[a] == 'On' %}
-                                    <label class="btn btn-hokie-group btn-sm active">
-                                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On" checked> On
-                                    </label>
-                                    <label class="btn btn-hokie-group btn-sm">
-                                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off"> Off
-                                    </label>
-                                    {% else %}
-                                    <label class="btn btn-hokie-group btn-sm">
-                                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On"> On
-                                    </label>
-                                    <label class="btn btn-hokie-group btn-sm active">
-                                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off" checked> Off
-                                    </label>
-                                    {% endif %}
-
-                                </div>
-                            </div>
-                        </div>
+        <form role="form" method="post">
+            {% for a in alerts %}
+			<div class="row center-row">
+                <div class="col-9 text-right">
+					{{ a_constants[a] }}
+                </div>                
+				<div class="col-3">
+                    <div class=" btn-group" data-toggle="buttons">
+						{% if alerts[a] == 'On' %}
+							<label class="btn btn-hokie-group btn-sm active">
+								<input type="radio" name="alerts_{{ a }}" id="preview_on" value="On" checked> On
+							</label>
+							<label class="btn btn-hokie-group btn-sm">
+								<input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off"> Off
+							</label>
+							{% else %}
+							<label class="btn btn-hokie-group btn-sm">
+								<input type="radio" name="alerts_{{ a }}" id="preview_on" value="On"> On
+							</label>
+							<label class="btn btn-hokie-group btn-sm active">
+								<input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off" checked> Off
+							</label>
+							{% endif %}
                     </div>
                 </div>
-
+            </div>
                 {% endfor %}
                 <button type="submit" name="basic_details" class="btn btn-hokie btn-lg">
                     <!--<span><img src="{{ url_for('static', filename='images/glyphicons/glyphicons-171-step-backward.png') }}"></span>-->
@@ -68,7 +58,7 @@
                 {% endfor %}
 
             </form>
-        </div>
+        
     </div>
 </div>
 
