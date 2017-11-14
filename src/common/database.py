@@ -1,16 +1,19 @@
+import os
+
 __author__ = 'hooper-p'
 
 import pymongo
 
 
 class Database(object):
-    URI = "mongodb://127.0.0.1:27017"
+    # URI = "mongodb://127.0.0.1:27017"
+    URI = os.environ.get("MONGOLAB_URI")
     DATABASE = None
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client['homerhokie']
+        Database.DATABASE = client.get_default_database()
 
     @staticmethod
     def insert(collection, data):
