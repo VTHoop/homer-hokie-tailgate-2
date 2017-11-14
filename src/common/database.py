@@ -28,8 +28,8 @@ class Database(object):
         return Database.DATABASE[collection].find()
     
     @staticmethod
-    def find_and_sort(collection, query, sort):
-        return Database.DATABASE[collection].find(query).sort(sort)
+    def find_and_sort(collection, query, sort_key, sort_direction):
+        return Database.DATABASE[collection].find(query).sort(sort_key, sort_direction)
 
     @staticmethod
     def find_one(collection, query):
