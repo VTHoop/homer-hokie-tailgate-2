@@ -87,9 +87,31 @@
                             </a>
                         </td>
                         <td>{{ game.game.location }}</td>
+						{% if game.game.home_team.school_name == 'Virginia Tech' %}
                         <td>
                             <div class="form-row">
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>{{ game.game.home_team.short_name
+                                            }}</strong></label>
+                                        <input class="col-8 form-control form-control-sm" type="text" name="home_score{{ game.game.game_num }}"
+                                               value="{{ game.home_score }}">
+                                    </div>
+                                </div>
 
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>{{ game.game.away_team.short_name
+                                            }}</strong></label>
+                                        <input class="col-8 form-control form-control-sm" type="text" name="away_score{{ game.game.game_num }}"
+                                               value="{{ game.away_score }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+						{% else %}
+                        <td>
+                            <div class="form-row">
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label class="control-label"><strong>{{ game.game.away_team.short_name
@@ -108,7 +130,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </td>
+                        </td>						
+						{% endif %}
                         <td>
                             <div class="btn-group" data-toggle="buttons">
                                 {% if game.attendance == 'Yes' %}
