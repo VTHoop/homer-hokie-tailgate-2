@@ -26,6 +26,10 @@ class Database(object):
     @staticmethod
     def find_all(collection):
         return Database.DATABASE[collection].find()
+    
+    @staticmethod
+    def find_and_sort(collection, query, sort):
+        return Database.DATABASE[collection].find(query).sort(sort)
 
     @staticmethod
     def find_one(collection, query):
