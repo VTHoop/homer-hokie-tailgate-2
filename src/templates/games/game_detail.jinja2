@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+  <div class="col-3">
+    <div class="list-group" id="list-tab" role="tablist">
+    <a class="list-group-item list-group-item-action" id="back" data-toggle="list" href="{{ url_for("users.user_dashboard") }}" role="tab" aria-controls="back"><< Back to Dashboard</a>
+    <a class="list-group-item list-group-item-action active" id="list-summary-list" data-toggle="list" href="#summary" role="tab" aria-controls="summary">Summary</a>
+    <a class="list-group-item list-group-item-action" id="list-hht-preview-list" data-toggle="list" href="#hht-preview" role="tab" aria-controls="hht-preview">HHT Preview</a>
+    <a class="list-group-item list-group-item-action" id="list-attendees-list" data-toggle="list" href="#attendees" role="tab" aria-controls="attendees">Attendees</a>
+    <a class="list-group-item list-group-item-action" id="list-food-list" data-toggle="list" href="#food" role="tab" aria-controls="food">Food</a>
+    <a class="list-group-item list-group-item-action" id="list-tickets-list" data-toggle="list" href="#tickets" role="tab" aria-controls="tickets">Tickets</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="list-summary-list">
+			{% block summary %}
+			{% endblock %}
+		</div>
+		<div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
+			{% block hht-preview %}
+			{% endblock %}
+		</div>
+		<div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
+			{% block attendees %}
+			{% endblock %}
+		</div>
+		<div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
+			{% block food %}
+			{% endblock %}
+		</div>
+		<div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
+			{% block tickets %}
+			{% endblock %}
+		</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
