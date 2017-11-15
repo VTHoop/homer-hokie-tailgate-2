@@ -37,6 +37,10 @@ h1{
     padding: 10px;
 }
 
+.inversetitle{
+    color:#fff;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -53,7 +57,7 @@ h1{
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
-  background-color: #777;
+  background-color: #660000;
 }
 .carousel-item > img {
   position: absolute;
