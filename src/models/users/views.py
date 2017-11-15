@@ -143,9 +143,9 @@ def user_dashboard():
     if request.method == 'POST':
         attendance = UserGame.get_attendance_by_user(session['user'])
         for game in attendance:
-            game.home_score = request.form['home_score' + game.game.game_num]
-            game.away_score = request.form['away_score' + game.game.game_num]
-            game.attendance = request.form['attendance' + game.game.game_num]
+            game.home_score = request.form['home_score' + game.game]
+            game.away_score = request.form['away_score' + game.game]
+            game.attendance = request.form['attendance' + game.game]
             game.save_to_mongo()
     else:
         attendance = UserGame.get_attendance_by_user(session['user'])
