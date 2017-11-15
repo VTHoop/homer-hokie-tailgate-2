@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+    <ul id="breadcrumb">
+        <li><a href="{{ url_for('users.new_user') }}">Basic Details</a></li>
+        <li><a href="#">Notification Settings</a></li>
+        <li><a href="#">Game Attendance</a></li>
+    </ul>
+
+    <br>
+    <div class="panel-title text-center">
+        <h1>Game Attendance</h1>
+    </div>
+    <hr/>
+    <div class="main-login main-center">
+        <form role="form" method="post">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col text-center"><p>
+                    <h3><strong>Date</strong></h3></p></div>
+                <div class="col text-center"><p>
+                    <h3><strong>Time</strong></h3></p></div>
+                <div class="col text-center"><p>
+                    <h3><strong>Opponent</strong></h3></p></div>
+                <div class="col text-center"><p>
+                    <h3><strong>Location</strong></h3></p></div>
+                <div class="col text-center"><p>
+                    <h3><strong>Attending?</strong></h3></p></div>
+            </div>
+            <div class="form-group">
+                {% for game in games %}
+                <div class="row text-center">
+                    <div class="col text-center">{{ game.date }}</div>
+                    <div class="col text-center">
+                        {% if game.time is none %}
+                        TBD
+                        {% else %}
+                        {{ game.time }}
+                        {% endif %}
+                    </div>
+                    <div class="col text-center">
+                        {% if game.home_team.school_name == 'Virginia Tech' %}
+                        {{ game.away_team.school_name }}
+                        {% else %}
+                        {{ game.home_team.school_name }}
+                        {% endif %}
+                    </div>
+                    <div class="col text-center">{{ game.location }}</div>
+                    <div class="col text-center">
+                        <div class="btn-group" data-toggle="buttons">
+                            {% if game.home_team.location == 'Blacksburg, VA'%}
+                            <label class="btn btn-secondary active">
+                                {% else %}
+                                <label class="btn btn-secondary">
+                                    {% endif %}
+                                    <input type='radio' name='attending{{ game.game_num }}' id='yes' autocomplete='off'
+                                           checked>Yes!
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="attending{{ game.game_num }}" id="maybe"
+                                           autocomplete="off"
+                                           checked>Maybe?
+                                </label>
+                                {% if game.home_team.location != 'Blacksburg, VA' %}
+                                <label class="btn btn-secondary active">
+                                    {% else %}
+                                    <label class="btn btn-secondary">
+                                        {% endif %}
+                                        <input type="radio" name="attending{{ game.game_num }}" id="no"
+                                               autocomplete="off"
+                                               checked>No
+                                    </label>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+                <div>&nbsp;</div>
+                <button type="submit" name="notification_settings" class="btn btn-secondary">Prev</button>
+                <a type="button" href="{{ url_for('users.game_attendance') }}" class="btn btn-secondary float-right">Submit
+                    <span
+                            class="glyphicon glyphicon-forward"></span></a>
+            </div>
+
+
+        </div>
+        </form>
+    </div>
+    {% endblock %}
+
+
+	
