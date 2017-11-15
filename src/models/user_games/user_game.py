@@ -31,7 +31,7 @@ class UserGame(object):
     def json(self):
         return {
             "user": self.user._id,
-            "game": float(self.game.game_num),
+            "game": self.game.game_num,
             "attendance": self.attendance,
             "home_score": self.home_score,
             "away_score": self.away_score,
