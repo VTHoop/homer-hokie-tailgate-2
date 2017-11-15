@@ -9,7 +9,7 @@ from flask import Blueprint, render_template
 games_blueprint = Blueprint('games', __name__)
 
 
-@games_blueprint.route('/detail/<float:game_num>')
+@games_blueprint.route('/detail/<int:game_num>')
 def detail(game_num):
     this_game = Game.get_game_by_num(game_num)
     this_game.date = datetime.strftime(datetime.strptime(this_game.date, "%m/%d/%Y"), "%B %d")
