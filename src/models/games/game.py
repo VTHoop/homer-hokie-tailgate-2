@@ -51,7 +51,7 @@ class Game(object):
 
     def json(self):
         return {
-            "game_num": float(self.game_num),
+            "game_num": int(self.game_num),
             "home_team": self.home_team.school_name,
             "away_team": self.away_team.school_name,
             "date": self.date,
