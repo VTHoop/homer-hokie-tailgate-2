@@ -143,45 +143,45 @@
                         <td>
                             <div class="btn-group" data-toggle="buttons">
                                 {% if game.attendance == 'Yes' %}
-                                <label class="btn btn-hokie-group btn-sm active">
+                                <label class="btn btn-hokie-group active">
                                     <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
                                            autocomplete='off'
                                            checked>Yes!
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
                                            value="Maybe"
                                            autocomplete="off">Maybe?
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
                                            autocomplete="off">No
                                 </label>
                                 {% elif game.attendance == 'Maybe' %}
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
                                            autocomplete='off'>Yes!
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm active">
+                                <label class="btn btn-hokie-group active">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
                                            value="Maybe"
                                            autocomplete="off" checked>Maybe?
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="no" value="No"
                                            autocomplete="off">No
                                 </label>
                                 {% else %}
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type='radio' name='attendance{{ game.game.game_num }}' id='yes' value="Yes"
                                            autocomplete='off'>Yes!
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm">
+                                <label class="btn btn-hokie-group">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="maybe"
                                            value="Maybe"
                                            autocomplete="off">Maybe?
                                 </label>
-                                <label class="btn btn-hokie-group btn-sm active">
+                                <label class="btn btn-hokie-group active">
                                     <input type="radio" name="attendance{{ game.game.game_num }}" id="No" value="No"
                                            autocomplete="off" checked>No
                                 </label>
@@ -190,7 +190,7 @@
                         </td>
                         <td>
                             <a href="{{ url_for('games.detail', game_num=game.game.game_num) }}" type="button"
-                               class='btn btn-hokie btn-sm'>View Details >>
+                               class='btn btn-hokie'>View Details >>
                             </a>
                         </td>
                     </tr>
