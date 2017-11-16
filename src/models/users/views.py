@@ -82,7 +82,7 @@ def new_user():
         games = Game.get_all_games()
         attendance = {}
         for i in games:
-            attendance[i.game_num] = request.form['attendance' + i.game_num]
+            attendance[i.game_num] = request.form['attendance' + str(i.game_num)]
         if 'notification_settings' in request.form:
             return render_template("users/notification_settings.jinja2", user=user, alerts=alerts,
                                    attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
