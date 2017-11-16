@@ -71,56 +71,56 @@
             <div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
                 Pop's Email
             </div>
-            <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
-                <div class="container">
-    <div class="row">
-        <div class="col-12">&nbsp;</div>
-    </div>
-    <div class="row">
-        <div class="col-12 text-center"><h1>Game Attendance</h1></div>
-        <div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon toast?</h5></div>
-        <div class="col-12 text-center"><h5>&nbsp;</h5></div>
-    </div>
-	<div class="row">
-		<div class="col-4" style="background: #660000; color: #FFF">
-			<h4>Yes!</h4>
-			<p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
-		</div>
-		<div class="col-4">
-			<h4>Maybe?</h4>
-			<p><strong>Are we playing at FedEx Field?</strong></p>
 			
-		</div>
-		<div class="col-4" style="background: #FF6600; color: #FFF">
-			<h4>No</h4>
-			<p><strong>I'm attending a Wahoo football festival</strong></p>
-		</div>
-	</div>
-	<div class="row">
-	    <div class="col-4" style="background: #660000; color: #FFF">
-	        <ul class="list-unstyled">
-				{% for yes in yes_attendance %}
-				<li{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
-				{% endfor %}
-            </ul>
-	    </div>
-	    <div class="col-4">
-	        <ul class="list-unstyled">
-              <li>Lorem ipsum</li>
-              <li>Phasellus iaculis</li>
-              <li>Nulla volutpat</li>
-            </ul>
-	    </div>
-	    <div class="col-4" style="background: #FF6600; color: #FFF">
-	        <ul class="list-unstyled">
-              <li>Lorem ipsum</li>
-              <li>Phasellus iaculis</li>
-              <li>Nulla volutpat</li>
-            </ul>
-	    </div>
-	    
-	</div>
-</div>
+            <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-center"><h1>Game Attendance</h1></div>
+						<div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon toast?</h5></div>
+						<div class="col-12 text-center"><h5>&nbsp;</h5></div>
+					</div>
+					<div class="row">
+						<div class="col-4" style="background: #660000; color: #FFF">
+							<h4>Yes!</h4>
+							<p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
+						</div>
+						<div class="col-4">
+							<h4>Maybe?</h4>
+							<p><strong>Are we playing at FedEx Field?</strong></p>			
+						</div>
+						<div class="col-4" style="background: #FF6600; color: #FFF">
+							<h4>No</h4>
+							<p><strong>I'm attending a Wahoo football festival</strong></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4" style="background: #660000; color: #FFF">
+							<ul class="list-unstyled">
+							{% for yes in yes_attendance %}
+							<li{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+							{% endfor %}
+							</ul>
+						</div>
+						<div class="col-4">
+							<ul class="list-unstyled">
+							  <li>Lorem ipsum</li>
+							  <li>Phasellus iaculis</li>
+							  <li>Nulla volutpat</li>
+							</ul>
+						</div>
+						<div class="col-4" style="background: #FF6600; color: #FFF">
+							<ul class="list-unstyled">
+							  <li>Lorem ipsum</li>
+							  <li>Phasellus iaculis</li>
+							  <li>Nulla volutpat</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
             <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
                 What food?
             </div>
