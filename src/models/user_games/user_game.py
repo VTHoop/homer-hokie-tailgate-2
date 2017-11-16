@@ -25,9 +25,9 @@ class UserGame(object):
     def get_attendance_by_user(cls, user):
         return [cls(**elem) for elem in Database.find_and_sort(UserGameConstants.COLLECTION,  {"user": user }, "game", 1)]
     
-    @classmethod
-    def get_attendance_by_game_and_status(cls, game, attendance):
-        return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION,  {"game": game, "attendance": attendance}]
+#    @classmethod
+#    def get_attendance_by_game_and_status(cls, game, attendance):
+#       return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION,  {"game": game, "attendance": attendance}]
 
     def save_to_mongo(self):
         Database.update(UserGameConstants.COLLECTION, {"_id": self._id}, self.json())
