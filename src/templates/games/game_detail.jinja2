@@ -106,16 +106,16 @@
 						</div>
 						<div class="col-4">
 							<ul class="list-unstyled">
-							  <li>Lorem ipsum</li>
-							  <li>Phasellus iaculis</li>
-							  <li>Nulla volutpat</li>
+							{% for maybe in maybe_attendance %}
+							<li>{{ maybe.user.f_name + ' ' + maybe.user.l_name}}</li>
+							{% endfor %}
 							</ul>
 						</div>
 						<div class="col-4" style="background: #FF6600; color: #FFF">
 							<ul class="list-unstyled">
-							  <li>Lorem ipsum</li>
-							  <li>Phasellus iaculis</li>
-							  <li>Nulla volutpat</li>
+							{% for no in no_attendance %}
+							<li>{{ no.user.f_name + ' ' + no.user.l_name}}</li>
+							{% endfor %}
 							</ul>
 						</div>
 					</div>
