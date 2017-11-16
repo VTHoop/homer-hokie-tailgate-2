@@ -121,8 +121,48 @@
 					</div>
 				</div>
 			</div>
+			
             <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
-                What food?
+                <div class="container">
+	<div><h2>Game Menu</h2></div>
+	<form method="post">
+	    <div class="form-group">
+	        <label class="col-form-label" for="game_food">Tell your tailgate what you plan on bringing!</label>
+	        <input class="form-control" type="text" name="game_food" id="game_food">
+	        	    </div>
+	        <button class="btn btn-success" type="submit">Add food</button>
+	</form>
+	<div>&nbsp;</div>
+	<table class="table table-striped">
+	    <thead class="thead-light">
+	        <tr>
+	            <th scope="col">Food</th>
+	            <th scope="col">Supplier</th>
+	            <th scope="col" style="width: 10px"></th>
+	        </tr>
+		</thead>
+        <tbody>
+	        <tr>
+	            <td>Mrs. Mudd's Chicken</td>
+	            <td>Mudds</td>
+	            <td style="width: 10px">
+	                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+	        </tr>
+	        <tr>
+	            <td>Gumbo</td>
+	            <td>Pops</td>
+	            <td style="width: 10px">
+	                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
             </div>
             <div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
                 Do you have tickets?
