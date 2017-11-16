@@ -66,8 +66,8 @@
                     <tbody>
                     {% for game in attendance %}
                     <tr>
-                        <td>{{ game.game.date }}</td>
-                        <td>
+                        <td class="text-center">{{ game.game.date }}</td>
+                        <td class="text-center">
                             {% if game.game.time is none %}
                             TBD
                             {% else %}

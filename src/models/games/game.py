@@ -47,7 +47,7 @@ class Game(object):
         Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
 
     def save_to_mongo(self):
-        Database.insert(GameConstants.COLLECTION, self.json())
+        Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
 
     def json(self):
         return {
