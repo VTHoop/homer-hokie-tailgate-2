@@ -162,15 +162,20 @@ background-color:#660000;
 color:#fff;
 }
 
+.btn-hokie:hover{
+color:#fff;
+background-color:#FF6600;
+border-color:#6c757d
+}
+
 .btn-hokie-group{
 background-color:#868e96;
 color:#fff;
 }
 
-.btn-hokie:hover{
-color:#fff;
-background-color:#FF6600;
-border-color:#6c757d}
+.btn-hokie-group:hover{
+color:#ff6600;
+}
 
 btn-hokie.focus,.btn-hokie:focus{
 box-shadow:0 0 0 .2rem rgba(134,142,150,.5)
