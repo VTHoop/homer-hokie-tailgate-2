@@ -1,40 +1,86 @@
-{% extends "base.html" %}
+{% extends "base_logged_in.jinja2" %}
 {% block content %}
 
 <div class="row">
-  <div class="col-3">
-    <div class="list-group" id="list-tab" role="tablist">
-    <a class="list-group-item list-group-item-action" id="back" data-toggle="list" href="{{ url_for('users.user_dashboard') }}" role="tab" aria-controls="back"><< Back to Dashboard</a>
-    <a class="list-group-item list-group-item-action active" id="list-summary-list" data-toggle="list" href="#summary" role="tab" aria-controls="summary">Summary</a>
-    <a class="list-group-item list-group-item-action" id="list-hht-preview-list" data-toggle="list" href="#hht-preview" role="tab" aria-controls="hht-preview">HHT Preview</a>
-    <a class="list-group-item list-group-item-action" id="list-attendees-list" data-toggle="list" href="#attendees" role="tab" aria-controls="attendees">Attendees</a>
-    <a class="list-group-item list-group-item-action" id="list-food-list" data-toggle="list" href="#food" role="tab" aria-controls="food">Food</a>
-    <a class="list-group-item list-group-item-action" id="list-tickets-list" data-toggle="list" href="#tickets" role="tab" aria-controls="tickets">Tickets</a>
+    <div class="col-3">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action" id="back"
+               href="{{ url_for('users.user_dashboard') }}"><< Back to Dashboard</a>
+            <a class="list-group-item list-group-item-action active" id="list-summary-list" data-toggle="list"
+               href="#summary" role="tab" aria-controls="summary">Summary</a>
+            <a class="list-group-item list-group-item-action" id="list-hht-preview-list" data-toggle="list"
+               href="#hht-preview" role="tab" aria-controls="hht-preview">HHT Preview</a>
+            <a class="list-group-item list-group-item-action" id="list-attendees-list" data-toggle="list"
+               href="#attendees" role="tab" aria-controls="attendees">Attendees</a>
+            <a class="list-group-item list-group-item-action" id="list-food-list" data-toggle="list" href="#food"
+               role="tab" aria-controls="food">Food</a>
+            <a class="list-group-item list-group-item-action" id="list-tickets-list" data-toggle="list" href="#tickets"
+               role="tab" aria-controls="tickets">Tickets</a>
+        </div>
     </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content" id="nav-tabContent">
-		<div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="list-summary-list">
-			{% block summary %}
-			{% endblock %}
-		</div>
-		<div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
-			{% block hhtpreview %}
-			{% endblock %}
-		</div>
-		<div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
-			{% block attendees %}
-			{% endblock %}
-		</div>
-		<div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
-			{% block food %}
-			{% endblock %}
-		</div>
-		<div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
-			{% block tickets %}
-			{% endblock %}
-		</div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="list-summary-list">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col"><h1><strong>{{ game.date }} @ {{ game.time }}</strong></h1></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.away_team.logo }}"/></h2>
+                        </div>
+                        <div class="col-sm"><h2></h2></div>
+                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.home_team.logo }}"/></h2>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg"><h3><strong>{{ game.away_team.school_name }}</strong></h3></div>
+                        <div class="col-sm"><h2></h2></div>
+                        <div class="col-lg"><h3><strong>{{ game.home_team.school_name }}</strong></h3></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg"><h4>{{ game.away_team.mascot }}</h4></div>
+                        <div class="col-sm"><h2>@</h2></div>
+                        <div class="col-lg"><h4>{{ game.home_team.mascot }}</h4></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg"><h5><strong>Conference:</strong> {{ game.away_team.conference }}</h5></div>
+                        <div class="col-sm"><h2></h2></div>
+                        <div class="col-lg"><h5><strong>Conference:</strong> {{ game.home_team.conference }}</h5></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-lg"><h5><strong>Record:</strong> {{ game.away_team.wins }}-{{
+                            game.away_team.losses }}</h5></div>
+                        <div class="col-sm"><h2></h2></div>
+                        <div class="col-lg"><h5><strong>Record:</strong> {{ game.home_team.wins }}-{{
+                            game.home_team.losses }}</h5></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col"><strong>{{ game.theme if game.theme}}</strong></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col"><strong>Location:</strong> {{ game.location }}</div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col"><strong>Spread:</strong></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col"><strong>TV:</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
+                Pop's Email
+            </div>
+            <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
+                Who's Attending
+            </div>
+            <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
+                What food?
+            </div>
+            <div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
+                Do you have tickets?
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}

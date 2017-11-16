@@ -116,15 +116,9 @@ def new_user():
             return redirect(url_for('.user_dashboard'))
 
 
-@users_blueprint.route('/notificationsettings', methods=['GET', 'POST'])
-def notification_settings():
-    return render_template("users/notification_settings.jinja2")
-
-
-@users_blueprint.route('/gameattendance', methods=['GET', 'POST'])
-def game_attendance():
-    games = Game.get_all_games()
-    return render_template("users/game_attendance.jinja2", games=games)
+@users_blueprint.route('/profile', methods=['GET', 'POST'])
+def profile():
+    return render_template("users/user_profile.jinja2")
 
 
 @users_blueprint.route('/creategames', methods=['GET', 'POST'])
