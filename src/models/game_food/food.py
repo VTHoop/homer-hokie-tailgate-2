@@ -4,22 +4,21 @@ from flask import session
 
 from src.common.database import Database
 import src.models.game_food.constants as FoodConstants
+from src.models.games.game import Game
 from src.models.users.user import User
 
 __author__ = 'hooper-p'
 
 
 class Food(object):
-    def __init__(self, food, game, _id=None):
-        self.user = session['user']
+    def __init__(self, user, food, game, _id=None):
+        self.user = User.get_user_by_id(user)
         self.food = food
-        self.game = game
-        self.user_fname = User.get_user_by_id(self.user).f_name
-        self.user_lname = User.get_user_by_id(self.user).l_name
+        self.game = Game.get_game_by_num(game)
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
-        return "{} {} is bringing {} to the {} game.".format(self.user_fname, self.user_lname, self.food, self.game)
+        return "{} {} is bringing {} to the {} game.".format(self.user.f_name, self.user.l_name, self.food, self.game)
 
     @staticmethod
     def delete_food(food):
@@ -34,9 +33,8 @@ class Food(object):
 
     def json(self):
         return {
+            'user': self.user._id,
             'food': self.food,
-            'game': self.game,
-            'user_fname': self.user_fname,
-            'user_lname': self.user_lname,
+            'game': self.game.game_num,
             '_id': self._id
         }

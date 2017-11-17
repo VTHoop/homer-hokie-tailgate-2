@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-3">
+    <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action" id="back"
                href="{{ url_for('users.user_dashboard') }}"><< Back to Dashboard</a>
@@ -18,7 +18,7 @@
                role="tab" aria-controls="tickets">Tickets</a>
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-9">
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="list-summary-list">
                 <div class="container">
@@ -71,216 +71,272 @@
             <div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
                 Pop's Email
             </div>
-			
+
             <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">&nbsp;</div>
-					</div>
-					<div class="row">
-						<div class="col-12 text-center"><h1>Game Attendance</h1></div>
-						<div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon toast?</h5></div>
-						<div class="col-12 text-center"><h5>&nbsp;</h5></div>
-					</div>
-					<div class="row">
-						<div class="col-4" style="background: #660000; color: #FFF">
-							<h4>Yes!</h4>
-							<p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
-						</div>
-						<div class="col-4">
-							<h4>Maybe?</h4>
-							<p><strong>Are we playing at FedEx Field?</strong></p>			
-						</div>
-						<div class="col-4" style="background: #FF6600; color: #FFF">
-							<h4>No</h4>
-							<p><strong>I'm attending a Wahoo football festival</strong></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-4" style="background: #660000; color: #FFF">
-							<ul class="list-unstyled">
-							{% for yes in yes_attendance %}
-							<li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
-							{% endfor %}
-							</ul>
-						</div>
-						<div class="col-4">
-							<ul class="list-unstyled">
-							{% for maybe in maybe_attendance %}
-							<li>{{ maybe.user.f_name + ' ' + maybe.user.l_name}}</li>
-							{% endfor %}
-							</ul>
-						</div>
-						<div class="col-4" style="background: #FF6600; color: #FFF">
-							<ul class="list-unstyled">
-							{% for no in no_attendance %}
-							<li>{{ no.user.f_name + ' ' + no.user.l_name}}</li>
-							{% endfor %}
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center"><h1>Attendance for
+                            {% if game.away_team.school_name == 'Virginia Tech' %}
+                            {{ game.home_team.school_name }}
+                            {% else %}
+                            {{ game.away_team.school_name }}
+                            {% endif %}
+                            Game</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon
+                            toast?</h5></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 text-center"><h5>&nbsp;</h5></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"
+                             style="background: #660000; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000;border-top: 2px solid #000;">
+                            <h4>Yes!</h4>
+                            <p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
+                        </div>
+                        <div class="col-4" style="border-top: 2px solid #000;">
+                            <h4>Maybe?</h4>
+                            <p><strong>Are we playing at FedEx Field?</strong></p>
+                        </div>
+                        <div class="col-4"
+                             style="background: #FF6600; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000;border-top: 2px solid #000;">
+                            <h4>No</h4>
+                            <p><strong>I'm attending a Wahoo football festival</strong></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"
+                             style="background: #660000; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                            <ul class="list-unstyled">
+                                {% for yes in yes_attendance %}
+                                <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-4" style=" border-bottom: 2px solid #000;">
+                            <ul class="list-unstyled">
+                                {% for maybe in maybe_attendance %}
+                                <li>{{ maybe.user.f_name + ' ' + maybe.user.l_name}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-4"
+                             style="background: #FF6600; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                            <ul class="list-unstyled">
+                                {% for no in no_attendance %}
+                                <li>{{ no.user.f_name + ' ' + no.user.l_name}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
                 <div class="container">
-	<div><h2>Game Menu</h2></div>
-	<form method="post">
-	    <div class="form-group">
-	        <label class="col-form-label" for="game_food">Tell your tailgate what you plan on bringing!</label>
-	        <input class="form-control" type="text" name="game_food" id="game_food">
-	        	    </div>
-	        <button class="btn btn-success" type="submit">Add food</button>
-	</form>
-	<div>&nbsp;</div>
-	<table class="table table-striped">
-	    <thead class="thead-light">
-	        <tr>
-	            <th scope="col">Food</th>
-	            <th scope="col">Supplier</th>
-	            <th scope="col" style="width: 10px"></th>
-	        </tr>
-		</thead>
-        <tbody>
-	        <tr>
-	            <td>Mrs. Mudd's Chicken</td>
-	            <td>Mudds</td>
-	            <td style="width: 10px">
-	                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-	        </tr>
-	        <tr>
-	            <td>Gumbo</td>
-	            <td>Pops</td>
-	            <td style="width: 10px">
-	                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-	        </tr>
-	    </tbody>
-	</table>
-</div>
+                    <div class="row">
+                        <div class="col-12">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center"><h1>Menu for
+                            {% if game.away_team.school_name == 'Virginia Tech' %}
+                            {{ game.home_team.school_name }}
+                            {% else %}
+                            {{ game.away_team.school_name }}
+                            {% endif %} Game</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center"><h5>Tell your tailgate what you plan on
+                            bringing!</h5></div>
+                    </div>
+                    <hr>
+                    <form method="post">
+                        <div class="form-group">
+                            <label class="col-form-label" for="game_food">Add each of the foods you plan on bringing for
+                                this game</label>
+                            <input class="form-control" type="text" name="game_food" id="game_food"
+                                   placeholder="Ex: Baked Beans">
+                        </div>
+                        <button class="btn btn-success" type="submit" name="AddFood">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add food
+                        </button>
+                    </form>
+                    <div>&nbsp;</div>
+                    <table class="table table-striped">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Food</th>
+                            <th scope="col">Supplier</th>
+                            <th scope="col" style="width: 10px"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for food in food_for_game %}
+                        <tr>
+                            <td>{{ food.food }}</td>
+                            <td>{{ food.user.f_name }} {{ food.user.l_name }}</td>
+                            <td style="width: 10px">
+                                <button type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
+            <div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-tickets-list">
                 <div class="container">
-	<div class="row">
-	    <div class="col-8">
-	        <div><h2>I Have Tickets!</h2></div>
-        	    <form method="post">
-        	    <div class="form-row">
-        	        <div class="form-group col-2">
-            	        <label for="total_num">Total #</label>
-            	        <input class="form-control" type="text" name="total_num" id="total_num" placeholder="4">
-        	        </div>
-        	        <div class="form-group col-2">
-            	        <label for="section">Section</label>
-            	        <input class="form-control" type="text" name="section" id="section" placeholder="132">
-        	        </div>
-        	        <div class="form-group col-4">
-            	        <label for="seats">Seats</label>
-            	        <input class="form-control" type="text" name="seats" id="seats" placeholder="28-30, 32">
-        	        </div>
-        	        <div class="form-group col-2">
-            	        <label for="price">Price</label>
-            	        <input class="form-control" type="text" name="price" id="price" placeholder="120">
-        	        </div>
-        	   </div>
-        	   <button class="btn btn-success" type="submit">Add tickets</button>
-        	</form>
-        	</div>
-	    <div class="col-3">
-	        <div><h2>I need tickets!</h2></div>
-        	    <form method="post">
-        	    <div class="form-row">
-        	        <div class="form-group col-4">
-            	        <label for="total_num">Total #</label>
-            	        <input class="form-control" type="text" name="total_num" id="total_num" placeholder="4">
-        	        </div>
-        	   </div>
-        	   <button class="btn btn-success" type="submit">Add tickets</button>
-        	</form>
-        	</div>
-    	</div>
-	</div>
+                    <div class="row">
+                        <div class="col-12">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1>Tickets for
+                            {% if game.away_team.school_name == 'Virginia Tech' %}
+                            {{ game.home_team.school_name }}
+                            {% else %}
+                            {{ game.away_team.school_name }}
+                            {% endif %} Game</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h5>Help your buddies get from the tailgate to inside the stadium!</h5>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-8">
+                            <div><h2>I Have Tickets!</h2></div>
+                            <form method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-2">
+                                        <label for="total_num">Total #</label>
+                                        <input class="form-control" type="text" name="total_num" id="total_num"
+                                               placeholder="Ex: 4">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <label for="section">Section</label>
+                                        <input class="form-control" type="text" name="section" id="section"
+                                               placeholder="Ex: 132">
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="seats">Seats</label>
+                                        <input class="form-control" type="text" name="seats" id="seats"
+                                               placeholder="Ex: 28-30, 32">
+                                    </div>
+                                    <div class="form-group col-2">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" type="text" name="price" id="price"
+                                               placeholder="Ex: 120">
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" type="submit" name="AddHaveTickets">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add tickets
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-3">
+                            <div><h2>I Need Tickets!</h2></div>
+                            <form method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-4">
+                                        <label for="total_num">Total #</label>
+                                        <input class="form-control" type="text" name="want_total_num" id="want_total_num"
+                                               placeholder="Ex: 4">
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" type="submit" name="AddWantTickets">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add tickets
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-8">
+                                <table class="table table-striped table-sm">
+                                    <colgroup>
+                                        <col style="width:7%"/>
+                                        <col style="width:8%"/>
+                                        <col style="width:14%"/>
+                                        <col style="width:8%"/>
+                                        <col style="width:30%"/>
+                                        <col style="width:15%"/>
+                                    </colgroup>
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="text-center">Total #</th>
+                                        <th scope="col">Section</th>
+                                        <th scope="col">Seats</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ht in have_tickets_for_game %}
+                                    <tr>
+                                        <td class="text-center">{{ ht.number }}</td>
+                                        <td class="text-center">{{ ht.section }}</td>
+                                        <td>{{ ht.seats }}</td>
+                                        <td>{{ '${:,.2f}'.format(ht.price) }}</td>
+                                        <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success"><i class="fa fa-envelope"
+                                                                                             aria-hidden="true"></i>
+                                                Email
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-4">
+                                <table class="table table-striped table-sm">
+                                    <colgroup>
+                                        <col style="width:15%"/>
+                                        <col style="width:58%"/>
+                                        <col style="width:15%"/>
+                                    </colgroup>
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="text-center">Total #</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for wt in want_tickets_for_game %}
+                                    <tr>
+                                        <td>{{ wt.number }}</td>
+                                        <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success"><i class="fa fa-envelope"
+                                                                                             aria-hidden="true"></i>
+                                                Email
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-<div class="container"><hr></div>
-<div class="container">
-	<div class="row">
-	    <div class="col-8">
-	        	<table class="table table-striped table-sm">
-	        	    <colgroup>
-	        	        <col style="width:7%"/>
-	        	        <col style="width:8%"/>
-	        	        <col style="width:14%"/>
-	        	        <col style="width:8%"/>
-	        	        <col style="width:30%"/>
-	        	        <col style="width:15%"/>
-	        	    </colgroup>
-	                <thead class="thead-light">
-	                    <tr>
-	                        <th scope="col" class="text-center">Total #</th>
-	                        <th scope="col">Section</th>
-	                        <th scope="col">Seats</th>
-	                        <th scope="col">Price</th>
-	                        <th scope="col">Owner</th>
-	                        <th scope="col">Action</th>
-	                    </tr>
-	               </thead>
-                    <tbody>
-            	        <tr>
-            	            <td>2</td>
-            	            <td>132</td>
-            	            <td>28-30,32</td>
-            	            <td>$140.00</td>
-            	            <td>Jim Hooper</td>
-            	            <td><button type="button" class="btn btn-success">Email</button></td>
-            	        </tr>
-    	                <tr>
-            	            <td>4</td>
-            	            <td>250</td>
-            	            <td>6-10</td>
-            	            <td>$160.00</td>
-            	            <td>Joe Kelly</td>
-            	            <td><button type="button" class="btn btn-success">Email</button></td>
-            	        </tr>
-	            </tbody>
-	</table>
-	    </div>
-	    <div class="col-4">
-	        	        	<table class="table table-striped table-sm">
-	        	    <colgroup>
-	        	        <col style="width:15%"/>
-	        	        <col style="width:58%"/>
-	        	        <col style="width:15%"/>
-	        	    </colgroup>
-	                <thead class="thead-light">
-	                    <tr>
-	                        <th scope="col" class="text-center">Total #</th>
-	                        <th scope="col">Owner</th>
-	                        <th scope="col">Action</th>
-	                    </tr>
-	               </thead>
-                    <tbody>
-            	        <tr>
-            	            <td>2</td>
-            	            <td>Jim Hooper</td>
-            	            <td><button type="button" class="btn btn-success">Email</button></td>
-            	        </tr>
-    	                <tr>
-            	            <td>4</td>
-            	            <td>Joe Kelly</td>
-            	            <td><button type="button" class="btn btn-success">Email</button></td>
-            	        </tr>
-	            </tbody>
-	</table>
-	    </div>
-    </div>
-</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
