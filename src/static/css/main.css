@@ -190,6 +190,7 @@ border-color:#6c757d
 .btn-hokie-group{
 background-color:#868e96;
 color:#fff;
+border: 1px solid #fff;
 }
 
 .btn-hokie-group:hover{
