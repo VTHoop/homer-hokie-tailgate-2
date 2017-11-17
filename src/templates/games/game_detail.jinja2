@@ -71,14 +71,214 @@
             <div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
                 Pop's Email
             </div>
+			
             <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
-                Who's Attending
-            </div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-center"><h1>Game Attendance</h1></div>
+						<div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon toast?</h5></div>
+						<div class="col-12 text-center"><h5>&nbsp;</h5></div>
+					</div>
+					<div class="row">
+						<div class="col-4" style="background: #660000; color: #FFF">
+							<h4>Yes!</h4>
+							<p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
+						</div>
+						<div class="col-4">
+							<h4>Maybe?</h4>
+							<p><strong>Are we playing at FedEx Field?</strong></p>			
+						</div>
+						<div class="col-4" style="background: #FF6600; color: #FFF">
+							<h4>No</h4>
+							<p><strong>I'm attending a Wahoo football festival</strong></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4" style="background: #660000; color: #FFF">
+							<ul class="list-unstyled">
+							{% for yes in yes_attendance %}
+							<li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+							{% endfor %}
+							</ul>
+						</div>
+						<div class="col-4">
+							<ul class="list-unstyled">
+							{% for maybe in maybe_attendance %}
+							<li>{{ maybe.user.f_name + ' ' + maybe.user.l_name}}</li>
+							{% endfor %}
+							</ul>
+						</div>
+						<div class="col-4" style="background: #FF6600; color: #FFF">
+							<ul class="list-unstyled">
+							{% for no in no_attendance %}
+							<li>{{ no.user.f_name + ' ' + no.user.l_name}}</li>
+							{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
             <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="list-food-list">
-                What food?
+                <div class="container">
+	<div><h2>Game Menu</h2></div>
+	<form method="post">
+	    <div class="form-group">
+	        <label class="col-form-label" for="game_food">Tell your tailgate what you plan on bringing!</label>
+	        <input class="form-control" type="text" name="game_food" id="game_food">
+	        	    </div>
+	        <button class="btn btn-success" type="submit">Add food</button>
+	</form>
+	<div>&nbsp;</div>
+	<table class="table table-striped">
+	    <thead class="thead-light">
+	        <tr>
+	            <th scope="col">Food</th>
+	            <th scope="col">Supplier</th>
+	            <th scope="col" style="width: 10px"></th>
+	        </tr>
+		</thead>
+        <tbody>
+	        <tr>
+	            <td>Mrs. Mudd's Chicken</td>
+	            <td>Mudds</td>
+	            <td style="width: 10px">
+	                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+	        </tr>
+	        <tr>
+	            <td>Gumbo</td>
+	            <td>Pops</td>
+	            <td style="width: 10px">
+	                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
             </div>
             <div class="tab-pane fade" id="tickets" role="tabpanel" aria-labelledby="list-food-list">
-                Do you have tickets?
+                <div class="container">
+	<div class="row">
+	    <div class="col-8">
+	        <div><h2>I Have Tickets!</h2></div>
+        	    <form method="post">
+        	    <div class="form-row">
+        	        <div class="form-group col-2">
+            	        <label for="total_num">Total #</label>
+            	        <input class="form-control" type="text" name="total_num" id="total_num" placeholder="4">
+        	        </div>
+        	        <div class="form-group col-2">
+            	        <label for="section">Section</label>
+            	        <input class="form-control" type="text" name="section" id="section" placeholder="132">
+        	        </div>
+        	        <div class="form-group col-4">
+            	        <label for="seats">Seats</label>
+            	        <input class="form-control" type="text" name="seats" id="seats" placeholder="28-30, 32">
+        	        </div>
+        	        <div class="form-group col-2">
+            	        <label for="price">Price</label>
+            	        <input class="form-control" type="text" name="price" id="price" placeholder="120">
+        	        </div>
+        	   </div>
+        	   <button class="btn btn-success" type="submit">Add tickets</button>
+        	</form>
+        	</div>
+	    <div class="col-3">
+	        <div><h2>I need tickets!</h2></div>
+        	    <form method="post">
+        	    <div class="form-row">
+        	        <div class="form-group col-4">
+            	        <label for="total_num">Total #</label>
+            	        <input class="form-control" type="text" name="total_num" id="total_num" placeholder="4">
+        	        </div>
+        	   </div>
+        	   <button class="btn btn-success" type="submit">Add tickets</button>
+        	</form>
+        	</div>
+    	</div>
+	</div>
+
+<div class="container"><hr></div>
+<div class="container">
+	<div class="row">
+	    <div class="col-8">
+	        	<table class="table table-striped table-sm">
+	        	    <colgroup>
+	        	        <col style="width:7%"/>
+	        	        <col style="width:8%"/>
+	        	        <col style="width:14%"/>
+	        	        <col style="width:8%"/>
+	        	        <col style="width:30%"/>
+	        	        <col style="width:15%"/>
+	        	    </colgroup>
+	                <thead class="thead-light">
+	                    <tr>
+	                        <th scope="col" class="text-center">Total #</th>
+	                        <th scope="col">Section</th>
+	                        <th scope="col">Seats</th>
+	                        <th scope="col">Price</th>
+	                        <th scope="col">Owner</th>
+	                        <th scope="col">Action</th>
+	                    </tr>
+	               </thead>
+                    <tbody>
+            	        <tr>
+            	            <td>2</td>
+            	            <td>132</td>
+            	            <td>28-30,32</td>
+            	            <td>$140.00</td>
+            	            <td>Jim Hooper</td>
+            	            <td><button type="button" class="btn btn-success">Email</button></td>
+            	        </tr>
+    	                <tr>
+            	            <td>4</td>
+            	            <td>250</td>
+            	            <td>6-10</td>
+            	            <td>$160.00</td>
+            	            <td>Joe Kelly</td>
+            	            <td><button type="button" class="btn btn-success">Email</button></td>
+            	        </tr>
+	            </tbody>
+	</table>
+	    </div>
+	    <div class="col-4">
+	        	        	<table class="table table-striped table-sm">
+	        	    <colgroup>
+	        	        <col style="width:15%"/>
+	        	        <col style="width:58%"/>
+	        	        <col style="width:15%"/>
+	        	    </colgroup>
+	                <thead class="thead-light">
+	                    <tr>
+	                        <th scope="col" class="text-center">Total #</th>
+	                        <th scope="col">Owner</th>
+	                        <th scope="col">Action</th>
+	                    </tr>
+	               </thead>
+                    <tbody>
+            	        <tr>
+            	            <td>2</td>
+            	            <td>Jim Hooper</td>
+            	            <td><button type="button" class="btn btn-success">Email</button></td>
+            	        </tr>
+    	                <tr>
+            	            <td>4</td>
+            	            <td>Joe Kelly</td>
+            	            <td><button type="button" class="btn btn-success">Email</button></td>
+            	        </tr>
+	            </tbody>
+	</table>
+	    </div>
+    </div>
+</div>
             </div>
         </div>
     </div>
