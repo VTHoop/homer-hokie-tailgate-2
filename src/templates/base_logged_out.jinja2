@@ -30,7 +30,10 @@
             <div class="navbar-nav mr-auto">
             </div>
             <form class="form-inline mt-2 mt-md-0">
-                <a type="button" href="{{ url_for('users.login_user') }}" class="btn btn-outline-orange btn-lg mr-sm-2">Log In</a>
+                <a type="button" href="{{ url_for('users.login_user') }}" class="btn btn-outline-orange btn-lg mr-sm-2">
+                    <i class="fa fa-unlock" aria-hidden="true"></i>
+                    Log In
+                </a>
             </form>
         </div>
     </nav>
@@ -50,7 +53,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
-
+    <script src="https://use.fontawesome.com/aae228be33.js"></script>
 
 </body>
 </html>

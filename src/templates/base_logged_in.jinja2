@@ -30,13 +30,12 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline mt-2 mt-md-0">
-                <a type="button" href="{{ url_for('users.profile') }}" class="form-control mr-sm-2">My Profile</a>
+                <a type="button" href="{{ url_for('users.profile') }}" class="form-control mr-sm-2"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
                 <a type="button" href="{{ url_for('users.logout') }}" class="btn btn-outline-danger my-2 my-sm-0">Log
-                    Out</a>
+                    Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
             </form>
         </div>
     </nav>
-    <div>&nbsp;</div>
     <div>&nbsp;</div>
     <div>&nbsp;</div>
     <div>&nbsp;</div>
@@ -56,6 +55,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="https://use.fontawesome.com/aae228be33.js"></script>
 
 
 </body>
