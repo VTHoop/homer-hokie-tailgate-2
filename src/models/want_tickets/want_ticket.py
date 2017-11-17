@@ -20,9 +20,9 @@ class WantTicket(object):
     def __repr__(self):
         return "{} {} wants {} tickets to the {} game.".format(self.user.f_name, self.user.l_name, self.number, self.game)
 
-    @staticmethod
-    def get_wanttickets_by_game(game):
-        return Database.find(WantTicketConstants.COLLECTION, {"game": game})
+    @classmethod
+    def get_wanttickets_by_game(cls, game):
+        return [cls(**elem) for elem in Database.find(WantTicketConstants.COLLECTION, {"game": game})]
 
     @classmethod
     def get_wantticket_by_id(cls, _id):
