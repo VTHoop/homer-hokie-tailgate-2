@@ -186,7 +186,7 @@
                                 <td>{{ food.user.f_name }} {{ food.user.l_name }}</td>
                                 <td style="width: 10px">
                                     {% if food.user._id == user %}
-                                    <button type="submit" class="btn btn-danger" name="food_delete"
+                                    <button type="submit" class="btn btn-danger btn-sm" name="food_delete"
                                             value="{{ food._id }}">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         {% endif %}
@@ -274,11 +274,11 @@
                             <form method="post">
                                 <table class="table table-striped table-sm">
                                     <colgroup>
-                                        <col style="width:7%"/>
+                                        <col style="width:9%"/>
+                                        <col style="width:9%"/>
+                                        <col style="width:12%"/>
                                         <col style="width:8%"/>
-                                        <col style="width:14%"/>
-                                        <col style="width:8%"/>
-                                        <col style="width:27%"/>
+                                        <col style="width:26%"/>
                                         <col style="width:18%"/>
                                     </colgroup>
                                     <thead class="thead-light">
@@ -302,17 +302,17 @@
                                         <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
                                         <td>
                                             {% if ht.user._id == user %}
-                                            <button type="submit" class="btn btn-danger" name="mark_sold"
+                                            <button type="submit" class="btn btn-danger btn-sm" name="mark_sold"
                                                     value="{{ ht._id }}">
                                                 <i class="fa fa-ban" aria-hidden="true"></i>
                                                 Sold
                                             </button>
-                                            <button type="submit" class="btn btn-danger" name="have_delete"
+                                            <button type="submit" class="btn btn-danger btn-sm" name="have_delete"
                                                     value="{{ ht._id }}">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </button>
                                             {% else %}
-                                            <button type="button" class="btn btn-success">
+                                            <button type="button" class="btn btn-success btn-sm">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                                 Email
                                             </button>
@@ -366,7 +366,7 @@
                                         <td class="text-center">{{ wt.number }}</td>
                                         <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-success"><i class="fa fa-envelope"
+                                            <button type="button" class="btn btn-success btn-sm"><i class="fa fa-envelope"
                                                                                              aria-hidden="true"></i>
                                                 Email
                                             </button>
