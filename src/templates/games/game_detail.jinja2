@@ -186,11 +186,11 @@
                                 <td>{{ food.user.f_name }} {{ food.user.l_name }}</td>
                                 <td style="width: 10px">
                                     {% if food.user._id == user %}
-                                    <button type="submit" class="btn btn-danger btn-sm" name="food_delete"
-                                            value="{{ food._id }}">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ url_for('game_food.delete_food', food=food._id) }}" role="button">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         {% endif %}
-                                    </button>
+                                        </button>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -302,15 +302,12 @@
                                         <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
                                         <td>
                                             {% if ht.user._id == user %}
-                                            <button type="submit" class="btn btn-danger btn-sm" name="mark_sold"
-                                                    value="{{ ht._id }}">
-                                                <i class="fa fa-ban" aria-hidden="true"></i>
-                                                Sold
-                                            </button>
-                                            <button type="submit" class="btn btn-danger btn-sm" name="have_delete"
-                                                    value="{{ ht._id }}">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ url_for('have_tickets.sold', ticket=ht._id) }}" role="button">
+                                        Mark Sold</a>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ url_for('have_tickets.delete', ticket=ht._id) }}" role="button">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                             {% else %}
                                             <button type="button" class="btn btn-success btn-sm">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -366,8 +363,9 @@
                                         <td class="text-center">{{ wt.number }}</td>
                                         <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-success btn-sm"><i class="fa fa-envelope"
-                                                                                             aria-hidden="true"></i>
+                                            <button type="button" class="btn btn-success btn-sm"><i
+                                                    class="fa fa-envelope"
+                                                    aria-hidden="true"></i>
                                                 Email
                                             </button>
                                         </td>

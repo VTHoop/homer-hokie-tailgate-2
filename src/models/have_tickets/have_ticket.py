@@ -33,9 +33,8 @@ class HaveTicket(object):
     def get_havetickets_by_id(cls, _id):
         return cls(**Database.find_one(HaveTicketsConstants.COLLECTION, {"_id": _id}))
 
-    @staticmethod
-    def delete_haveticket(id):
-        Database.delete(HaveTicketsConstants.COLLECTION, {"_id": id})
+    def delete_haveticket(self):
+        Database.delete(HaveTicketsConstants.COLLECTION, {"_id": self._id})
 
     def update_ticket_sold_flag(self):
         self.sold_flag = 'SOLD'

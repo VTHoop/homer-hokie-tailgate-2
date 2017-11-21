@@ -1,4 +1,4 @@
-from flask import Blueprint, request, session
+from flask import Blueprint, request, session, redirect, url_for
 
 from src.models.game_food.food import Food
 
@@ -21,14 +21,8 @@ def add_food(game):
         Food.save_to_mongo(new_food)
 
 
-@gamefood_blueprint.route('/deletefood')
-def delete_food():
-    """
-    THis function will receive the ID of the food that is being deleted and call the function to delete the food
-    !!!! Will need to figure out how the food will be passed in to this function !!!!
-    :return:
-    """
-
-    food = request.form['food']
-
-    Food.delete_food(food)
+@gamefood_blueprint.route('/deletefood/<string:food>')
+def delete_food(food):
+    game_num = Food.get_food_by_id(food).game.game_num
+    Food.get_food_by_id(food).delete_food()
+    return redirect(url_for('games.detail', game_num=game_num))

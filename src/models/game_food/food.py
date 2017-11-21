@@ -20,9 +20,12 @@ class Food(object):
     def __repr__(self):
         return "{} {} is bringing {} to the {} game.".format(self.user.f_name, self.user.l_name, self.food, self.game)
 
-    @staticmethod
-    def delete_food(food):
-        Database.delete(FoodConstants.COLLECTION, {"_id": food})
+    def delete_food(self):
+        Database.delete(FoodConstants.COLLECTION, {"_id": self._id})
+
+    @classmethod
+    def get_food_by_id(cls, _id):
+        return cls(**Database.find_one(FoodConstants.COLLECTION, {"_id": _id}))
 
     @classmethod
     def get_food_by_game(cls, game):

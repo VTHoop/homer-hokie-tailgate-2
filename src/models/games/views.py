@@ -36,13 +36,7 @@ def detail(game_num):
             price = request.form['price']
             have_tickets = HaveTicket(user, number, section, seats, game_num, None, price)
             have_tickets.save_to_mongo()
-        if 'mark_sold' in request.form:
-            sold_ticket = HaveTicket.get_havetickets_by_id(request.form['mark_sold'])
-            HaveTicket.update_ticket_sold_flag(sold_ticket)
-        if 'have_delete' in request.form:
-            HaveTicket.delete_haveticket(request.form['have_delete'])
-        if 'food_delete' in request.form:
-            Food.delete_food(request.form['food_delete'])
+
 
     this_game = Game.get_game_by_num(game_num)
     # format the date for the detail screen
