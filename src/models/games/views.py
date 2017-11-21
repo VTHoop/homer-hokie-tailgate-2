@@ -17,24 +17,32 @@ games_blueprint = Blueprint('games', __name__)
 @games_blueprint.route('/detail/<int:game_num>', methods=['GET', 'POST'])
 def detail(game_num):
     redirect_page = ""
+    user = session['user']
 
     if request.method == 'POST':
         if 'AddFood' in request.form:
             food = request.form['game_food']
-            game_food = Food(session['user'], food, game_num)
+            game_food = Food(user, food, game_num)
             game_food.save_to_mongo()
             redirect_page = 'food'
         if 'AddWantTickets' in request.form:
             want_number = request.form['want_total_num']
-            want_tickets = WantTicket(session['user'], game_num, want_number)
+            want_tickets = WantTicket(user, game_num, want_number)
             want_tickets.save_to_mongo()
         if 'AddHaveTickets' in request.form:
             number = request.form['total_num']
             section = request.form['section']
             seats = request.form['seats']
             price = request.form['price']
-            have_tickets = HaveTicket(session['user'], number, section, seats, game_num, None, price)
+            have_tickets = HaveTicket(user, number, section, seats, game_num, None, price)
             have_tickets.save_to_mongo()
+        if 'mark_sold' in request.form:
+            sold_ticket = HaveTicket.get_havetickets_by_id(request.form['mark_sold'])
+            HaveTicket.update_ticket_sold_flag(sold_ticket)
+        if 'have_delete' in request.form:
+            HaveTicket.delete_haveticket(request.form['have_delete'])
+        if 'food_delete' in request.form:
+            Food.delete_food(request.form['food_delete'])
 
     this_game = Game.get_game_by_num(game_num)
     # format the date for the detail screen
@@ -56,4 +64,5 @@ def detail(game_num):
 
     return render_template("games/game_detail.jinja2", game=this_game, yes_attendance=yes_attendance,
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,
-                           have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game)
+                           have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game,
+                           user=user)
