@@ -19,7 +19,7 @@ class Game(object):
         self.location = Team.get_by_school_name(home_team).location if location is None else location
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
         self.date = date
-        self.time = 'TBD' if time == 'TBD' else datetime.strftime(datetime.strptime(time, "%I:%M:%S %p"), "%I:%M %p")
+        self.time = 'TBD' if time == 'TBD' else datetime.strftime(datetime.strptime(time, "%I:%M %p"), "%I:%M %p")
         self.theme = theme
         self.TV = TV
         self._id = uuid.uuid4().hex if _id is None else _id
