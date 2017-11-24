@@ -20,23 +20,18 @@ def detail(game_num):
     user = session['user']
 
     if request.method == 'POST':
-        if 'AddFood' in request.form:
-            food = request.form['game_food']
-            game_food = Food(user, food, game_num)
-            game_food.save_to_mongo()
-            redirect_page = 'food'
-        if 'AddWantTickets' in request.form:
-            want_number = request.form['want_total_num']
-            want_tickets = WantTicket(user, game_num, want_number)
-            want_tickets.save_to_mongo()
-        if 'AddHaveTickets' in request.form:
-            number = request.form['total_num']
-            section = request.form['section']
-            seats = request.form['seats']
-            price = request.form['price']
-            have_tickets = HaveTicket(user, number, section, seats, game_num, None, price)
-            have_tickets.save_to_mongo()
-
+        pass
+        # if 'AddWantTickets' in request.form:
+        #     want_tickets = WantTicket(session['user'], game_num, request.form['want_total_num'])
+        #     want_tickets.save_to_mongo()
+        #     return redirect(url_for('games.detail', game_num=game_num))
+        # if 'AddHaveTickets' in request.form:
+        #     number = request.form['total_num']
+        #     section = request.form['section']
+        #     seats = request.form['seats']
+        #     price = request.form['price']
+        #     have_tickets = HaveTicket(user, number, section, seats, game_num, None, price)
+        #     have_tickets.save_to_mongo()
 
     this_game = Game.get_game_by_num(game_num)
     # format the date for the detail screen

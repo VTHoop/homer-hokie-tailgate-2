@@ -64,7 +64,7 @@
                         <div class="col"><strong>Spread:</strong></div>
                     </div>
                     <div class="row text-center">
-                        <div class="col"><strong>TV:</strong></div>
+                        <div class="col"><strong>TV:</strong> {{ game.TV }}</div>
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                             bringing!</h5></div>
                     </div>
                     <hr>
-                    <form method="post">
+                    <form method="post" action="{{ url_for('game_food.add_food', game_num=game.game_num) }}">
                         <div class="form-group">
                             <label class="col-form-label" for="game_food">Add each of the foods you plan on bringing for
                                 this game</label>
@@ -189,8 +189,8 @@
                                     <a class="btn btn-danger btn-sm"
                                        href="{{ url_for('game_food.delete_food', food=food._id) }}" role="button">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                        {% endif %}
-                                        </button>
+                                    {% endif %}
+                                    </button>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -223,37 +223,37 @@
                     <div class="row">
                         <div class="col-8">
                             <div><h2>I Have Tickets!</h2></div>
-                            <form method="post">
-                                <div class="form-row">
-                                    <div class="form-group col-2">
-                                        <label for="total_num">Total #</label>
-                                        <input class="form-control" type="text" name="total_num" id="total_num"
-                                               placeholder="Ex: 4">
+                            <form method="post" action="{{ url_for('have_tickets.add', game_num=game.game_num) }}">
+                                    <div class="form-row">
+                                        <div class="form-group col-2">
+                                            <label for="total_num">Total #</label>
+                                            <input class="form-control" type="text" name="total_num" id="total_num"
+                                                   placeholder="Ex: 4">
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <label for="section">Section</label>
+                                            <input class="form-control" type="text" name="section" id="section"
+                                                   placeholder="Ex: 132">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label for="seats">Seats</label>
+                                            <input class="form-control" type="text" name="seats" id="seats"
+                                                   placeholder="Ex: 28-30, 32">
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <label for="price">Price</label>
+                                            <input class="form-control" type="text" name="price" id="price"
+                                                   placeholder="Ex: 120">
+                                        </div>
                                     </div>
-                                    <div class="form-group col-2">
-                                        <label for="section">Section</label>
-                                        <input class="form-control" type="text" name="section" id="section"
-                                               placeholder="Ex: 132">
-                                    </div>
-                                    <div class="form-group col-4">
-                                        <label for="seats">Seats</label>
-                                        <input class="form-control" type="text" name="seats" id="seats"
-                                               placeholder="Ex: 28-30, 32">
-                                    </div>
-                                    <div class="form-group col-2">
-                                        <label for="price">Price</label>
-                                        <input class="form-control" type="text" name="price" id="price"
-                                               placeholder="Ex: 120">
-                                    </div>
-                                </div>
-                                <button class="btn btn-success" type="submit" name="AddHaveTickets">
-                                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add tickets
-                                </button>
+                                    <button class="btn btn-success" type="submit" name="AddHaveTickets">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add tickets
+                                    </button>
                             </form>
                         </div>
                         <div class="col-3">
                             <div><h2>I Need Tickets!</h2></div>
-                            <form method="post">
+                            <form method="post" action="{{ url_for('want_tickets.add', game_num=game.game_num) }}">
                                 <div class="form-row">
                                     <div class="form-group col-6">
                                         <label for="total_num">Total #</label>
@@ -302,12 +302,12 @@
                                         <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
                                         <td>
                                             {% if ht.user._id == user %}
-                                    <a class="btn btn-danger btn-sm"
-                                       href="{{ url_for('have_tickets.sold', ticket=ht._id) }}" role="button">
-                                        Mark Sold</a>
-                                    <a class="btn btn-danger btn-sm"
-                                       href="{{ url_for('have_tickets.delete', ticket=ht._id) }}" role="button">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            <a class="btn btn-danger btn-sm"
+                                               href="{{ url_for('have_tickets.sold', ticket=ht._id) }}" role="button">
+                                                Mark Sold</a>
+                                            <a class="btn btn-danger btn-sm"
+                                               href="{{ url_for('have_tickets.delete', ticket=ht._id) }}" role="button">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                             {% else %}
                                             <button type="button" class="btn btn-success btn-sm">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>

@@ -1,7 +1,5 @@
 import uuid
 
-from flask import session
-
 from src.common.database import Database
 from src.models.games.game import Game
 from src.models.users.user import User
