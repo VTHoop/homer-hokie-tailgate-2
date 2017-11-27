@@ -1,4 +1,5 @@
 from src.models.games.game import Game
+from src.models.teams.team import Team
 
 __author__ = 'hooper-p'
 
@@ -30,8 +31,8 @@ app.register_blueprint(games_blueprint, url_prefix='/games')
 @app.before_first_request
 def init_db():
     Database.initialize()
-    Game.load_game_tv()
-
+    # Game.load_game_tv()
+    Team.update_teams()
 
 @app.route('/')
 def home():
