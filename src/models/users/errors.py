@@ -17,5 +17,5 @@ class UserAlreadyRegisteredError(UserError):
     pass
 
 
-class InvalidEmailError(UserError):
+class PasswordsNotMatch(UserError):
     pass

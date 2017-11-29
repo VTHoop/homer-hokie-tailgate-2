@@ -1,5 +1,14 @@
 {% extends "base_no_nav.jinja2" %}
 {% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <div>
     <div class="container">
         <br>
@@ -9,6 +18,11 @@
         <hr/>
         <div class="main-login main-center">
             <form method="post">
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+                {% endif %}
                 <div class="form-group">
                     <label class="control-label">Email</label>
                     <div class="input-group">
@@ -38,6 +52,12 @@
                             </button>
                         </div>
                     </div>
+                </div>
+                <div class="text-center">
+                    New User? <a href="{{ url_for('users.new_user') }}">Please sign up!</a>
+                </div>
+                <div class="text-center">
+                    Forgot your password? <a href="#">Reset here</a>
                 </div>
             </form>
         </div>

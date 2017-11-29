@@ -27,7 +27,7 @@ def login_user():
                 session['user'] = User.get_user_by_email(email)._id
                 return redirect(url_for(".user_dashboard"))
         except UserErrors.UserError as e:
-            return e.message
+            return render_template("users/login.jinja2", error=e.message)
 
     return render_template("users/login.jinja2")
 
@@ -55,17 +55,7 @@ def update_profile():
 @users_blueprint.route('/new', methods=['GET', 'POST'])
 def new_user():
     if request.method == 'GET':
-        user = User(None, None, None, None)
-        alerts = {}
-        for a in AlertConstants.ALERTS:
-            alerts[a] = 'On'
-        attendance = {}
-        games = Game.get_all_games()
-        for i in games:
-            if i.home_team.location == 'Blacksburg, VA':
-                attendance[i.game_num] = 'Yes'
-            else:
-                attendance[i.game_num] = 'No'
+        alerts, attendance = User.user_default_values()
         return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
                                a_constants=AlertConstants.ALERTS)
     elif request.method == 'POST':
@@ -73,47 +63,48 @@ def new_user():
         lname = request.form['lname']
         email = request.form['email']
         pword = request.form['pword']
-        # admin = 'No'
-        # user_id = request.form['user_id']
-        alerts = {}
-        for a in AlertConstants.ALERTS:
-            alerts[a] = request.form['alerts_' + a]
-        user = User(fname, lname, email, pword)
-        games = Game.get_all_games()
-        attendance = {}
-        for i in games:
-            attendance[i.game_num] = request.form['attendance' + str(i.game_num)]
-        if 'notification_settings' in request.form:
-            return render_template("users/notification_settings.jinja2", user=user, alerts=alerts,
-                                   attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
-        elif 'basic_details' in request.form:
-            return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance,
-                                   games=games, a_constants=AlertConstants.ALERTS)
-        elif 'game_attendance' in request.form:
-            return render_template("users/game_attendance.jinja2", user=user, alerts=alerts, attendance=attendance,
-                                   games=games, a_constants=AlertConstants.ALERTS)
-        elif 'register_user' in request.form:
-            pword = Utils.hash_password(request.form['pword'])
-            user = User(fname, lname, email, pword)
-            user.insert_new_user()
+        confirmpword = request.form['confirmpword']
+        try:
+            if User.new_user_valid(email, pword, confirmpword):
+                # admin = 'No'
+                # set the values of the alert dict based on user entries
+                alerts = {}
+                for a in AlertConstants.ALERTS:
+                    alerts[a] = request.form['alerts_' + a]
+                user = User(fname, lname, email, pword)
+                games = Game.get_all_games()
+                # set the values of the attendance dict based on user entries
+                attendance = {}
+                for i in games:
+                    attendance[i.game_num] = request.form['attendance' + str(i.game_num)]
+                # render correct page based on button clicked
+                if 'notification_settings' in request.form:
+                    return render_template("users/notification_settings.jinja2", user=user, alerts=alerts,
+                                           attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
+                elif 'basic_details' in request.form:
+                    return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance,
+                                           games=games, a_constants=AlertConstants.ALERTS)
+                elif 'game_attendance' in request.form:
+                    return render_template("users/game_attendance.jinja2", user=user, alerts=alerts, attendance=attendance,
+                                           games=games, a_constants=AlertConstants.ALERTS)
+                elif 'register_user' in request.form:
+                    pword = Utils.hash_password(request.form['pword'])
+                    user = User(fname, lname, email, pword)
+                    user.insert_new_user()
 
-            # print(user)
-            for alert in alerts:
-                new_alert = Alert(user._id, alert, alerts[alert])
-                new_alert.insert_alert()
-                # print(new_alert)
-            for na in attendance:
-                new_attendance = UserGame(user._id, na, attendance[na], 0, 0)
-                new_attendance.save_to_mongo()
-                # print(new_attendance)
-            # for game in games:
-            #     new_user_score = UserScore(user._id, game.game_num, 0, 0)
-            #     new_user_score.create_user_score()
+                    for alert in alerts:
+                        new_alert = Alert(user._id, alert, alerts[alert])
+                        new_alert.insert_alert()
+                    for na in attendance:
+                        new_attendance = UserGame(user._id, na, attendance[na], 0, 0)
+                        new_attendance.save_to_mongo()
 
-            session['user'] = user._id
-            user_scores = UserScore.get_scores_by_user(session['user'])
-
-            return redirect(url_for('.user_dashboard'))
+                    session['user'] = user._id
+                    return redirect(url_for('.user_dashboard'))
+        except UserErrors.UserError as e:
+            alerts, attendance = User.user_default_values()
+            return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
+                                   a_constants=AlertConstants.ALERTS, error=e.message)
 
 
 @users_blueprint.route('/profile', methods=['GET', 'POST'])

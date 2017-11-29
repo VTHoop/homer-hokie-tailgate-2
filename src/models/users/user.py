@@ -5,9 +5,11 @@ from passlib.hash import sha512_crypt
 from src.common.database import Database
 import src.models.users.constants as UserConstants
 import src.models.users.errors as UserErrors
-from src.common.utils import Utils
+import src.models.alerts.constants as AlertConstants
+from src.models.games.game import Game
 
 __author__ = 'hooper-p'
+
 
 
 class User(object):
@@ -24,7 +26,8 @@ class User(object):
 
     @classmethod
     def get_user_by_email(cls, email):
-        return cls(**Database.find_one(UserConstants.COLLECTION, {"email": email}))
+        user = Database.find_one(UserConstants.COLLECTION, {"email": email})
+        return cls(**user if user is not None else None)
 
     @classmethod
     def get_user_by_id(cls, _id):
@@ -32,6 +35,7 @@ class User(object):
 
     def update_admin(self):
         pass
+
     # admin saves form to update fields
 
     def insert_new_user(self):
@@ -56,12 +60,38 @@ class User(object):
         :param password: A sha512 hashed password
         :return: True if valid, False otherwise
         """
-        user_data = User.get_user_by_email(email)
+        user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
         if user_data is None:
             # Tell the user that their e-mail doesn't exist
-            raise UserErrors.UserNotExistsError("Your user does not exist.")
-        if not sha512_crypt.verify(password, user_data.password):
+            raise UserErrors.UserNotExistsError(
+                "Email is not recognized.  Please use link below to sign-up if you have not created an account.")
+        if not sha512_crypt.verify(password, user_data['password']):
             # Tell the user that their password is wrong
-            raise UserErrors.IncorrectPasswordError("Your password was incorrect.")
+            raise UserErrors.IncorrectPasswordError("Password does not match the one registered.")
 
         return True
+
+    @staticmethod
+    def new_user_valid(email, password, password2):
+        user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
+        if user_data is not None:
+            raise UserErrors.UserAlreadyRegisteredError(
+                "This email is already registered. Please log in.  You can reset your password here if needed.")
+        if password != password2:
+            raise UserErrors.PasswordsNotMatch("The passwords entered do not match.  Please try again.")
+
+        return True
+
+    @staticmethod
+    def user_default_values():
+        alerts = {}
+        for a in AlertConstants.ALERTS:
+            alerts[a] = 'On'
+        attendance = {}
+        games = Game.get_all_games()
+        for i in games:
+            if i.home_team.location == 'Blacksburg, VA':
+                attendance[i.game_num] = 'Yes'
+            else:
+                attendance[i.game_num] = 'No'
+        return alerts, attendance
