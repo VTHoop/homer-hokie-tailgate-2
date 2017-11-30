@@ -95,17 +95,22 @@
                 </tbody>
             </table>
 
-                    <button type="submit" name="notification_settings" class="btn btn-hokie btn-lg">Prev</button>
-                    <button type="submit" name="register_user" class="btn btn-hokie btn-lg float-right">Submit</button>
+            <button type="submit" name="notification_settings" class="btn btn-hokie btn-lg">
+                Prev
+            </button>
+            <button type="submit" name="register_user" class="btn btn-hokie btn-lg float-right">Submit</button>
 
             <input type="hidden" name="fname" value="{{ user.f_name }}">
             <input type="hidden" name="lname" value="{{ user.l_name }}">
             <input type="hidden" name="email" value="{{ user.email }}">
             <input type="hidden" name="pword" value="{{ user.password }}">
+            <input type="hidden" name="confirmpword" value="{{ user.password }}">
+            <input type="hidden" name="phone" value="{{ user.phone }}">
+            <input type="hidden" name="location" value="{{ user.location }}">
             {% for a in alerts %}
             <input type="hidden" name="alerts_{{ a }}" value="{{ alerts[a] }}">
             {% endfor %}
-        <input type="hidden" name="user_id" value="{{ user._id }}">
+            <input type="hidden" name="user_id" value="{{ user._id }}">
 
         </form>
     </div>

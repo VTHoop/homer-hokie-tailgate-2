@@ -64,14 +64,16 @@ def new_user():
         email = request.form['email']
         pword = request.form['pword']
         confirmpword = request.form['confirmpword']
+        phone = request.form['phone']
+        location = request.form['location']
         try:
             if User.new_user_valid(email, pword, confirmpword):
                 # admin = 'No'
+                user = User(fname, lname, email, pword, phone=phone, location=location)
                 # set the values of the alert dict based on user entries
                 alerts = {}
                 for a in AlertConstants.ALERTS:
                     alerts[a] = request.form['alerts_' + a]
-                user = User(fname, lname, email, pword)
                 games = Game.get_all_games()
                 # set the values of the attendance dict based on user entries
                 attendance = {}
@@ -89,7 +91,7 @@ def new_user():
                                            games=games, a_constants=AlertConstants.ALERTS)
                 elif 'register_user' in request.form:
                     pword = Utils.hash_password(request.form['pword'])
-                    user = User(fname, lname, email, pword)
+                    user = User(fname, lname, email, pword, phone=phone, location=location)
                     user.insert_new_user()
 
                     for alert in alerts:

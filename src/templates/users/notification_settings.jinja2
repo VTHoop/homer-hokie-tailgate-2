@@ -45,14 +45,19 @@
             </div>
                 {% endfor %}
                 <button type="submit" name="basic_details" class="btn btn-hokie btn-lg">
-                    <!--<span><img src="{{ url_for('static', filename='images/glyphicons/glyphicons-171-step-backward.png') }}"></span>-->
+                    <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
                     Prev
                 </button>
-                <button type="submit" name="game_attendance" class="btn btn-hokie float-right btn-lg">Next</button>
+                <button type="submit" name="game_attendance" class="btn btn-hokie float-right btn-lg">
+                    Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                </button>
                 <input type="hidden" name="fname" value="{{ user.f_name }}">
                 <input type="hidden" name="lname" value="{{ user.l_name }}">
                 <input type="hidden" name="email" value="{{ user.email }}">
                 <input type="hidden" name="pword" value="{{ user.password }}">
+                <input type="hidden" name="confirmpword" value="{{ user.password }}">
+                <input type="hidden" name="phone" value="{{ user.phone }}">
+                <input type="hidden" name="location" value="{{ user.location }}">
                 {% for i in attendance %}
                 <input type="hidden" name="attendance{{ i }}" value="{{ attendance[i] }}">
                 {% endfor %}

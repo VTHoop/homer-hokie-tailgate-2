@@ -11,14 +11,18 @@ from src.models.games.game import Game
 __author__ = 'hooper-p'
 
 
-
 class User(object):
-    def __init__(self, f_name, l_name, email, password, admin='No', _id=None):
+    def __init__(self, f_name, l_name, email, password, admin='No', created_on=None, updated_on=None, phone=None,
+                 location=None, _id=None):
         self.f_name = f_name
         self.l_name = l_name
         self.email = email
         self.password = password
         self.admin = admin
+        self.created_on = created_on
+        self.updated_on = updated_on
+        self.phone = phone
+        self.location = location
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -40,16 +44,6 @@ class User(object):
 
     def insert_new_user(self):
         Database.insert(UserConstants.COLLECTION, self.json())
-
-    def json(self):
-        return {
-            "f_name": self.f_name,
-            "l_name": self.l_name,
-            "email": self.email,
-            "password": self.password,
-            "admin": self.admin,
-            "_id": self._id
-        }
 
     @staticmethod
     def is_login_valid(email, password):
@@ -95,3 +89,17 @@ class User(object):
             else:
                 attendance[i.game_num] = 'No'
         return alerts, attendance
+
+    def json(self):
+        return {
+            "f_name": self.f_name,
+            "l_name": self.l_name,
+            "email": self.email,
+            "password": self.password,
+            "admin": self.admin,
+            "created_on": self.created_on,
+            "updated_on": self.updated_on,
+            "phone": self.phone,
+            "location": self.location,
+            "_id": self._id
+        }

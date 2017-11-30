@@ -80,6 +80,11 @@ h1{
     padding: 40px 40px;
 }
 
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+
 .btn-outline-orange{color:#fff;background-color:transparent;background-image:none;border-color:#ff6600}
 
 .btn-outline-orange:hover{color:#fff;background-color:#ff6600;border-color:#ff6600}
