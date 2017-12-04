@@ -37,14 +37,6 @@ class User(object):
     def get_user_by_id(cls, _id):
         return cls(**Database.find_one(UserConstants.COLLECTION, {"_id": _id}))
 
-    def update_admin(self):
-        pass
-
-    # admin saves form to update fields
-
-    def insert_new_user(self):
-        Database.insert(UserConstants.COLLECTION, self.json())
-
     @staticmethod
     def is_login_valid(email, password):
         """
@@ -89,6 +81,12 @@ class User(object):
             else:
                 attendance[i.game_num] = 'No'
         return alerts, attendance
+
+    def save_to_mongo(self):
+        Database.update(UserConstants.COLLECTION, {"_id": self._id}, self.json())
+
+    def insert_new_user(self):
+        Database.insert(UserConstants.COLLECTION, self.json())
 
     def json(self):
         return {

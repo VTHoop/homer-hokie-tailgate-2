@@ -1,11 +1,10 @@
-from passlib.hash import sha512_crypt
+import datetime
 
 from src.common.utils import Utils
 from src.models.games.game import Game
 from src.models.users.user import User
 from src.models.alerts.alert import Alert
 from src.models.user_games.user_game import UserGame
-from src.models.user_scores.user_score import UserScore
 import src.models.alerts.constants as AlertConstants
 import src.models.users.errors as UserErrors
 
@@ -87,11 +86,13 @@ def new_user():
                     return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance,
                                            games=games, a_constants=AlertConstants.ALERTS)
                 elif 'game_attendance' in request.form:
-                    return render_template("users/game_attendance.jinja2", user=user, alerts=alerts, attendance=attendance,
+                    return render_template("users/game_attendance.jinja2", user=user, alerts=alerts,
+                                           attendance=attendance,
                                            games=games, a_constants=AlertConstants.ALERTS)
                 elif 'register_user' in request.form:
                     pword = Utils.hash_password(request.form['pword'])
-                    user = User(fname, lname, email, pword, phone=phone, location=location)
+                    user = User(fname, lname, email, pword, phone=phone, location=location,
+                                created_on=datetime.datetime.utcnow())
                     user.insert_new_user()
 
                     for alert in alerts:
@@ -111,7 +112,14 @@ def new_user():
 
 @users_blueprint.route('/profile', methods=['GET', 'POST'])
 def profile():
-    return render_template("users/user_profile.jinja2")
+    user = User.get_user_by_id(session['user'])
+    if request.method == 'POST':
+        user.phone = request.form['phone']
+        user.location = request.form['location']
+        user.updated_on = datetime.datetime.utcnow()
+        user.save_to_mongo()
+    return render_template("users/user_profile.jinja2", user=user,
+                           alerts=Alert.get_alert_by_user(session['user']))
 
 
 @users_blueprint.route('/creategames', methods=['GET', 'POST'])

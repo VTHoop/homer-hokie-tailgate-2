@@ -66,15 +66,6 @@ class Game(object):
             game.TV= tv['alt']
             game.save_to_mongo()
 
-    def update_game_time(self, new_date, new_time):
-        self.date = new_date
-        self.time = new_time
-        Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
-
-    def update_theme(self, new_theme):
-        self.theme = new_theme
-        Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
-
     def save_to_mongo(self):
         Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
 
