@@ -19,3 +19,7 @@ class UserAlreadyRegisteredError(UserError):
 
 class PasswordsNotMatch(UserError):
     pass
+
+
+class PasswordStrength(UserError):
+    pass

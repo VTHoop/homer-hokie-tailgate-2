@@ -53,6 +53,20 @@ def update_profile():
 
 @users_blueprint.route('/new', methods=['GET', 'POST'])
 def new_user():
+    """
+    This method handles both the original GET and all subsequent POST requests
+
+    The registration of a new user is handled through three different pages and the information on those pages will
+    be saved and rendered on the page if the that is the appropriate page otherwise it will be saved in a hidden
+    form element.  Password will not be re-rendered, however.
+
+    On GET, function will go build default values for a new user and keep those hidden until they get to those pages.
+
+    All form elements are re-saved on each submit regardless of page, however the buttons will determine the appropriate
+    page to render.
+
+    :return:
+    """
     if request.method == 'GET':
         alerts, attendance = User.user_default_values()
         return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
@@ -113,13 +127,23 @@ def new_user():
 @users_blueprint.route('/profile', methods=['GET', 'POST'])
 def profile():
     user = User.get_user_by_id(session['user'])
+    alerts = Alert.get_alerts_by_user(session['user'])
+    active = 'profile'
     if request.method == 'POST':
-        user.phone = request.form['phone']
-        user.location = request.form['location']
-        user.updated_on = datetime.datetime.utcnow()
-        user.save_to_mongo()
-    return render_template("users/user_profile.jinja2", user=user,
-                           alerts=Alert.get_alert_by_user(session['user']))
+        if 'profile' in request.form:
+            user.phone = request.form['phone']
+            user.location = request.form['location']
+            user.updated_on = datetime.datetime.utcnow()
+            user.save_to_mongo()
+            active = 'profile'
+        elif 'notifications' in request.form:
+            for a in alerts:
+                a.yes_no = request.form['alerts' + str(a._id)]
+                a.save_to_mongo()
+                active = 'notifications'
+
+    return render_template("users/user_profile.jinja2", user=user, active_page=active,
+                           alerts=Alert.get_alerts_by_user(session['user']), a_constants=AlertConstants.ALERTS)
 
 
 @users_blueprint.route('/creategames', methods=['GET', 'POST'])
@@ -144,5 +168,6 @@ def user_dashboard():
             game.save_to_mongo()
     else:
         attendance = UserGame.get_attendance_by_user(session['user'])
+
 
     return render_template("users/dashboard.jinja2", attendance=attendance)

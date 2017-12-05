@@ -4,6 +4,7 @@ import re
 __author__ = 'jslvtr'
 
 
+
 class Utils(object):
 
     @staticmethod
@@ -25,3 +26,5 @@ class Utils(object):
         :return: True if passwords match, False otherwise
         """
         return sha512_crypt.verify(password, hashed_password)
+
+

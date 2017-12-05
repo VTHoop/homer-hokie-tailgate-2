@@ -69,6 +69,13 @@ class User(object):
         return True
 
     @staticmethod
+    def check_password_strength(password):
+        if len(password) < 6:
+            UserErrors.PasswordStrength('Your password should be at least 6 characters long.')
+
+        return True
+
+    @staticmethod
     def user_default_values():
         alerts = {}
         for a in AlertConstants.ALERTS:
