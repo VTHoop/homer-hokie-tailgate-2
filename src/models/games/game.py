@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 
 from src.common.database import Database
+from src.models.team_years.team_year import TeamYear
 from src.models.teams.team import Team
 import src.models.games.constants as GameConstants
 from datetime import datetime
@@ -15,8 +16,8 @@ __author__ = 'hooper-p'
 class Game(object):
     def __init__(self, game_num, home_team, away_team, year=None, date=None, time='TBD', location=None ,stadium=None, theme=None, TV=None, _id=None):
         self.game_num = game_num
-        self.home_team = Team.get_by_school_name(home_team)
-        self.away_team = Team.get_by_school_name(away_team)
+        self.home_team = TeamYear.get_by_school_name_and_current_year(home_team)
+        self.away_team = TeamYear.get_by_school_name_and_current_year(away_team)
         self.location = Team.get_by_school_name(home_team).location if location is None else location
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
         self.year = Year.get_year_by_id(year) if year is not None else year

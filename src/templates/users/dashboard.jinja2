@@ -50,23 +50,23 @@
                                 {% endif %}
                             </td>
                             <td>
-                                {% if game.game.home_team.school_name == 'Virginia Tech' %}
-                                <strong>vs. </strong><img src="../static/images/teams/{{ game.game.away_team.logo }}"
+                                {% if game.game.home_team.team.school_name == 'Virginia Tech' %}
+                                <strong>vs. </strong><img src="../static/images/teams/{{ game.game.away_team.team.logo }}"
                                                           style="width:30px"/>
-                                {{ game.game.away_team.school_name }}
+                                {{ game.game.away_team.team.school_name }}
                                 {% else %}
-                                <strong>@ </strong><img src="../static/images/teams/{{ game.game.home_team.logo }}"
+                                <strong>@ </strong><img src="../static/images/teams/{{ game.game.home_team.team.logo }}"
                                                         style="width:30px"/>
-                                {{ game.game.home_team.school_name }}
+                                {{ game.game.home_team.team.school_name }}
                                 {% endif %}
                             </td>
-                            {% if game.game.home_team.school_name == 'Virginia Tech' %}
+                            {% if game.game.home_team.team.school_name == 'Virginia Tech' %}
                             <td>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">
-                                                <strong>{{ game.game.home_team.short_name}}&nbsp;</strong>
+                                                <strong>{{ game.game.home_team.team.short_name}}&nbsp;</strong>
                                             </label>
                                             <div class="col-sm-8">
 
@@ -79,7 +79,7 @@
                                     <div class="col-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">
-                                                <strong>{{ game.game.away_team.short_name }}&nbsp;</strong></label>
+                                                <strong>{{ game.game.away_team.team.short_name }}&nbsp;</strong></label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" type="text"
                                                        name="away_score{{ game.game.game_num }}"
@@ -95,7 +95,7 @@
                                     <div class="col-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">
-                                                <strong>{{ game.game.away_team.short_name}}&nbsp;</strong>
+                                                <strong>{{ game.game.away_team.team.short_name}}&nbsp;</strong>
                                             </label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" type="text"
@@ -108,7 +108,7 @@
                                     <div class="col-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">
-                                                <strong>{{ game.game.home_team.short_name }}&nbsp;</strong></label>
+                                                <strong>{{ game.game.home_team.team.short_name }}&nbsp;</strong></label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" type="text"
                                                        name="home_score{{ game.game.game_num }}"

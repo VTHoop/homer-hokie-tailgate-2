@@ -1,5 +1,5 @@
 from src.models.games.game import Game
-from src.models.teams.team import Team
+from src.models.team_years.team_year import TeamYear
 
 __author__ = 'hooper-p'
 
@@ -32,7 +32,7 @@ app.register_blueprint(games_blueprint, url_prefix='/games')
 def init_db():
     Database.initialize()
     # Game.load_game_tv()
-    Team.update_teams()
+    TeamYear.update_teams()
 
 @app.route('/')
 def home():
