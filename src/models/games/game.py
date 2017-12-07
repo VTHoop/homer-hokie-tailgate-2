@@ -7,16 +7,19 @@ from src.models.teams.team import Team
 import src.models.games.constants as GameConstants
 from datetime import datetime
 
+from src.models.years.year import Year
+
 __author__ = 'hooper-p'
 
 
 class Game(object):
-    def __init__(self, game_num, home_team, away_team, date=None, time='TBD', location=None ,stadium=None, theme=None, TV=None, _id=None):
+    def __init__(self, game_num, home_team, away_team, year=None, date=None, time='TBD', location=None ,stadium=None, theme=None, TV=None, _id=None):
         self.game_num = game_num
         self.home_team = Team.get_by_school_name(home_team)
         self.away_team = Team.get_by_school_name(away_team)
         self.location = Team.get_by_school_name(home_team).location if location is None else location
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
+        self.year = Year.get_year_by_id(year) if year is not None else year
         self.date = date
         self.time = 'TBD' if time == 'TBD' else datetime.strftime(datetime.strptime(time, "%I:%M %p"), "%I:%M %p")
         self.theme = theme
@@ -74,6 +77,7 @@ class Game(object):
             "game_num": int(self.game_num),
             "home_team": self.home_team.school_name,
             "away_team": self.away_team.school_name,
+            "year": self.year._id,
             "date": self.date,
             "time": self.time,
             "location": self.location,
