@@ -34,10 +34,12 @@
                         <div class="col"><h1><strong>{{ game.date }} @ {{ game.time }}</strong></h1></div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.away_team.team.logo }}"/></h2>
+                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.away_team.team.logo }}"/>
+                        </h2>
                         </div>
                         <div class="col-sm"><h2></h2></div>
-                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.home_team.team.logo }}"/></h2>
+                        <div class="col-lg"><h2><img src="../../static/images/teams/{{ game.home_team.team.logo }}"/>
+                        </h2>
                         </div>
                     </div>
                     <div class="row text-center">
@@ -66,7 +68,11 @@
                         <div class="col"><strong>{{ game.theme if game.theme}}</strong></div>
                     </div>
                     <div class="row text-center">
-                        <div class="col"><strong>Location:</strong> {{ game.location }}</div>
+                        <div class="col"><strong>Location:</strong> {{ game.location.city }}, {{ game.location.state }}
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col"><strong>Stadium:</strong> {{ game.stadium }} </div>
                     </div>
                     <div class="row text-center">
                         <div class="col"><strong>Spread:</strong></div>

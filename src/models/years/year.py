@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+import datetime
 
 import src.models.years.constants as YearConstants
 from src.common.database import Database
@@ -16,6 +16,13 @@ class Year(object):
 
     def __repr__(self):
         return "College Football {} year starts on {} and ends on {}".format(self.name, self.start_date, self.end_date)
+
+    @classmethod
+    def get_current_year(cls):
+        return cls(**Database.find_one(YearConstants.COLLECTION,
+                                       {"start_date": {'$lte': datetime.datetime.utcnow()},
+                                        "end_date": {'$gte': datetime.datetime.utcnow()}}
+                                       ))
 
     @classmethod
     def get_year_by_id(cls, _id):

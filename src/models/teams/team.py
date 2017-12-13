@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from src.common.database import Database
 
 import src.models.teams.constants as TeamConstants
+from src.models.locations.location import Location
 
 __author__ = 'hooper-p'
 
@@ -15,7 +16,7 @@ class Team(object):
         self.mascot = mascot
         self.short_name = short_name
         self.logo = logo
-        self.location = location
+        self.location = Location.get_location_by_id(location['_id'])
         self.stadium = stadium
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -31,7 +32,7 @@ class Team(object):
 
     @classmethod
     def get_teams(cls):
-        return [cls(**elem) for elem in Database.find(TeamConstants.COLLECTION, {})]
+        return [cls(**elem) for elem in Database.find_and_sort(TeamConstants.COLLECTION, {}, [("school_name", 1)])]
 
     def json(self):
         return {
@@ -39,7 +40,7 @@ class Team(object):
             "mascot": self.mascot,
             "short_name": self.short_name,
             "logo": self.logo,
-            "location": self.location,
+            "location": self.location.json(),
             "stadium": self.stadium,
             "_id": self._id
         }

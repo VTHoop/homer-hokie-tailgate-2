@@ -1,0 +1,75 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="col-form-label" for="home_team"><strong>Away Team</strong></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="away_team" id="away_team"
+                               value="{{ game.away_team.team.school_name }}" readonly>
+                        <span class="input-group-btn">
+                            <a href="#" type="button" class='btn btn-hokie '>Edit <i class="fas fa-edit"></i> </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="col-form-label" for="home_team"><strong>Home Team</strong></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="home_team" id="home_team"
+                               value="{{ game.home_team.team.school_name }}" readonly>
+                        <span class="input-group-btn">
+                            <a href="#" type="button" class='btn btn-hokie '>Edit <i class="fas fa-edit"></i> </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="col-form-label" for="location"><strong>Location</strong></label>
+                    <select class="form-control custom-select" name="location" id="location">
+                        <option selected>{{ game.location.city }}, {{ game.location.state }}</option>
+                        {% for l in locations %}
+                        <option value="{{ l._id }}">{{ l.city }}, {{ l.state }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="col-form-label" for="stadium"><strong>Stadium</strong></label>
+                    <select class="form-control custom-select" name="stadium" id="stadium">
+                        <option selected>{{ game.stadium }}</option>
+                        {% for s in stadiums %}
+                        <option value="{{ s }}">{{ s }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!--Not going to allow user input as this should be screen scraped-->
+
+            <!--<div class="form-group col-6">-->
+            <!--<label class="col-form-label" for="date"><strong>Date</strong></label>-->
+            <!--<input type="date" name="date" id="date" class="form-control" value="{{ game.date }}">-->
+            <!--</div>-->
+            <!--<div class="form-group col-6">-->
+            <!--<label class="col-form-label" for="time"><strong>Time</strong></label>-->
+            <!--<input type="text" name="time" id="time" class="form-control" value="{{ game.time }}">-->
+            <!--</div>-->
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="col-form-label" for="hht_theme"><strong>HHT Theme</strong></label>
+                    <input type="text" name="hht_theme" id="hht_theme" class="form-control"
+                           value="{{ game.hht_theme }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

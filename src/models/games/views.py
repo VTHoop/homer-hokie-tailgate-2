@@ -3,11 +3,14 @@ from datetime import datetime
 from src.models.game_food.food import Food
 from src.models.games.game import Game
 from src.models.have_tickets.have_ticket import HaveTicket
+from src.models.locations.location import Location
+from src.models.teams.team import Team
 from src.models.user_games.user_game import UserGame
 
 from flask import Blueprint, render_template, request, session
 
 from src.models.want_tickets.want_ticket import WantTicket
+from src.models.years.year import Year
 
 __author__ = 'hooper-p'
 
@@ -40,3 +43,19 @@ def detail(game_num):
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,
                            have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game,
                            user=user)
+
+
+@games_blueprint.route('/admin/schedule', methods=['GET'])
+def admin_schedule():
+    return render_template("games/admin_schedule.jinja2", games=Game.get_games_by_year(Year.get_current_year()._id))
+
+
+@games_blueprint.route('/admin/edit/<string:game_id>', methods=['GET', 'POST'])
+def edit_game(game_id):
+    game = Game.get_game_by_id(game_id)
+    teams = Team.get_teams()
+    locations = Location.get_all_locations()
+    stadiums = Game.get_all_stadiums()
+    stadiums.sort()
+
+    return render_template("games/edit_game.jinja2", teams=teams, game=game, locations=locations, stadiums=stadiums)

@@ -1,0 +1,59 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<div class="container">
+        <main role="main">
+            <div class="panel-title text-center">
+                <h1>Administer Schedule/Games</h1>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr class="row text-center">
+                            <th scope="col" class="col-md-1">Game #</th>
+                            <th scope="col" class="col-md-2">Home Team</th>
+                            <th scope="col" class="col-md-2">Away Team</th>
+                            <th scope="col" class="col-md-2">Date</th>
+                            <th scope="col" class="col-md-5"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for game in games %}
+                        <tr class="row text-center">
+                            <th class="col-md-1">{{ game.game_num }}</th>
+                            <td class="col-md-2">{{ game.home_team.team.school_name }}</td>
+                            <td class="col-md-2">{{ game.away_team.team.school_name }}</td>
+                            <td class="col-md-2">{{ game.date }}</td>
+                            <td class="col-md-5">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <a href="{{ url_for('games.edit_game', game_id=game._id) }}" type="button" class='btn btn-hokie'>
+                                            Edit
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <a href="#" type="button" class='btn btn-hokie'>
+                                            HHT Preview
+                                            <i class="far fa-newspaper"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <a href="#" type="button" class='btn btn-hokie'>
+                                            Enter Scores
+                                            <i class="fas fa-trophy"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+</div>
+{% endblock %}

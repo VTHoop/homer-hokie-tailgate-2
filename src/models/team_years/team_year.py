@@ -51,6 +51,10 @@ class TeamYear(object):
         return [cls(**elem) for elem in Database.find(TeamYearConstants.COLLECTION, {})]
 
     @classmethod
+    def get_by_school_name_and_year(cls, sn, year):
+        return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team": sn, "year._id": year}))
+
+    @classmethod
     def get_by_school_name_and_current_year(cls, sn):
         if Database.find_one(TeamYearConstants.COLLECTION, {"team": sn,
                                                             "year.start_date": {
