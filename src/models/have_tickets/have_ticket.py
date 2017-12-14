@@ -24,6 +24,10 @@ class HaveTicket(object):
                                                                                self.price)
 
     @classmethod
+    def get_all_havetickets(cls):
+        return [cls(**elem) for elem in Database.find(HaveTicketsConstants.COLLECTION, {})]
+
+    @classmethod
     def get_havetickets_by_game(cls, game):
         return [cls(**elem) for elem in Database.find(HaveTicketsConstants.COLLECTION, {"game": game})]
 
@@ -47,7 +51,7 @@ class HaveTicket(object):
             "number": self.number,
             "section": self.section,
             "seats": self.seats,
-            "game": self.game.game_num,
+            "game": self.game._id,
             "sold_flag": self.sold_flag,
             "price": self.price,
             "_id": self._id

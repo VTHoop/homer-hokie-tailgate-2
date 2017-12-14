@@ -17,27 +17,27 @@ __author__ = 'hooper-p'
 games_blueprint = Blueprint('games', __name__)
 
 
-@games_blueprint.route('/detail/<int:game_num>', methods=['GET', 'POST'])
-def detail(game_num):
+@games_blueprint.route('/detail/<string:game_id>', methods=['GET', 'POST'])
+def detail(game_id):
     user = session['user']
 
-    this_game = Game.get_game_by_num(game_num)
+    this_game = Game.get_game_by_id(game_id)
     # format the date for the detail screen
     this_game.date = datetime.strftime(datetime.strptime(this_game.date, "%m/%d/%Y"), "%B %d")
 
     # getting attendance for each type to pass along to template
-    yes_attendance = UserGame.get_attendance_by_game_and_status(game_num, 'Yes')
-    maybe_attendance = UserGame.get_attendance_by_game_and_status(game_num, 'Maybe')
-    no_attendance = UserGame.get_attendance_by_game_and_status(game_num, 'No')
+    yes_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'Yes')
+    maybe_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'Maybe')
+    no_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'No')
 
     # get food for game
-    food_for_game = Food.get_food_by_game(game_num)
+    food_for_game = Food.get_food_by_game(game_id)
 
     # get have_tickets for game
-    have_tickets_for_game = HaveTicket.get_havetickets_by_game(game_num)
+    have_tickets_for_game = HaveTicket.get_havetickets_by_game(game_id)
 
     # get want_tickets for game
-    want_tickets_for_game = WantTicket.get_wanttickets_by_game(game_num)
+    want_tickets_for_game = WantTicket.get_wanttickets_by_game(game_id)
 
     return render_template("games/game_detail.jinja2", game=this_game, yes_attendance=yes_attendance,
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,

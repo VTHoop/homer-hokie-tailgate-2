@@ -1,7 +1,5 @@
 import uuid
 
-from flask import session
-
 from src.common.database import Database
 from src.models.games.game import Game
 from src.models.users.user import User
@@ -21,6 +19,10 @@ class WantTicket(object):
         return "{} {} wants {} tickets to the {} game.".format(self.user.f_name, self.user.l_name, self.number, self.game)
 
     @classmethod
+    def get_all_wanttickets(cls):
+        return [cls(**elem) for elem in Database.find(WantTicketConstants.COLLECTION, {})]
+
+    @classmethod
     def get_wanttickets_by_game(cls, game):
         return [cls(**elem) for elem in Database.find(WantTicketConstants.COLLECTION, {"game": game})]
 
@@ -34,7 +36,7 @@ class WantTicket(object):
     def json(self):
         return {
             "user": self.user._id,
-            "game": self.game.game_num,
+            "game": self.game._id,
             "number": self.number,
             "_id": self._id
         }

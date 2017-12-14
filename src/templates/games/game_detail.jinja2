@@ -7,7 +7,7 @@
     <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action" id="back"
-               href="{{ url_for('users.user_dashboard') }}"><< Back to Dashboard</a>
+               href="{{ url_for('dashboard.user_dashboard') }}"><< Back to Dashboard</a>
             <a class="list-group-item list-group-item-action {% if active_page == 'summary' %}active{% endif %}"
                id="list-summary-list" data-toggle="list"
                href="#summary" role="tab" aria-controls="summary">Summary</a>
@@ -186,7 +186,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form method="post"
-                                          action="{{ url_for('game_food.add_food', game_num=game.game_num) }}">
+                                          action="{{ url_for('game_food.add_food', game_id=game._id) }}">
                                         <div class="form-group">
                                             <label class="col-form-label" for="game_food">What can your tailgate plan on
                                                 enjoying?</label>
@@ -274,7 +274,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <form method="post"
-                                                  action="{{ url_for('have_tickets.add', game_num=game.game_num) }}">
+                                                  action="{{ url_for('have_tickets.add', game_id=game._id) }}">
 
                                                 <div class="form-group col-md-6">
                                                     <label for="total_num">Total #</label>
@@ -327,7 +327,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <form method="post"
-                                                  action="{{ url_for('want_tickets.add', game_num=game.game_num) }}">
+                                                  action="{{ url_for('want_tickets.add', game_id=game._id) }}">
 
                                                 <div class="form-group col-md-6">
                                                     <label for="total_num">Total #</label>

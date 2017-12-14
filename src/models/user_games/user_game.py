@@ -11,8 +11,9 @@ __author__ = 'hooper-p'
 
 class UserGame(object):
     def __init__(self, user, game, attendance, home_score, away_score, admin_enter=None, _id=None):
-        self.user = User.get_user_by_id(user)
+        self.user = User.get_user_by_id(user['_id'])
         self.game = Game.get_game_by_num(game)
+        self.game_date = Game.get_game_by_num(game).date
         self.attendance = attendance
         self.home_score = home_score
         self.away_score = away_score
@@ -27,16 +28,16 @@ class UserGame(object):
     def get_all_usergames(cls):
         return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {})]
 
-
     @classmethod
     def get_attendance_by_user(cls, user):
         return [cls(**elem) for elem in
-                Database.find_and_sort(UserGameConstants.COLLECTION, {"user": user}, [("game", 1)])]
+                Database.find_and_sort(UserGameConstants.COLLECTION, {"user._id": user}, [("game_date", 1)])]
 
     @classmethod
     def get_attendance_by_game(cls, game):
         return [cls(**elem) for elem in
-                Database.find_and_sort(UserGameConstants.COLLECTION, {"game": game}, [("game", 1)])]
+                Database.find_and_sort(UserGameConstants.COLLECTION, {"game": game},
+                                       [("user.l_name", 1), ("user.f_name", 1)])]
 
     @classmethod
     def get_attendance_by_game_and_status(cls, game, attendance):
@@ -49,7 +50,8 @@ class UserGame(object):
     def json(self):
         return {
             "user": self.user.json(),
-            "game": self.game.game_num,
+            "game": self.game._id,
+            "game_date": self.game_date,
             "attendance": self.attendance,
             "home_score": self.home_score,
             "away_score": self.away_score,

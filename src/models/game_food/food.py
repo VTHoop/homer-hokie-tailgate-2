@@ -24,6 +24,10 @@ class Food(object):
         Database.delete(FoodConstants.COLLECTION, {"_id": self._id})
 
     @classmethod
+    def get_all_food(cls):
+        return [cls(**elem) for elem in Database.find(FoodConstants.COLLECTION, {})]
+
+    @classmethod
     def get_food_by_id(cls, _id):
         return cls(**Database.find_one(FoodConstants.COLLECTION, {"_id": _id}))
 
@@ -32,12 +36,12 @@ class Food(object):
         return [cls(**elem) for elem in Database.find(FoodConstants.COLLECTION, {"game": game})]
 
     def save_to_mongo(self):
-        Database.insert(FoodConstants.COLLECTION, self.json())
+        Database.update(FoodConstants.COLLECTION, {"_id": self._id}, self.json())
 
     def json(self):
         return {
             'user': self.user._id,
             'food': self.food,
-            'game': self.game.game_num,
+            'game': self.game._id,
             '_id': self._id
         }

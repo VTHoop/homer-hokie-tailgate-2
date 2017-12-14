@@ -24,7 +24,7 @@ def login_user():
         try:
             if User.is_login_valid(email, password):
                 session['user'] = User.get_user_by_email(email)._id
-                return redirect(url_for(".user_dashboard"))
+                return redirect(url_for("dashboard.user_dashboard"))
         except UserErrors.UserError as e:
             return render_template("users/login.jinja2", error=e.message)
 
@@ -111,7 +111,7 @@ def new_user():
 
                     for alert in alerts:
                         new_alert = Alert(user._id, alert, alerts[alert])
-                        new_alert.insert_alert()
+                        new_alert.save_to_mongo()
                     for na in attendance:
                         new_attendance = UserGame(user._id, na, attendance[na], 0, 0)
                         new_attendance.save_to_mongo()
@@ -145,29 +145,3 @@ def profile():
     return render_template("users/user_profile.jinja2", user=user, active_page=active,
                            alerts=Alert.get_alerts_by_user(session['user']), a_constants=AlertConstants.ALERTS)
 
-
-@users_blueprint.route('/creategames', methods=['GET', 'POST'])
-def create_user_games(user):
-    games = Game.get_all_games()
-    for g in games:
-        attendence = request.form['attending{% g.game_num %}']
-        print(attendence)
-        # user_game = UserGame(user, g, attendence)
-        # user_game.save_to_mongo()
-        # return render_template('/')
-
-
-@users_blueprint.route('/dashboard', methods=['GET', 'POST'])
-def user_dashboard():
-    if request.method == 'POST':
-        attendance = UserGame.get_attendance_by_user(session['user'])
-        for game in attendance:
-            game.home_score = request.form['home_score' + str(game.game.game_num)]
-            game.away_score = request.form['away_score' + str(game.game.game_num)]
-            game.attendance = request.form['attendance' + str(game.game.game_num)]
-            game.save_to_mongo()
-    else:
-        attendance = UserGame.get_attendance_by_user(session['user'])
-
-
-    return render_template("users/dashboard.jinja2", attendance=attendance)
