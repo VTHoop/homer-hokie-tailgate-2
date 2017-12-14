@@ -16,8 +16,10 @@ def user_dashboard():
             game.away_score = request.form['away_score' + str(game.game.game_num)]
             game.attendance = request.form['attendance' + str(game.game.game_num)]
             game.save_to_mongo()
-    else:
-        attendance = UserGame.get_attendance_by_user(session['user'])
+
+
+    attendance = UserGame.get_attendance_by_user(session['user'])
+    attendance.sort()
 
     return render_template("users/dashboard.jinja2", attendance=attendance)
 
