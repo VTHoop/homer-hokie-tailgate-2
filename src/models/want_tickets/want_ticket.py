@@ -11,7 +11,7 @@ __author__ = 'hooper-p'
 class WantTicket(object):
     def __init__(self, user, game, number, _id=None):
         self.user = User.get_user_by_id(user)
-        self.game = Game.get_game_by_num(game)
+        self.game = Game.get_game_by_id(game)
         self.number = number
         self._id = uuid.uuid4().hex if _id is None else _id
 

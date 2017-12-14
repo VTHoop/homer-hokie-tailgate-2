@@ -12,8 +12,8 @@ __author__ = 'hooper-p'
 class UserGame(object):
     def __init__(self, user, game, attendance, home_score, away_score, admin_enter=None, _id=None):
         self.user = User.get_user_by_id(user['_id'])
-        self.game = Game.get_game_by_num(game)
-        self.game_date = Game.get_game_by_num(game).date
+        self.game = Game.get_game_by_id(game)
+        self.game_date = Game.get_game_by_id(game).date
         self.attendance = attendance
         self.home_score = home_score
         self.away_score = away_score

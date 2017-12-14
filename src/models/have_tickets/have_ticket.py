@@ -14,7 +14,7 @@ class HaveTicket(object):
         self.number = number
         self.section = section
         self.seats = seats
-        self.game = Game.get_game_by_num(game)
+        self.game = Game.get_game_by_id(game)
         self.sold_flag = sold_flag
         self.price = None if price is None else float(price)
         self._id = uuid.uuid4().hex if _id is None else _id

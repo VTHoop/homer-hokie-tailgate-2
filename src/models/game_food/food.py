@@ -14,7 +14,7 @@ class Food(object):
     def __init__(self, user, food, game, _id=None):
         self.user = User.get_user_by_id(user)
         self.food = food
-        self.game = Game.get_game_by_num(game)
+        self.game = Game.get_game_by_id(game)
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):

@@ -38,16 +38,16 @@ def init_db():
     TeamYear.update_teams()
 
     # dev cleanup work
-    game_foods = Food.get_all_food()
-    for gf in game_foods:
-        gf.save_to_mongo()
-    for wt in WantTicket.get_all_wanttickets():
-        wt.save_to_mongo()
-    for ht in HaveTicket.get_all_havetickets():
-        ht.save_to_mongo()
-    user_games = UserGame.get_all_usergames()
-    for ug in user_games:
-        ug.save_to_mongo()
+    # game_foods = Food.get_all_food()
+    # for gf in game_foods:
+    #     gf.save_to_mongo()
+    # for wt in WantTicket.get_all_wanttickets():
+    #     wt.save_to_mongo()
+    # for ht in HaveTicket.get_all_havetickets():
+    #     ht.save_to_mongo()
+    # user_games = UserGame.get_all_usergames()
+    # for ug in user_games:
+    #     ug.save_to_mongo()
 
 @app.route('/')
 def home():
