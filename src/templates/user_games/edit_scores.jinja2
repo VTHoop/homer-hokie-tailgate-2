@@ -1,0 +1,43 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<form method='post'>
+    <div class="container">
+        <main role="main">
+            <div class="panel-title text-center">
+                <h1>Administer Schedule/Games</h1>
+            </div>
+            <div class="row">&nbsp;</div>
+            <hr/>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr class="row text-center">
+                            <th scope="col" class="col-md-2">Name</th>
+                            <th scope="col" class="col-md-3">Score</th>
+                            <th scope="col" class="col-md-5"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for score in scores %}
+                        <tr class="row text-center">
+                            <th class="col-md-1">{{ }}</th>
+                            <td class="col-md-2">{{ }}</td>
+                            <td class="col-md-5">
+                                    <a href="{{ url_for('games.detail', game_num=game.game.game_num, active='summary') }}"
+                                       type="submit" class='btn btn-hokie'>
+                                        <i class="fas fa-save"></i> Save
+                                    </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</form>
+
+{% endblock %}

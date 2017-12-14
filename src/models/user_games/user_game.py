@@ -24,9 +24,19 @@ class UserGame(object):
                                                                     self.attendance)
 
     @classmethod
+    def get_all_usergames(cls):
+        return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {})]
+
+
+    @classmethod
     def get_attendance_by_user(cls, user):
         return [cls(**elem) for elem in
                 Database.find_and_sort(UserGameConstants.COLLECTION, {"user": user}, [("game", 1)])]
+
+    @classmethod
+    def get_attendance_by_game(cls, game):
+        return [cls(**elem) for elem in
+                Database.find_and_sort(UserGameConstants.COLLECTION, {"game": game}, [("game", 1)])]
 
     @classmethod
     def get_attendance_by_game_and_status(cls, game, attendance):
@@ -38,7 +48,7 @@ class UserGame(object):
 
     def json(self):
         return {
-            "user": self.user._id,
+            "user": self.user.json(),
             "game": self.game.game_num,
             "attendance": self.attendance,
             "home_score": self.home_score,

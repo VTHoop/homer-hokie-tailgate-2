@@ -1,5 +1,6 @@
 from src.models.games.game import Game
 from src.models.team_years.team_year import TeamYear
+from src.models.user_games.user_game import UserGame
 
 __author__ = 'hooper-p'
 
@@ -31,6 +32,10 @@ def init_db():
     Database.initialize()
     # Game.load_game_tv()
     TeamYear.update_teams()
+    # dev cleanup work
+    user_games = UserGame.get_all_usergames()
+    for ug in user_games:
+        ug.save_to_mongo()
 
 @app.route('/')
 def home():
