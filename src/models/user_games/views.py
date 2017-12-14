@@ -17,9 +17,7 @@ def user_dashboard():
             game.attendance = request.form['attendance' + str(game.game.game_num)]
             game.save_to_mongo()
 
-
     attendance = UserGame.get_attendance_by_user(session['user'])
-    attendance.sort()
 
     return render_template("users/dashboard.jinja2", attendance=attendance)
 
