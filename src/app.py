@@ -9,7 +9,6 @@ from src.common.database import Database
 from src.models.users.views import users_blueprint
 from src.models.alerts.views import alerts_blueprint
 from src.models.have_tickets.views import havetickets_blueprint
-from src.models.user_scores.views import score_blueprint
 from src.models.game_food.views import gamefood_blueprint
 from src.models.games.views import games_blueprint
 from src.models.want_tickets.views import wanttickets_blueprint
@@ -22,7 +21,6 @@ app.register_blueprint(users_blueprint, url_prefix='/users')
 app.register_blueprint(alerts_blueprint, url_prefix='/alerts')
 app.register_blueprint(havetickets_blueprint, url_prefix='/havetickets')
 app.register_blueprint(wanttickets_blueprint, url_prefix='/wanttickets')
-app.register_blueprint(score_blueprint, url_prefix='/scores')
 app.register_blueprint(gamefood_blueprint, url_prefix='/gamefood')
 app.register_blueprint(games_blueprint, url_prefix='/games')
 

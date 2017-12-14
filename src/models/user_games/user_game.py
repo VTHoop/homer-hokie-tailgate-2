@@ -10,12 +10,13 @@ __author__ = 'hooper-p'
 
 
 class UserGame(object):
-    def __init__(self, user, game, attendance, home_score, away_score, _id=None):
+    def __init__(self, user, game, attendance, home_score, away_score, admin_enter=None, _id=None):
         self.user = User.get_user_by_id(user)
         self.game = Game.get_game_by_num(game)
         self.attendance = attendance
         self.home_score = home_score
         self.away_score = away_score
+        self.admin_enter = admin_enter
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -42,5 +43,6 @@ class UserGame(object):
             "attendance": self.attendance,
             "home_score": self.home_score,
             "away_score": self.away_score,
+            "admin_enter": self.admin_enter,
             "_id": self._id
         }
