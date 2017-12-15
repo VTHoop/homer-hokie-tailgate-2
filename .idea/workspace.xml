@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="" />
+    <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/games/game.py" afterPath="$PROJECT_DIR$/src/models/games/game.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,6 +13,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="673">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -35,21 +49,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_game.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+            <state relative-caret-position="567">
+              <caret line="33" column="107" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="107" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/games/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="27" column="84" lean-forward="false" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+            <state relative-caret-position="714">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -190,9 +204,9 @@
         <option value="$PROJECT_DIR$/src/models/game_food/food.py" />
         <option value="$PROJECT_DIR$/src/models/want_tickets/want_ticket.py" />
         <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
-        <option value="$PROJECT_DIR$/src/models/games/game.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/models/user_games/user_game.py" />
+        <option value="$PROJECT_DIR$/src/models/games/game.py" />
       </list>
     </option>
   </component>
@@ -254,20 +268,7 @@
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="alerts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
@@ -276,53 +277,6 @@
               <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="games" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="team_years" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="user_games" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="want_tickets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user_games" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -330,7 +284,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/patri/PycharmProjects/HomerHokie/src/templates/home.html" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../RichmondCouchPotatoes" />
@@ -848,16 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/have_tickets/have_ticket.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -908,14 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/games/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="27" column="84" lean-forward="false" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
@@ -926,10 +862,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        <state relative-caret-position="567">
+          <caret line="33" column="107" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/games/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>

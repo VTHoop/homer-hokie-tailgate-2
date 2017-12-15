@@ -46,7 +46,7 @@ class Game(object):
 
     @classmethod
     def get_games_by_year(cls, year):
-        return [cls(**elem) for elem in Database.find(GameConstants.COLLECTION, {"year": year})]
+        return [cls(**elem) for elem in Database.find_and_sort(GameConstants.COLLECTION, {"year": year}, [("date", 1)])]
 
     @classmethod
     def get_all_games(cls):
