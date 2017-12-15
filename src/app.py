@@ -45,9 +45,11 @@ def init_db():
     #     wt.save_to_mongo()
     # for ht in HaveTicket.get_all_havetickets():
     #     ht.save_to_mongo()
-    # user_games = UserGame.get_all_usergames()
-    # for ug in user_games:
-    #     ug.save_to_mongo()
+    for g in Game.get_all_games():
+        g.save_to_mongo()
+    for ug in UserGame.get_all_usergames():
+        ug.save_to_mongo()
+
 
 @app.route('/')
 def home():
