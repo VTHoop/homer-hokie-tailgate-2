@@ -11,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="708">
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_game.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+              <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -189,10 +189,10 @@
         <option value="$PROJECT_DIR$/src/models/have_tickets/have_ticket.py" />
         <option value="$PROJECT_DIR$/src/models/game_food/food.py" />
         <option value="$PROJECT_DIR$/src/models/want_tickets/want_ticket.py" />
-        <option value="$PROJECT_DIR$/src/models/user_games/user_game.py" />
         <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
         <option value="$PROJECT_DIR$/src/models/games/game.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
+        <option value="$PROJECT_DIR$/src/models/user_games/user_game.py" />
       </list>
     </option>
   </component>
@@ -898,14 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/team_years/team_year.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -931,6 +923,14 @@
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
