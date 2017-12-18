@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/games/game.py" afterPath="$PROJECT_DIR$/src/models/games/game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/games/views.py" afterPath="$PROJECT_DIR$/src/models/games/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/user_games/user_game.py" afterPath="$PROJECT_DIR$/src/models/user_games/user_game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/user_games/views.py" afterPath="$PROJECT_DIR$/src/models/user_games/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" afterPath="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" afterPath="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" afterPath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="416">
+              <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -25,25 +31,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.py">
+      <file leaf-file-name="edit_game.jinja2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/games/edit_game.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="1575">
+              <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="have_ticket.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/have_tickets/have_ticket.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#241#247#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,19 +46,53 @@
       <file leaf-file-name="user_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="33" column="107" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="107" />
+            <state relative-caret-position="521">
+              <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/games/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="336">
+              <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="55" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="year.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/years/year.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_scores.jinja2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+              <folding>
+                <element signature="e#152#158#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="18" column="82" lean-forward="true" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -81,25 +109,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="food.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/game_food/food.py">
+      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="43" column="90" lean-forward="true" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="90" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="want_ticket.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/want_tickets/want_ticket.py">
+      <file leaf-file-name="admin_schedule.jinja2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+            <state relative-caret-position="609">
+              <caret line="29" column="58" lean-forward="false" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#119#125#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,19 +208,14 @@
         <option value="$PROJECT_DIR$/src/models/years.py" />
         <option value="$PROJECT_DIR$/src/models/years/constants.py" />
         <option value="$PROJECT_DIR$/src/models/team_years/constants.py" />
-        <option value="$PROJECT_DIR$/src/models/years/year.py" />
         <option value="$PROJECT_DIR$/src/models/locations/constants.py" />
         <option value="$PROJECT_DIR$/src/models/team_years/team_year.py" />
         <option value="$PROJECT_DIR$/src/common/database.py" />
         <option value="$PROJECT_DIR$/src/models/teams/team.py" />
         <option value="$PROJECT_DIR$/src/models/locations/location.py" />
         <option value="$PROJECT_DIR$/src/templates/base_logged_in.jinja2" />
-        <option value="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/games/edit_game.jinja2" />
-        <option value="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" />
         <option value="$PROJECT_DIR$/src/models/users/views.py" />
-        <option value="$PROJECT_DIR$/src/models/games/views.py" />
-        <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/src/models/game_food/views.py" />
         <option value="$PROJECT_DIR$/src/models/have_tickets/views.py" />
         <option value="$PROJECT_DIR$/src/models/want_tickets/views.py" />
@@ -203,10 +224,15 @@
         <option value="$PROJECT_DIR$/src/models/have_tickets/have_ticket.py" />
         <option value="$PROJECT_DIR$/src/models/game_food/food.py" />
         <option value="$PROJECT_DIR$/src/models/want_tickets/want_ticket.py" />
-        <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
-        <option value="$PROJECT_DIR$/src/app.py" />
+        <option value="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" />
+        <option value="$PROJECT_DIR$/src/models/years/year.py" />
         <option value="$PROJECT_DIR$/src/models/user_games/user_game.py" />
+        <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
+        <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
+        <option value="$PROJECT_DIR$/src/models/games/views.py" />
+        <option value="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" />
         <option value="$PROJECT_DIR$/src/models/games/game.py" />
+        <option value="$PROJECT_DIR$/src/app.py" />
       </list>
     </option>
   </component>
@@ -276,6 +302,40 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="games" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="years" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="games" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="user_games" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -425,7 +485,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3285928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -581,16 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/years/year.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/base_logged_out.jinja2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -636,24 +686,6 @@
         <state relative-caret-position="357">
           <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="57" column="15" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="57" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/games/edit_game.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="103" column="113" lean-forward="true" selection-start-line="103" selection-start-column="113" selection-end-line="103" selection-end-column="113" />
-          <folding>
-            <element signature="e#241#247#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,16 +750,8 @@
         <state relative-caret-position="420">
           <caret line="26" column="50" lean-forward="false" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,16 +768,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="176" column="71" lean-forward="false" selection-start-line="176" selection-start-column="71" selection-end-line="176" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,10 +802,10 @@
         <state relative-caret-position="308">
           <caret line="424" column="40" lean-forward="true" selection-start-line="424" selection-start-column="40" selection-end-line="424" selection-end-column="40" />
           <folding>
-            <element signature="e#10773#10780#1" expanded="true" />
-            <element signature="e#15815#15822#1" expanded="true" />
-            <element signature="e#19658#19665#1" expanded="true" />
-            <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#form#0;n#div#1;n#div#4;n#div#0;n#div#4;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#10773#10780#1" expanded="false" />
+            <element signature="e#15815#15822#1" expanded="false" />
+            <element signature="e#19658#19665#1" expanded="false" />
+            <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#form#0;n#div#1;n#div#4;n#div#0;n#div#4;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -807,7 +823,7 @@
         <state relative-caret-position="273">
           <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -817,27 +833,7 @@
         <state relative-caret-position="210">
           <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/want_tickets/want_ticket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -847,44 +843,110 @@
         <state relative-caret-position="290">
           <caret line="83" column="33" lean-forward="true" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
+    <entry file="file://$PROJECT_DIR$/src/templates/games/edit_game.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="1575">
+          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#241#247#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/want_tickets/want_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+          <folding>
+            <element signature="e#152#158#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/years/year.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="82" lean-forward="true" selection-start-line="18" selection-start-column="82" selection-end-line="18" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="416">
+          <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user_games/user_game.py">
+    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="33" column="107" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="107" />
+        <state relative-caret-position="360">
+          <caret line="43" column="90" lean-forward="true" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="90" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="58" lean-forward="false" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="e#119#125#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/games/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="336">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

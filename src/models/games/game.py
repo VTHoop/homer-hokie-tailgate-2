@@ -25,7 +25,7 @@ class Game(object):
             location['_id'])
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
         self.year = Year.get_year_by_id(year)
-        self.date = datetime.strftime(datetime.strptime(date, "%m/%d/%Y"), "%m/%d/%Y")
+        self.date = datetime.strptime(date, "%m/%d/%Y")
         self.time = 'TBD' if time == 'TBD' else datetime.strftime(datetime.strptime(time, "%I:%M %p"), "%I:%M %p")
         self.hht_theme = hht_theme
         self.theme = theme

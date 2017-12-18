@@ -8,7 +8,7 @@ import src.models.user_games.constants as UserGameConstants
 
 __author__ = 'hooper-p'
 
-#this needs to be resolved
+
 class UserGame(object):
     def __init__(self, user, game, game_date, attendance, home_score, away_score, admin_enter=None, _id=None):
         self.user = User.get_user_by_id(user['_id'])
@@ -28,10 +28,14 @@ class UserGame(object):
     def get_all_usergames(cls):
         return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {})]
 
+    # need to only pull current year
     @classmethod
-    def get_attendance_by_user(cls, user):
+    def get_attendance_by_user(cls, user, beg_date, end_date):
         return [cls(**elem) for elem in
-                Database.find_and_sort(UserGameConstants.COLLECTION, {"user._id": user}, [("game_date", 1)])]
+                Database.find_and_sort(UserGameConstants.COLLECTION,
+                                       {"user._id": user,
+                                        "game_date": {'$lte': end_date, '$gte': beg_date}},
+                                       [("game_date", 1)])]
 
     @classmethod
     def get_attendance_by_game(cls, game):

@@ -23,7 +23,7 @@ def detail(game_id):
 
     this_game = Game.get_game_by_id(game_id)
     # format the date for the detail screen
-    this_game.date = datetime.strftime(datetime.strptime(this_game.date, "%m/%d/%Y"), "%B %d")
+    this_game.date = this_game.date.strftime("%B %d")
 
     # getting attendance for each type to pass along to template
     yes_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'Yes')
@@ -52,6 +52,13 @@ def admin_schedule():
 
 @games_blueprint.route('/admin/edit/<string:game_id>', methods=['GET', 'POST'])
 def edit_game(game_id):
+    if request.method == 'POST':
+        game = Game.get_game_by_id(game_id)
+        game.location = Location.get_location_by_id(request.form['location'])
+        game.stadium = request.form['stadium']
+        game.hht_theme = request.form['hht_theme']
+        game.save_to_mongo()
+
     game = Game.get_game_by_id(game_id)
     teams = Team.get_teams()
     locations = Location.get_all_locations()
