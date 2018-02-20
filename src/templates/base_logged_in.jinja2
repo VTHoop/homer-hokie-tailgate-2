@@ -14,6 +14,9 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/trix.css') }}">
+
 </head>
 
 
@@ -32,7 +35,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a type=button" class="btn btn-outline-orange dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    <a type=button" class="btn btn-outline-orange dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-wrench"></i> Admin
                     </a>
@@ -77,6 +81,7 @@
 <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/v4-shims.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/trix.js') }}"></script>
 <!--your other font awesome references-->
 
 

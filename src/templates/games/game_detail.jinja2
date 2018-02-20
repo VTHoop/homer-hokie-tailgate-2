@@ -83,7 +83,22 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="hht-preview" role="tabpanel" aria-labelledby="list-hht-preview-list">
-                Pop's Email
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {% if not preview %}
+                                The preview for this game has not been posted yet.  Please check back later.
+                            {% else %}
+                                {% for p in preview %}
+                                    {{ p.preview }}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="list-attendees-list">
@@ -153,7 +168,8 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade {% if active_page == 'food' %}show active{% endif %}" id="food" role="tabpanel"
+            <div class="tab-pane fade {% if active_page == 'food' %}show active{% endif %}" id="food"
+                 role="tabpanel"
                  aria-labelledby="list-food-list">
                 <div class="container">
                     <div class="row">
@@ -188,7 +204,8 @@
                                     <form method="post"
                                           action="{{ url_for('game_food.add_food', game_id=game._id) }}">
                                         <div class="form-group">
-                                            <label class="col-form-label" for="game_food">What can your tailgate plan on
+                                            <label class="col-form-label" for="game_food">What can your tailgate
+                                                plan on
                                                 enjoying?</label>
                                             <input class="form-control" type="text" name="game_food" id="game_food"
                                                    placeholder="Ex: Baked Beans">
@@ -268,7 +285,8 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="haveTicketsLabel">What do you have to
                                                 offer?</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -321,7 +339,8 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="wantTicketsLabel">Tell the people what you
                                                 need</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>

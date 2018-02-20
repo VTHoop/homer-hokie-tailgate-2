@@ -28,7 +28,10 @@ class UserGame(object):
     def get_all_usergames(cls):
         return [cls(**elem) for elem in Database.find(UserGameConstants.COLLECTION, {})]
 
-    # need to only pull current year
+    @classmethod
+    def get_usergame_by_id(cls, _id):
+        return cls(**Database.find_one(UserGameConstants.COLLECTION, {"_id": _id}))
+
     @classmethod
     def get_attendance_by_user(cls, user, beg_date, end_date):
         return [cls(**elem) for elem in

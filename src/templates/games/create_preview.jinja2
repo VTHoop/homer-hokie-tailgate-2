@@ -1,0 +1,26 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="container">
+    <form method="post">
+        <div>
+            <a href="{{ url_for('games.admin_schedule') }}" type="button" class="btn btn-primary"><i
+                    class="fas fa-arrow-alt-circle-left"></i> Back
+            </a>
+        </div>
+        <br>
+        <input id="preview" value="Editor content goes here" type="hidden" name="content">
+        <trix-editor input="preview">
+
+        </trix-editor>
+        <br>
+        <button class='btn btn-outline-success float-right' name='save' type='submit'>
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> Update Preview
+        </button>
+
+    </form>
+</div>
+
+{% endblock %}

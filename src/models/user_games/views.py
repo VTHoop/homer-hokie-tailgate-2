@@ -27,9 +27,11 @@ def user_dashboard():
 @user_games_blueprint.route('/admin/editscores/<string:game_id>', methods=['GET', 'POST'])
 def admin_edit_scores(game_id):
     if request.method == 'POST':
-        pass
-    else:
-        pass
+        usergame = UserGame.get_usergame_by_id(request.form['usergame'])
+        usergame.home_score = request.form['home_score' + usergame._id]
+        usergame.away_score = request.form['away_score' + usergame._id]
+        usergame.admin_enter = 'Yes'
+        usergame.save_to_mongo()
 
     scores = UserGame.get_attendance_by_game(game_id)
     return render_template("user_games/edit_scores.jinja2", scores=scores)

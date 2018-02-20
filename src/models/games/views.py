@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from src.models.game_food.food import Food
+from src.models.game_preview.preview import Preview
 from src.models.games.game import Game
 from src.models.have_tickets.have_ticket import HaveTicket
 from src.models.locations.location import Location
@@ -30,6 +31,9 @@ def detail(game_id):
     maybe_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'Maybe')
     no_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'No')
 
+    # get preview for game
+    preview = Preview.get_preview_by_game(game_id)
+
     # get food for game
     food_for_game = Food.get_food_by_game(game_id)
 
@@ -39,7 +43,7 @@ def detail(game_id):
     # get want_tickets for game
     want_tickets_for_game = WantTicket.get_wanttickets_by_game(game_id)
 
-    return render_template("games/game_detail.jinja2", game=this_game, yes_attendance=yes_attendance,
+    return render_template("games/game_detail.jinja2", game=this_game, preview=preview, yes_attendance=yes_attendance,
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,
                            have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game,
                            user=user)

@@ -15,78 +15,81 @@
                     <table class="table table-striped">
                         <thead>
                         <tr class="row text-center">
-                            <th scope="col" class="col-md-2">Name</th>
-                            <th scope="col" class="col-md-3">Score</th>
-                            <th scope="col" class="col-md-5"></th>
+                            <th scope="col" class="col-md-4">Name</th>
+                            <th scope="col" class="col-md-5">Score</th>
+                            <th scope="col" class="col-md-3"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for score in scores %}
                         <tr class="row text-center">
-                            <th class="col-md-2">{{ score.user.f_name }}</th>
-                            <td class="col-md-3">
-                                {% if score.game.home_team.team.school_name == 'Virginia Tech' %}
-                                <td>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">
-                                                    <strong>{{ score.game.home_team.team.short_name}}&nbsp;</strong>
-                                                </label>
-                                                <div class="col-sm-8">
-
-                                                    <input class="form-control" type="text"
-                                                           name="home_score{{ score.game.game_num }}"
-                                                           value="{{ score.home_score }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">
-                                                    <strong>{{ score.game.away_team.team.short_name }}&nbsp;</strong></label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" type="text"
-                                                           name="away_score{{ score.game.game_num }}"
-                                                           value="{{ score.away_score }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                {% else %}
-                                <td>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">
-                                                    <strong>{{ score.game.away_team.team.short_name}}&nbsp;</strong>
-                                                </label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" type="text"
-                                                           name="away_score{{ score.game.game_num }}"
-                                                           value="{{ score.away_score }}">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">
-                                                    <strong>{{ score.game.home_team.team.short_name }}&nbsp;</strong></label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control" type="text"
-                                                           name="home_score{{ score.game.game_num }}"
-                                                           value="{{ score.home_score }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            {% endif %}
-                            </td>
+                            <th class="col-md-4">{{ score.user.f_name }} {{ score.user.l_name }}</th>
                             <td class="col-md-5">
-                                <button type="submit" class='btn btn-hokie'>
+
+                                {% if score.game.home_team.team.school_name == 'Virginia Tech' %}
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">
+                                                <strong>{{ score.game.home_team.team.short_name}}&nbsp;</strong>
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text"
+                                                       name="home_score{{ score._id }}"
+                                                       value="{{ score.home_score }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">
+                                                <strong>{{ score.game.away_team.team.short_name
+                                                    }}&nbsp;</strong></label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text"
+                                                       name="away_score{{ score._id }}"
+                                                       value="{{ score.away_score }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">
+                                                <strong>{{ score.game.away_team.team.short_name}}&nbsp;</strong>
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text"
+                                                       name="away_score{{ score._id }}"
+                                                       value="{{ score.away_score }}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">
+                                                <strong>{{ score.game.home_team.team.short_name
+                                                    }}&nbsp;</strong></label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text"
+                                                       name="home_score{{ score._id }}"
+                                                       value="{{ score.home_score }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endif %}
+                            </td>
+
+                            <td class="col-md-3">
+                                <button type="submit" class='btn btn-hokie' name='usergame' value="{{ score._id }}">
                                     <i class="fas fa-save"></i> Save
                                 </button>
                             </td>

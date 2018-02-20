@@ -324,3 +324,11 @@ box-shadow:0 0 0 .2rem rgba(255, 102, 0,.3)}
 #breadcrumb li a:active:after {
   border-left-color: #FF6600;
 }
+*/
+#editor-container {
+  height: 350px;
+}
+
+#form-container {
+  width: 500px;
+}

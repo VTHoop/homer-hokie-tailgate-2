@@ -17,6 +17,7 @@ from src.models.game_food.views import gamefood_blueprint
 from src.models.games.views import games_blueprint
 from src.models.want_tickets.views import wanttickets_blueprint
 from src.models.user_games.views import user_games_blueprint
+from src.models.game_preview.views import preview_blueprint
 
 app = Flask(__name__)
 app.config.from_object('src.config')
@@ -29,6 +30,7 @@ app.register_blueprint(wanttickets_blueprint, url_prefix='/wanttickets')
 app.register_blueprint(gamefood_blueprint, url_prefix='/gamefood')
 app.register_blueprint(games_blueprint, url_prefix='/games')
 app.register_blueprint(user_games_blueprint, url_prefix='/dashboard')
+app.register_blueprint(preview_blueprint, url_prefix='/preview')
 
 
 @app.before_first_request
@@ -47,8 +49,8 @@ def init_db():
     #     ht.save_to_mongo()
     # for g in Game.get_all_games():
     #     g.save_to_mongo()
-    for ug in UserGame.get_all_usergames():
-        ug.save_to_mongo()
+    # for ug in UserGame.get_all_usergames():
+    #     ug.save_to_mongo()
 
 
 @app.route('/')
