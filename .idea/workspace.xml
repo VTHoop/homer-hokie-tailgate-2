@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/css/trix.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/js/trix-core.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/js/trix.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/templates/games/create_preview.jinja2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/templates/games/edit_preview.jinja2" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" afterPath="$PROJECT_DIR$/src/app.py" />
-      <change beforePath="$PROJECT_DIR$/src/models/game_preview/preview.py" afterPath="$PROJECT_DIR$/src/models/game_preview/preview.py" />
-      <change beforePath="$PROJECT_DIR$/src/models/game_preview/views.py" afterPath="$PROJECT_DIR$/src/models/game_preview/views.py" />
-      <change beforePath="$PROJECT_DIR$/src/models/games/views.py" afterPath="$PROJECT_DIR$/src/models/games/views.py" />
-      <change beforePath="$PROJECT_DIR$/src/models/user_games/user_game.py" afterPath="$PROJECT_DIR$/src/models/user_games/user_game.py" />
-      <change beforePath="$PROJECT_DIR$/src/models/user_games/views.py" afterPath="$PROJECT_DIR$/src/models/user_games/views.py" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/main.css" afterPath="$PROJECT_DIR$/src/static/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/src/templates/base_logged_in.jinja2" afterPath="$PROJECT_DIR$/src/templates/base_logged_in.jinja2" />
-      <change beforePath="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" afterPath="$PROJECT_DIR$/src/templates/games/admin_schedule.jinja2" />
-      <change beforePath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" afterPath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" />
-      <change beforePath="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" afterPath="$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2" />
+      <change beforePath="$PROJECT_DIR$/src/templates/games/create_preview.jinja2" afterPath="$PROJECT_DIR$/src/templates/games/create_preview.jinja2" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,8 +73,8 @@
       <file leaf-file-name="create_preview.jinja2" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/games/create_preview.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="399">
+              <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
               <folding>
                 <element signature="e#64#70#1" expanded="true" />
                 <element signature="e#82#88#1" expanded="true" />
@@ -871,16 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/game_preview/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="84" lean-forward="false" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/games/edit_game.jinja2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -918,10 +892,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/game_preview/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="84" lean-forward="false" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/games/create_preview.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="399">
+          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
           <folding>
             <element signature="e#64#70#1" expanded="true" />
             <element signature="e#82#88#1" expanded="true" />
