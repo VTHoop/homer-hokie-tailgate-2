@@ -1,0 +1,116 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<form method='post'>
+    <div class="container">
+        <main role="main">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <a href="{{ url_for('games.admin_schedule') }}" type="button" class="btn btn-primary"><i
+                                    class="fas fa-arrow-alt-circle-left"></i> Back
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 text-center page-title">
+                            <h1>Create Team Year</h1>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 start-date">
+                            <label class="col-form-label" for="team"><strong>Team</strong></label>
+                            <select class="form-control custom-select" name="team" id="team">
+                                {% for t in teams %}
+                                <option value="{{ t.school_name }}">{{ t.school_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 end-date">
+                            <label class="col-form-label" for="year"><strong>Year</strong></label>
+                            <select class="form-control custom-select" name="year" id="year">
+                                {% for y in years %}
+                                <option value="{{ y._id }}">{{ y.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 year-label">
+                            <label class="col-form-label" for="conf"><strong>Conference</strong></label>
+                            <input type="text" name="conf" id="conf" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 year-label">
+                            <label class="col-form-label" for="wins"><strong>Wins</strong></label>
+                            <input type="text" name="wins" id="wins" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 year-label">
+                            <label class="col-form-label" for="losses"><strong>Losses</strong></label>
+                            <input type="text" name="losses" id="losses" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 game-location">
+                            <label class="col-form-label" for="conf_wins"><strong>Conf Wins</strong></label>
+                            <input type="text" name="conf_wins" id="conf_wins" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 year-label">
+                            <label class="col-form-label" for="conf_losses"><strong>Conf Losses</strong></label>
+                            <input type="text" name="conf_losses" id="conf_losses" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 year-label">
+                            <label class="col-form-label" for="rank"><strong>AP Rank</strong></label>
+                            <input type="text" name="rank" id="rank" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <button class='btn btn-outline-success btn-lg float-right' name='save' type='submit'><i
+                                    class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
+                            </button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</form>
+
+
+{% endblock %}

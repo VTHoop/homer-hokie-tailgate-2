@@ -10,6 +10,7 @@ from src.models.user_games.user_game import UserGame
 
 from flask import Blueprint, render_template, request, session
 
+from src.models.users.user import User
 from src.models.want_tickets.want_ticket import WantTicket
 from src.models.years.year import Year
 
@@ -70,3 +71,37 @@ def edit_game(game_id):
     stadiums.sort()
 
     return render_template("games/edit_game.jinja2", teams=teams, game=game, locations=locations, stadiums=stadiums)
+
+
+@games_blueprint.route('/admin/create/', methods=['GET', 'POST'])
+def create_game():
+    if request.method == 'POST':
+        new_game = Game(game_num=request.form['game_num'],
+                        away_team=request.form['away_team'],
+                        home_team=request.form['home_team'],
+                        year=request.form['year'],
+                        location=Location.get_location_by_id(request.form['location']).json(),
+                        stadium=request.form['stadium'],
+                        date=datetime.strptime(request.form['date'], "%m/%d/%Y"))
+        new_game.save_to_mongo()
+        users = User.get_all_users()
+        if new_game.location.city == 'Blacksburg':
+            attendance = 'Yes'
+        else:
+            attendance = 'No'
+        for u in users:
+            UserGame(user=u.json(),
+                     game=new_game._id,
+                     attendance=attendance,
+                     game_date=None,
+                     home_score=0,
+                     away_score=0
+                     ).save_to_mongo()
+
+    years = Year.get_all_years()
+    teams = Team.get_teams()
+    locations = Location.get_all_locations()
+    stadiums = Game.get_all_stadiums()
+    stadiums.sort()
+
+    return render_template("games/create_game.jinja2", teams=teams, locations=locations, stadiums=stadiums, years=years)

@@ -28,6 +28,10 @@ class Year(object):
     def get_year_by_id(cls, _id):
         return cls(**Database.find_one(YearConstants.COLLECTION, {"_id": _id}))
 
+    @classmethod
+    def get_all_years(cls):
+        return [cls(**elem) for elem in Database.find(YearConstants.COLLECTION, {})]
+
     def save_to_mongo(self):
         Database.update(YearConstants.COLLECTION, {"_id": self._id}, self.json())
 

@@ -18,6 +18,10 @@ from src.models.games.views import games_blueprint
 from src.models.want_tickets.views import wanttickets_blueprint
 from src.models.user_games.views import user_games_blueprint
 from src.models.game_preview.views import preview_blueprint
+from src.models.years.views import years_blueprint
+from src.models.locations.views import locations_blueprint
+from src.models.teams.views import teams_blueprint
+from src.models.team_years.views import team_years_blueprint
 
 app = Flask(__name__)
 app.config.from_object('src.config')
@@ -31,12 +35,17 @@ app.register_blueprint(gamefood_blueprint, url_prefix='/gamefood')
 app.register_blueprint(games_blueprint, url_prefix='/games')
 app.register_blueprint(user_games_blueprint, url_prefix='/dashboard')
 app.register_blueprint(preview_blueprint, url_prefix='/preview')
+app.register_blueprint(years_blueprint, url_prefix='/year')
+app.register_blueprint(locations_blueprint, url_prefix='/location')
+app.register_blueprint(teams_blueprint, url_prefix='/team')
+app.register_blueprint(team_years_blueprint, url_prefix='/teamyear')
 
 
 @app.before_first_request
 def init_db():
     Database.initialize()
-    # Game.load_game_tv()
+
+    Game.load_game_tv()
     TeamYear.update_teams()
 
     # dev cleanup work
@@ -51,6 +60,8 @@ def init_db():
     #     g.save_to_mongo()
     # for ug in UserGame.get_all_usergames():
     #     ug.save_to_mongo()
+    # for ty in TeamYear.get_all_teamyears():
+    #     ty.save_to_mongo()
 
 
 @app.route('/')

@@ -18,8 +18,8 @@ class Game(object):
     def __init__(self, game_num, home_team, away_team, year, date=None, time='TBD', location=None, stadium=None,
                  theme=None, hht_theme=None, TV=None, _id=None):
         self.game_num = game_num
-        self.home_team = TeamYear.get_by_school_name_and_year(home_team, year)
-        self.away_team = TeamYear.get_by_school_name_and_year(away_team, year)
+        self.home_team = TeamYear.get_by_hokie_sports_name_and_year(home_team, year)
+        self.away_team = TeamYear.get_by_hokie_sports_name_and_year(away_team, year)
         self.location = Location.get_location_by_id(
             Team.get_by_school_name(home_team).location._id) if location is None else Location.get_location_by_id(
             location['_id'])
@@ -58,15 +58,14 @@ class Game(object):
 
     @classmethod
     def get_game_by_opponent(cls, opponent):
-        team = Database.find_one(GameConstants.COLLECTION, {"home_team": opponent})
-        if team is not None:
+        if Database.find_one(GameConstants.COLLECTION, {"home_team": opponent}):
             return cls(**Database.find_one(GameConstants.COLLECTION, {"home_team": opponent}))
         else:
             return cls(**Database.find_one(GameConstants.COLLECTION, {"away_team": opponent}))
 
     @staticmethod
     def load_game_tv():
-        link = "http://www.hokiesports.com/football/schedule/"
+        link = "http://www.hokiesports.com/football/schedule/2017"
         request = requests.get(link)
         content = request.content
 
@@ -78,6 +77,7 @@ class Game(object):
             # get tag that has opponent name
             opponent_name = o.find("a")
             # get game with opponent
+            # print(opponent_name.text)
             game = Game.get_game_by_opponent(opponent_name.text)
             get_parent_tag = opponent_name.parent.parent.parent
             get_next_sibling = get_parent_tag.find_next_sibling()
@@ -91,8 +91,8 @@ class Game(object):
     def json(self):
         return {
             "game_num": int(self.game_num),
-            "home_team": self.home_team.team.school_name,
-            "away_team": self.away_team.team.school_name,
+            "home_team": self.home_team.team.hokie_sports_name,
+            "away_team": self.away_team.team.hokie_sports_name,
             "year": self.year._id,
             "date": self.date,
             "time": self.time,

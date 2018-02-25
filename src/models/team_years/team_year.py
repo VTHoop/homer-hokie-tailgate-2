@@ -17,7 +17,7 @@ __author__ = 'hooper-p'
 class TeamYear(object):
     def __init__(self, team, year, wins=0, losses=0, conf_wins=0, conf_losses=0, ap_rank=None, conference=None,
                  _id=None):
-        self.team = Team.get_by_school_name(team)
+        self.team = Team.get_by_school_name(team['school_name'])
         self.year = Year.get_year_by_id(year['_id'])
         self.wins = wins
         self.losses = losses
@@ -35,7 +35,7 @@ class TeamYear(object):
 
     def json(self):
         return {
-            "team": self.team.school_name,
+            "team": self.team.json(),
             "year": self.year.json(),
             "wins": self.wins,
             "losses": self.losses,
@@ -52,7 +52,11 @@ class TeamYear(object):
 
     @classmethod
     def get_by_school_name_and_year(cls, sn, year):
-        return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team": sn, "year._id": year}))
+        return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team.school_name": sn, "year._id": year}))
+
+    @classmethod
+    def get_by_hokie_sports_name_and_year(cls, sn, year):
+        return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team.hokie_sports_name": sn, "year._id": year}))
 
     @classmethod
     def get_by_school_name_and_current_year(cls, sn):

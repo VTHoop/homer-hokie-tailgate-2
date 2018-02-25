@@ -11,8 +11,9 @@ __author__ = 'hooper-p'
 
 
 class Team(object):
-    def __init__(self, school_name, logo=None, location=None, stadium=None, short_name=None, mascot=None, _id=None):
+    def __init__(self, school_name, hokie_sports_name=None, logo=None, location=None, stadium=None, short_name=None, mascot=None, _id=None):
         self.school_name = school_name
+        self.hokie_sports_name = hokie_sports_name
         self.mascot = mascot
         self.short_name = short_name
         self.logo = logo
@@ -37,6 +38,7 @@ class Team(object):
     def json(self):
         return {
             "school_name": self.school_name,
+            "hokie_sports_name": self.hokie_sports_name,
             "mascot": self.mascot,
             "short_name": self.short_name,
             "logo": self.logo,

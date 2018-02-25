@@ -1,0 +1,130 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+<form method='post'>
+    <div class="container">
+        <main role="main">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <a href="{{ url_for('games.admin_schedule') }}" type="button" class="btn btn-primary"><i
+                                    class="fas fa-arrow-alt-circle-left"></i> Back
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 text-center page-title">
+                            <h1>Edit Game</h1>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 away-team">
+                            <label class="col-form-label" for="year"><strong>Year</strong></label>
+                            <div class="input-group">
+                                <select class="form-control custom-select" name="year" id="year">
+                                    {% for y in years %}
+                                    <option value="{{ y._id }}">{{ y.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 away-team">
+                            <label class="col-form-label" for="away_team"><strong>Away Team</strong></label>
+                            <select class="form-control custom-select" name="away_team" id="away_team">
+                                {% for at in teams %}
+                                <option value="{{ at.hokie_sports_name }}">{{ at.school_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 home-team">
+                            <label class="col-form-label" for="home_team"><strong>Home Team</strong></label>
+                            <select class="form-control custom-select" name="home_team" id="home_team">
+                                {% for ht in teams %}
+                                <option value="{{ ht.hokie_sports_name }}">{{ ht.school_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 game_num">
+                            <label class="col-form-label" for="game_num"><strong>Game Num</strong></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="game_num" id="game_num">
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 game-location">
+                            <label class="col-form-label" for="location"><strong>Location</strong></label>
+                            <select class="form-control custom-select" name="location" id="location">
+                                {% for l in locations %}
+                                <option value="{{ l._id }}">{{ l.city }}, {{ l.state}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 game-stadium">
+                            <label class="col-form-label" for="stadium"><strong>Stadium</strong></label>
+                            <select class="form-control custom-select" name="stadium" id="stadium">
+                                {% for s in stadiums %}
+                                <option value="{{ s }}">{{ s }}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 date">
+                            <label class="col-form-label" for="date"><strong>Date</strong></label>
+                            <input type="text" name="date" id="date" class="form-control"
+                                   placeholder="03/01/2018">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="form-group col-md-6 game-hht-theme">
+                            <label class="col-form-label" for="hht_theme"><strong>HHT Theme</strong></label>
+                            <input type="text" name="hht_theme" id="hht_theme" class="form-control">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <button class='btn btn-outline-success btn-lg float-right' name='save' type='submit'><i
+                                    class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
+                            </button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</form>
+
+{% endblock %}

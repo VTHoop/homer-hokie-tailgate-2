@@ -29,6 +29,10 @@ class User(object):
         return "User {} has a given name of {} {}".format(self.email, self.f_name, self.l_name)
 
     @classmethod
+    def get_all_users(cls):
+        return [cls(**elem) for elem in Database.find(UserConstants.COLLECTION, {})]
+
+    @classmethod
     def get_user_by_email(cls, email):
         user = Database.find_one(UserConstants.COLLECTION, {"email": email})
         return cls(**user if user is not None else None)
