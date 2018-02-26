@@ -16,7 +16,7 @@ __author__ = 'hooper-p'
 
 class Game(object):
     def __init__(self, game_num, home_team, away_team, year, date=None, time='TBD', location=None, stadium=None,
-                 theme=None, hht_theme=None, TV=None, _id=None):
+                 theme=None, hht_theme=None, TV=None, home_score=0, away_score=0, _id=None):
         self.game_num = game_num
         self.home_team = TeamYear.get_by_hokie_sports_name_and_year(home_team, year)
         self.away_team = TeamYear.get_by_hokie_sports_name_and_year(away_team, year)
@@ -30,6 +30,8 @@ class Game(object):
         self.hht_theme = hht_theme
         self.theme = theme
         self.TV = TV
+        self.home_score = home_score
+        self.away_score = away_score
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -64,8 +66,63 @@ class Game(object):
             return cls(**Database.find_one(GameConstants.COLLECTION, {"away_team": opponent}))
 
     @staticmethod
-    def load_game_tv():
-        link = "http://www.hokiesports.com/football/schedule/2017"
+    def get_game_tv(opponent_name):
+        # get game with opponent
+        # ignore spring game and other games not defined
+        if Database.find_one(GameConstants.COLLECTION,
+                             {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
+            game = Game.get_game_by_opponent(opponent_name.text)
+            get_parent_tag = opponent_name.parent.parent.parent
+            get_next_sibling = get_parent_tag.find_next_sibling()
+            tv = get_next_sibling.find("img")
+            game.TV = tv['alt']
+            game.save_to_mongo()
+
+    @staticmethod
+    def get_game_time(opponent_name):
+        # get game with opponent
+        # ignore spring game and other games not defined
+        if Database.find_one(GameConstants.COLLECTION,
+                             {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
+            game = Game.get_game_by_opponent(opponent_name.text)
+            get_parent_tag = opponent_name.parent.parent.parent
+            get_schedule_date = get_parent_tag.find("span", {"class": "schedule-date"})
+            unformatted_time = get_schedule_date.text[get_schedule_date.text.find("/")+2:]
+            if unformatted_time == 'TBD':
+                game.time = 'TBD'
+            elif len(unformatted_time) == 4:
+                game.time = datetime.strftime(datetime.strptime(unformatted_time, "%I %p"), "%I:%M %p")
+            else:
+                game.time = datetime.strftime(datetime.strptime(unformatted_time, "%I:%M %p"), "%I:%M %p")
+            game.save_to_mongo()
+
+    @staticmethod
+    def get_game_score(opponent_name):
+        # get game with opponent
+        # ignore spring game and other games not defined
+        # get game with opponent
+        # ignore spring game and other games not defined
+        if Database.find_one(GameConstants.COLLECTION,
+                             {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
+            game = Game.get_game_by_opponent(opponent_name.text)
+            get_parent_tag = opponent_name.parent.parent.parent
+            get_next_sibling = get_parent_tag.find_next_sibling().find_next_sibling()
+            raw_score = get_next_sibling.find("span", {"class": "schedule-score"})
+            game_score = raw_score.text[raw_score.text.find(",")+2:]
+
+            if game.away_team.team.school_name == 'Virginia Tech':
+                game.away_score = game_score[:game_score.find("-")]
+                game.home_score = game_score[game_score.find("-")+1:]
+            else:
+                game.home_score = game_score[:game_score.find("-")]
+                game.away_score = game_score[game_score.find("-")+1:]
+            game.save_to_mongo()
+
+    @staticmethod
+    def load_game_details():
+        # start date of current year object will determine the schedule pulled from hokiesports.com
+        year_for_link = Year.get_current_year().start_date.strftime('%Y')
+        link = "http://www.hokiesports.com/football/schedule/"+year_for_link
         request = requests.get(link)
         content = request.content
 
@@ -75,15 +132,9 @@ class Game(object):
 
         for o in opponents:
             # get tag that has opponent name
-            opponent_name = o.find("a")
-            # get game with opponent
-            # print(opponent_name.text)
-            game = Game.get_game_by_opponent(opponent_name.text)
-            get_parent_tag = opponent_name.parent.parent.parent
-            get_next_sibling = get_parent_tag.find_next_sibling()
-            tv = get_next_sibling.find("img")
-            game.TV = tv['alt']
-            game.save_to_mongo()
+            Game.get_game_tv(o.find("a"))
+            Game.get_game_time(o.find("a"))
+            Game.get_game_score(o.find("a"))
 
     def save_to_mongo(self):
         Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
@@ -101,5 +152,7 @@ class Game(object):
             "theme": self.theme,
             "hht_theme": self.hht_theme,
             "TV": self.TV,
+            "home_score": self.home_score,
+            "away_score": self.away_score,
             "_id": self._id
         }

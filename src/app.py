@@ -45,7 +45,7 @@ app.register_blueprint(team_years_blueprint, url_prefix='/teamyear')
 def init_db():
     Database.initialize()
 
-    Game.load_game_tv()
+    Game.load_game_details()
     TeamYear.update_teams()
 
     # dev cleanup work
