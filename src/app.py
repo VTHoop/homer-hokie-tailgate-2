@@ -49,13 +49,13 @@ def init_db():
 
     # Game.load_game_details()
     # TeamYear.update_teams()
-
-    for ug in UserGame.get_all_usergames():
-        ug.score_updated_on = datetime.datetime.now()
-        ug.points_updated_on = None
-        ug.save_to_mongo()
-
-    UserGame.update_user_points()
+    #
+    # for ug in UserGame.get_all_usergames():
+    #     ug.score_updated_on = datetime.datetime.now()
+    #     ug.points_updated_on = None
+    #     ug.save_to_mongo()
+    #
+    # UserGame.update_user_points()
 
     # dev cleanup work
     # game_foods = Food.get_all_food()
