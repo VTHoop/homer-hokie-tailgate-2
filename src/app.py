@@ -51,7 +51,7 @@ def init_db():
     TeamYear.update_teams()
 
     for ug in UserGame.get_all_usergames():
-        # ug.score_updated_on = datetime.datetime.now()
+        ug.score_updated_on = datetime.datetime.now()
         ug.points_updated_on = None
         ug.save_to_mongo()
 
