@@ -110,12 +110,17 @@
                             {% if l == user_game.user._id %}
                             <tr class="text-center">
                                 <td>{{ user_game.user.f_name }} {{ user_game.user.l_name }}</td>
+                                {% if latest_user_games[0].game.away_team.team.school_name == 'Virginia Tech' %}
+                                <td>{{ user_game.away_score }}</td>
+                                <td>{{ user_game.away_points }}</td>
                                 <td>{{ user_game.home_score }}</td>
-                                <!--<td>{{ user_game.game.home_score }} </td>-->
+                                <td>{{ user_game.home_points }}</td>
+                                {% else %}
+                                <td>{{ user_game.home_score }}</td>
                                 <td>{{ user_game.home_points }}</td>
                                 <td>{{ user_game.away_score }}</td>
-                                <!--<td>{{ user_game.game.away_score }} </td>-->
                                 <td>{{ user_game.away_points }}</td>
+                                {% endif %}
                                 {% if user_game.admin_enter != 'None' %}
                                 <td>1</td>
                                 {% else %}
