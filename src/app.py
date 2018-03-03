@@ -67,8 +67,8 @@ def init_db():
     #     ht.save_to_mongo()
     # for g in Game.get_all_games():
     #     g.save_to_mongo()
-    # for ug in UserGame.get_all_usergames():
-    #     ug.save_to_mongo()
+    for ug in UserGame.get_all_usergames():
+        ug.save_to_mongo()
     # for ty in TeamYear.get_all_teamyears():
     #     ty.save_to_mongo()
 
