@@ -47,11 +47,14 @@ app.register_blueprint(team_years_blueprint, url_prefix='/teamyear')
 def init_db():
     Database.initialize()
 
+    for ty in TeamYear.get_all_teamyears():
+        ty.save_to_mongo()
+
     Game.load_game_details()
     TeamYear.update_teams()
 
     for ug in UserGame.get_all_usergames():
-        ug.score_updated_on = datetime.datetime.now()
+        # ug.score_updated_on = datetime.datetime.now()
         ug.points_updated_on = None
         ug.save_to_mongo()
 

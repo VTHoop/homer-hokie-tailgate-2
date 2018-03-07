@@ -57,22 +57,25 @@ def get_leaderboard():
     :return: leaderboard template with unzipped lists of leaders and the totals, as well as the user game details
     for the game passed into the function and pass through of the game id
     """
+
     games_prior = Game.get_all_prior_games_in_current_year()
+    if games_prior:
+        if request.method == 'GET':
+            max_game = games_prior[0]
+        elif request.method == 'POST':
+            max_game = Game.get_game_by_id(request.form['game_view'])
 
-    if request.method == 'GET':
-        max_game = games_prior[0]
-    elif request.method == 'POST':
-        max_game = Game.get_game_by_id(request.form['game_view'])
-
-    user_games_prior = UserGame.get_all_prior_games_in_current_year(max_game.game_num)
-    user_totals = defaultdict(int)
-    for ug in user_games_prior:
-        user_totals[ug.user._id] += ug.total_points
-    user_totals_sorted = sorted(user_totals.items(), key=operator.itemgetter(1), reverse=True)
-    leaders = [x[0] for x in user_totals_sorted]
-    points = [x[1] for x in user_totals_sorted]
-    print(leaders, points)
-    latest_user_games = UserGame.get_attendance_by_game(max_game._id)
-    return render_template("user_games/leaderboard.jinja2", leaders=leaders, points=points,
-                           latest_user_games=latest_user_games, games_prior=games_prior, max_game=max_game)
+        user_games_prior = UserGame.get_all_prior_games_in_current_year(max_game.game_num)
+        user_totals = defaultdict(int)
+        for ug in user_games_prior:
+            user_totals[ug.user._id] += ug.total_points
+        user_totals_sorted = sorted(user_totals.items(), key=operator.itemgetter(1), reverse=True)
+        leaders = [x[0] for x in user_totals_sorted]
+        points = [x[1] for x in user_totals_sorted]
+        print(leaders, points)
+        latest_user_games = UserGame.get_attendance_by_game(max_game._id)
+        return render_template("user_games/leaderboard.jinja2", leaders=leaders, points=points,
+                               latest_user_games=latest_user_games, games_prior=games_prior, max_game=max_game)
+    else:
+        return render_template("user_games/no_games_played.jinja2")
 

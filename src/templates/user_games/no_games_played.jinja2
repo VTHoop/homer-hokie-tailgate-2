@@ -1,0 +1,27 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+
+<div class="container">
+    <form method="post">
+        <main role="main">
+            <div class="row">&nbsp;</div>
+            <div class="col-12">
+                <nav class="nav nav-pills nav-justified">
+                    <a class="nav-item nav-link " href="{{ url_for('dashboard.user_dashboard') }}">Dashboard</a>
+                    <a class="nav-item nav-link active" href="#">Leaderboard</a>
+                </nav>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row justify-content-center">
+                <div class="col-8 justify-content-center">
+                    <p>No games have been played yet this year. Check back after the first game to see if you're in the
+                        lead!</p>
+                </div>
+            </div>
+        </main>
+    </form>
+</div>
+
+{% endblock %}
+

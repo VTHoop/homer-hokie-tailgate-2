@@ -7,6 +7,7 @@ from src.models.locations.location import Location
 from src.models.team_years.team_year import TeamYear
 from src.models.teams.team import Team
 import src.models.games.constants as GameConstants
+import src.models.teams.constants as TeamConstants
 from datetime import datetime
 
 from src.models.years.year import Year
@@ -15,7 +16,7 @@ __author__ = 'hooper-p'
 
 
 class Game(object):
-    def __init__(self, game_num, home_team, away_team, year, date=None, time='TBD', location=None, stadium=None,
+    def __init__(self, game_num, home_team, away_team, year, date=None, time='TBA', location=None, stadium=None,
                  theme=None, hht_theme=None, TV=None, home_score=0, away_score=0, score_updated_on=None,
                  _id=None):
         self.game_num = game_num
@@ -27,7 +28,7 @@ class Game(object):
         self.stadium = Team.get_by_school_name(home_team).stadium if stadium is None else stadium
         self.year = Year.get_year_by_id(year)
         self.date = date
-        self.time = 'TBD' if time == 'TBD' else datetime.strftime(datetime.strptime(time, "%I:%M %p"), "%I:%M %p")
+        self.time = 'TBA' if time == 'TBA' else datetime.strftime(datetime.strptime(time, "%I:%M %p"), "%I:%M %p")
         self.hht_theme = hht_theme
         self.theme = theme
         self.TV = TV
@@ -58,7 +59,7 @@ class Game(object):
 
     @staticmethod
     def get_all_stadiums():
-        return Database.DATABASE[GameConstants.COLLECTION].distinct("stadium")
+        return Database.DATABASE[TeamConstants.COLLECTION].distinct("stadium")
 
     @classmethod
     def get_all_prior_games_in_current_year(cls):
@@ -77,37 +78,34 @@ class Game(object):
         return prior_games
 
     @classmethod
-    def get_game_by_opponent(cls, opponent):
-        if Database.find_one(GameConstants.COLLECTION, {"home_team": opponent}):
-            return cls(**Database.find_one(GameConstants.COLLECTION, {"home_team": opponent}))
+    def get_game_by_opponent(cls, opponent, year):
+        """
+        If only the opponent and year is known, retrieve game of that opponent.
+        :param opponent: school name of the opponent playing Virginia Tech
+        :param year: _id of the year for the game being played against Virginia Tech
+        :return: an instance of game for that opponent and year
+        """
+        if Database.find_one(GameConstants.COLLECTION, {"home_team": opponent, "year": year}):
+            return cls(**Database.find_one(GameConstants.COLLECTION, {"home_team": opponent, "year": year}))
         else:
-            return cls(**Database.find_one(GameConstants.COLLECTION, {"away_team": opponent}))
+            return cls(**Database.find_one(GameConstants.COLLECTION, {"away_team": opponent, "year": year}))
 
     @staticmethod
     def get_game_tv(opponent_name, game):
-        # get game with opponent
-        # ignore spring game and other games not defined
-        # if Database.find_one(GameConstants.COLLECTION,
-        #                      {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
-        # game = Game.get_game_by_opponent(opponent_name.text)
         get_parent_tag = opponent_name.parent.parent.parent
         get_next_sibling = get_parent_tag.find_next_sibling()
-        tv = get_next_sibling.find("img")
-        game.TV = tv['alt']
-        game.save_to_mongo()
+        if get_next_sibling.find("img"):
+            tv = get_next_sibling.find("img")
+            game.TV = tv['alt']
+            game.save_to_mongo()
 
     @staticmethod
     def get_game_time(opponent_name, game):
-        # get game with opponent
-        # ignore spring game and other games not defined
-        # if Database.find_one(GameConstants.COLLECTION,
-        #                      {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
-        # game = Game.get_game_by_opponent(opponent_name.text)
         get_parent_tag = opponent_name.parent.parent.parent
         get_schedule_date = get_parent_tag.find("span", {"class": "schedule-date"})
         unformatted_time = get_schedule_date.text[get_schedule_date.text.find("/") + 2:]
-        if unformatted_time == 'TBD':
-            game.time = 'TBD'
+        if unformatted_time == 'TBA':
+            game.time = 'TBA'
         elif len(unformatted_time) == 4:
             game.time = datetime.strftime(datetime.strptime(unformatted_time, "%I %p"), "%I:%M %p")
         else:
@@ -116,9 +114,6 @@ class Game(object):
 
     @staticmethod
     def get_game_score(opponent_name, game):
-        # get game with opponent
-        # ignore spring game and other games not defined
-
         get_parent_tag = opponent_name.parent.parent.parent
         get_next_sibling = get_parent_tag.find_next_sibling().find_next_sibling()
         raw_score = get_next_sibling.find("span", {"class": "schedule-score"})
@@ -153,19 +148,22 @@ class Game(object):
 
         for o in opponents:
             # get tag that has opponent name
-            opponent_name = o.find("a")
+            if o.find("a"):
+                opponent_name = o.find("a")
 
-            # get game with opponent
-            # ignore spring game and other games not defined
-            if Database.find_one(GameConstants.COLLECTION,
-                                 {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}]}):
-                game = Game.get_game_by_opponent(opponent_name.text)
-                if game.date > datetime.now():
-                    Game.get_game_tv(opponent_name, game)
-                    Game.get_game_time(opponent_name, game)
-                if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now()\
-                        and game.score_updated_on is None:
-                    Game.get_game_score(opponent_name, game)
+                # get game with opponent
+                # ignore spring game and other games not defined
+                if Database.DATABASE[GameConstants.COLLECTION].find_one(
+                                     {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}],
+                                      "year": Year.get_current_year()._id}):
+                    game = Game.get_game_by_opponent(opponent_name.text, Year.get_current_year()._id)
+
+                    if game.date > datetime.now():
+                        Game.get_game_tv(opponent_name, game)
+                        Game.get_game_time(opponent_name, game)
+                    if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now()\
+                            and game.score_updated_on is None:
+                        Game.get_game_score(opponent_name, game)
 
     def save_to_mongo(self):
         Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
