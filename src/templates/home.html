@@ -1,5 +1,22 @@
-{% extends "base_welcome.jinja2" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/grid.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/main_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/welcome_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+
+    <title>Homer Hokie Tailgate</title>
+</head>
+
+
 <body>
     <header>
         <nav class="navbar navbar-main">
@@ -12,8 +29,8 @@
             <p class="header-text">You look forward to getting together with your friends all week long.  There's no reason the dialogue with your friends -- the inside scoop about your players, the predictions about the game, the trash-talking of your rivals -- needs to take time off.
                 <br><br> Let the fun happen all week long.</p>
             <div class="center">
-                <a class="btn btn-full" href="#">Sign Up Now!</a>
-                <a class="btn btn-ghost" href="{{ url_for('users.login_user') }}"><i class="fas fa-unlock"></i> Log-In</a>
+                <a class="btn btn-full" href="{{ url_for('users.new_user')}}">Sign Up Now!</a>
+                <a class="btn btn-ghost" href="{{ url_for('users.login_user')}}">Log-In</a>
             </div>
         </div>
     </header>
@@ -47,4 +64,7 @@
         </div>
     </footer>
 
-{% endblock %}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/v4-shims.js"></script>
+</body>
+</html>

@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/css/grid.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/css/normalize.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/static/css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/templates/base_welcome.jinja2" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/home.html" afterPath="$PROJECT_DIR$/home.html" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" afterPath="$PROJECT_DIR$/src/app.py" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/main.css" afterPath="$PROJECT_DIR$/src/static/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/hht_logo.jpg" afterPath="$PROJECT_DIR$/src/static/images/hht_logo.jpg" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/hokiestone.jpg" afterPath="$PROJECT_DIR$/src/static/images/hokiestone.jpg" />
+      <change beforePath="$PROJECT_DIR$/src/static/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base_no_nav.jinja2" afterPath="$PROJECT_DIR$/src/templates/base_no_nav.jinja2" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base_welcome.jinja2" afterPath="$PROJECT_DIR$/src/templates/base_welcome.jinja2" />
       <change beforePath="$PROJECT_DIR$/src/templates/home.html" afterPath="$PROJECT_DIR$/src/templates/home.html" />
-      <change beforePath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" afterPath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
+      <change beforePath="$PROJECT_DIR$/src/templates/users/login.jinja2" afterPath="$PROJECT_DIR$/src/templates/users/login.jinja2" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +20,8 @@
       <file leaf-file-name="base_logged_in.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/base_logged_in.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="88" />
+            <state relative-caret-position="252">
+              <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -37,18 +30,8 @@
       <file leaf-file-name="base_welcome.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/base_welcome.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="315">
+              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -57,8 +40,18 @@
       <file leaf-file-name="base_no_nav.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/base_no_nav.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="90" />
+            <state relative-caret-position="126">
+              <caret line="12" column="66" lean-forward="true" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/static/css/login_style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,11 +70,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="112" lean-forward="false" selection-start-line="15" selection-start-column="112" selection-end-line="15" selection-end-column="112" />
+            <state relative-caret-position="588">
+              <caret line="31" column="76" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jinja2" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/users/login.jinja2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="523">
+              <caret line="48" column="33" lean-forward="true" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/static/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="84" column="1" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="84" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/static/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="5" column="2473" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -90,28 +113,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_logged_out.jinja2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/base_logged_out.jinja2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="55" column="69" lean-forward="false" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+            <state relative-caret-position="-352">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -178,8 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/models/team_years/constants.py" />
-        <option value="$PROJECT_DIR$/src/models/locations/constants.py" />
         <option value="$PROJECT_DIR$/src/common/database.py" />
         <option value="$PROJECT_DIR$/src/models/locations/location.py" />
         <option value="$PROJECT_DIR$/src/models/users/views.py" />
@@ -226,14 +227,17 @@
         <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/src/static/css/main.css" />
-        <option value="$PROJECT_DIR$/src/templates/base_welcome.jinja2" />
         <option value="$PROJECT_DIR$/src/static/css/style.css" />
+        <option value="$PROJECT_DIR$/src/templates/base_welcome.jinja2" />
+        <option value="$PROJECT_DIR$/src/templates/base_no_nav.jinja2" />
+        <option value="$PROJECT_DIR$/src/templates/users/login.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/home.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="195" />
+    <option name="y" value="-16" />
     <option name="width" value="1144" />
     <option name="height" value="1462" />
   </component>
@@ -307,6 +311,19 @@
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -314,7 +331,7 @@
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user_games" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -496,20 +513,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/game_preview/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/user_games/edit_scores.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1953">
-          <caret line="93" column="41" lean-forward="false" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/game_food/food.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -706,14 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/login.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="59" column="68" lean-forward="false" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/games/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -793,7 +788,7 @@
         <state relative-caret-position="229">
           <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,14 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/base_no_nav.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -830,34 +817,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/base_welcome.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
           <caret line="79" column="66" lean-forward="false" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/base_logged_in.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="94" selection-end-column="88" />
           <folding />
         </state>
       </provider>
@@ -873,14 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
@@ -889,10 +844,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/src/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="5" column="2473" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="84" column="1" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="84" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/base_logged_in.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/base_welcome.jinja2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="112" lean-forward="false" selection-start-line="15" selection-start-column="112" selection-end-line="15" selection-end-column="112" />
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/base_no_nav.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="66" lean-forward="true" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/css/login_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="31" column="76" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/users/login.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="48" column="33" lean-forward="true" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
           <folding />
         </state>
       </provider>
