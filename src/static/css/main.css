@@ -10,10 +10,10 @@ body {
   color: #5a5a5a;
   /*background: #5a5a5a;*/
 }
-
-/*html, body {
+/*
+html, body {
     background:url('../images/hokiestone.jpg') center center;
-    height: 100%;
+    width: 100%;
     background-size:cover;
     background-attachment: scroll;
 }
@@ -34,6 +34,10 @@ h1{
     /*
     border-left: 3px solid;
     border-right: 3px solid;*/
+}
+
+.hokiestone {
+
 }
 
 .bg-dark {
@@ -85,7 +89,11 @@ h1{
   color:red;
 }
 
-.btn-outline-orange{color:#fff;background-color:transparent;background-image:none;border:#ff6600 1px solid;}
+.btn-outline-orange {
+    color:#660000;
+    background-color:#fff;
+    border:#ff6600 1px solid;
+ }
 
 .btn-outline-orange:hover{color:#fff;background-color:#ff6600;border:#ff6600 1px solid;}
 

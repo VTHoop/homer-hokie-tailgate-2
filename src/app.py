@@ -47,9 +47,6 @@ app.register_blueprint(team_years_blueprint, url_prefix='/teamyear')
 def init_db():
     Database.initialize()
 
-    for ty in TeamYear.get_all_teamyears():
-        ty.save_to_mongo()
-
     Game.load_game_details()
     TeamYear.update_teams()
 

@@ -1,0 +1,188 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Raleway', 'Arial', sans-serif; 
+    font-weight: 300;
+    font-size: 20x;
+    text-rendering: optimizeLegibility;
+}
+
+/*---- HEADER -----*/
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../images/hokiestone_blur_full.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+.header-text-box {
+    position: relative;
+    width: 55%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.header-text {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 125%;
+    text-align: center;
+}
+
+.section-features {
+    border-top: 10px solid #f60;
+    border-bottom: 10px solid #f60;
+    padding: 15px 0 15px 0;
+}
+
+.center-logo {
+    margin: auto;
+    width: 250px;
+}
+
+/*---- FOOTER -----*/
+footer {
+    background-color: #333;
+    height: 150px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*---- HEADINGS -----*/
+
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 300;
+    color: #fff;
+    font-size: 275%;
+    word-spacing: 4px;
+    margin: 20px 0px;
+}
+
+h2 {
+    font-size: 200%;
+    word-spacing: 2px;
+    margin: 10px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #600;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #f60;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 130%;
+    margin-bottom: 15px;
+}
+
+.feature-box h3{
+    height: 50px;
+}
+
+/*---- PARAGRAPHS -----*/
+.long-copy {
+    line-height: 130%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.feature-box p{
+    line-height: 145%;
+    font-size: 95%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.logo {
+    margin-top: 15%;
+    height: auto;
+    width: 250px;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    border: 1px solid #f60;
+    transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited {
+    background-color: #f60;
+    color: #fff;
+    margin-right: 15px;
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    color: #f60
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #dd5800;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid #dd5800;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+        color: #fff;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.feature-box {
+    padding: 0 1%;
+}
+
+/*---- ICONS -----*/
+.icon-big {
+    font-size: 500%;
+    display: block;
+    color: #600;
+    margin: 0 auto 10px auto;
+}

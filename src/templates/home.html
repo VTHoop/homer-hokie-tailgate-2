@@ -1,122 +1,50 @@
-{% extends "base_logged_out.jinja2" %}
+{% extends "base_welcome.jinja2" %}
 {% block content %}
-<main role="main">
-    <div class="container">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <!--<img class="first-slide" src="{{ url_for('static', filename='images/hht_banner.jpg') }}"
-                         alt="First slide">-->
-                    <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1 class="inversetitle">Where the Tailgate Never Ends</h1>
-                            <p>You look forward to getting together with your friends all week long.  There's no reason the dialogue with your friends -- the inside scoop about your players, the predictions about the game, the trash-talking of your rivals -- needs to take time off.  Let the fun happen all week long.</p>
-                            <p><a class="btn btn-lg btn-orange" href="{{ url_for('users.new_user') }}" role="button">Sign up today!</a></p>
-                        </div>
-                    </div>
-                </div>
+<body>
+    <header>
+        <nav class="navbar navbar-main">
+            <div class="center-logo">
+                <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" class="logo" >
             </div>
-
+        </nav>
+        <div class="header-text-box">
+            <h1>Where the Tailgate Never Ends</h1>
+            <p class="header-text">You look forward to getting together with your friends all week long.  There's no reason the dialogue with your friends -- the inside scoop about your players, the predictions about the game, the trash-talking of your rivals -- needs to take time off.
+                <br><br> Let the fun happen all week long.</p>
+            <div class="center">
+                <a class="btn btn-full" href="#">Sign Up Now!</a>
+                <a class="btn btn-ghost" href="{{ url_for('users.login_user') }}"><i class="fas fa-unlock"></i> Log-In</a>
+            </div>
         </div>
+    </header>
 
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-        <div class="container marketing">
-
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <img class="rounded-circle"
-                         src="{{ url_for('static', filename='images/pickem.png') }}"
-                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Compete Against Your Fellow Tailgaters</h2>
-                    <p>Guess the score of the upcoming games and  to see who knows the team best.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img class="rounded-circle"
-                         src="{{ url_for('static', filename='images/microphone.jpg') }}"
-                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Tailgate Planner</h2>
-                    <p>Let your group know whether you plan on showing up and what you plan on bringing.  Let's be honest, we've all been to the tailgate with 5 pasta salads.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img class="rounded-circle"
-                         src="{{ url_for('static', filename='images/tickets.jpg') }}"
-                         alt="Generic placeholder image" width="140" height="140">
-                    <h2>Ticket Hub</h2>
-                    <p>Not attending the game during Thanksgiving week?  Make a deal with your friends before heading out to the secondary market.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-
-
-            <!-- START THE FEATURETTES -->
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span>
-                    </h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                        tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
-                         alt="Generic placeholder image">
-                </div>
+    <section class="section-features">
+        <div class="row">
+            <h2>HHT Features</h2>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-3 feature-box">
+                <i class="fas fa-trophy icon-big"></i>
+                <h3>Compete Against Your Fellow Tailgaters</h3>
+                <p>Guess the score of the upcoming games.  Earn bragging rights to show your buddies that you know the team best.</p>
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Oh yeah, it's that good. <span
-                            class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                        tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
-                         alt="Generic placeholder image">
-                </div>
+            <div class="col span-1-of-3 feature-box">
+                <i class="fas fa-utensils icon-big"></i>
+                <h3>Tailgate Planner</h3>
+                <p>Let your group know whether you plan on showing up and what you plan on bringing. Let's be honest, we've all been to the tailgate with 5 pasta salads.</p>
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                        tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
-                         alt="Generic placeholder image">
-                </div>
+            <div class="col span-1-of-3 feature-box">
+                <i class="fas fa-ticket-alt icon-big"></i>
+                <h3>Ticket Hub</h3>
+                <p>Not attending the game during Thanksgiving week? Make a deal with your friends before heading out to the secondary market.</p>
             </div>
+        </div>
+    </section>
 
-            <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
-
-        </div><!-- /.container -->
-
-
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-    </div>
-</main>
+    <footer>
+        <div class="row">
+            <!---<a href="#">Forgot Password?</a>--->
+        </div>
+    </footer>
 
 {% endblock %}
