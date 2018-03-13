@@ -9,11 +9,12 @@
 
     <title>Homer Hokie Tailgate</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/grid.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/main_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/app_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/trix.css') }}">
 
@@ -24,15 +25,13 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand" href="#">
-            <img style="max-width:100px; margin-top: -7px;"
-                 src="{{ url_for('static', filename='images/hht_logo.jpg') }}">
+            <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" alt="site-logo" class="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
@@ -43,33 +42,36 @@
                         <i class="fas fa-wrench"></i> Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ url_for('games.admin_schedule') }}">Schedule/Edit Game</a>
+                        <a class="dropdown-item" href="/games/admin/schedule">Schedule/Edit Game</a>
                         <a class="dropdown-item" href="#"><b>Create</b></a>
-                        <a class="dropdown-item" href="{{ url_for('year.create_year') }}"
+                        <a class="dropdown-item" href="/year/create"
                            style="padding-left:3em">Year</a>
-                        <a class="dropdown-item" href="{{ url_for('location.create_location') }}"
+                        <a class="dropdown-item" href="/location/create"
                            style="padding-left:3em">Location</a>
-                        <a class="dropdown-item" href="{{ url_for('team.create_team') }}"
+                        <a class="dropdown-item" href="/team/admin/create"
                            style="padding-left:3em">Team</a>
-                        <a class="dropdown-item" href="{{ url_for('teamyear.create_team_year') }}"
+                        <a class="dropdown-item" href="/teamyear/admin/create"
                            style="padding-left:3em">Team Year</a>
-                        <a class="dropdown-item" href="{{ url_for('games.create_game') }}"
+                        <a class="dropdown-item" href="/games/admin/create/"
                            style="padding-left:3em">Game</a>
                         <a class="dropdown-item" href="#"><b>Edit</b></a>
                     </div>
                 </li>
             </ul>
+            <ul class="scroll-navbar">
+                <li class="scroll-navbar-item js--scroll-to-preview"><a href="#">Preview</a></li>
+                <li class="scroll-navbar-item js--scroll-to-attendance"><a href="#">Attendance</a></li>
+                <li class="scroll-navbar-item js--scroll-to-menu"><a href="#">Menu</a></li>
+                <li class="scroll-navbar-item js--scroll-to-tickets"><a href="#">Tickets</a></li>
+            </ul>
             <div class="form-inline mt-2 mt-md-0">
-                <a type="button" href="{{ url_for('users.profile') }}" class="form-control mr-sm-2"><i
-                        class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
-                <a type="button" href="{{ url_for('users.logout') }}" class="btn btn-outline-danger my-2 my-sm-0">Log
+                <a href="/users/profile" class="profile-icon-anchor"><i class="fa fa-user-circle-o my-profile-icon"
+                                                                        aria-hidden="true"></i></a>
+                <a type="button" href="/users/logout" class="btn btn-outline-danger my-2 my-sm-0">Log
                     Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
             </div>
         </div>
     </nav>
-    <div>&nbsp;</div>
-    <div>&nbsp;</div>
-    <div>&nbsp;</div>
 </header>
 
 
@@ -80,15 +82,19 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--crossorigin="anonymous"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>

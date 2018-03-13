@@ -45,3 +45,20 @@ h1:after {
     width: 200px;
     margin: 50px auto;
 }
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #f60;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+/*---- BUTTONS -----*/
+.btn:hover,
+.btn:active {
+    background-color: #dd5800;
+}

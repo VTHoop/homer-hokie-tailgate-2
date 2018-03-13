@@ -1,0 +1,466 @@
+
+<div class="container">
+    <div class="row btn-back center">
+        <a href="{{ url_for('dashboard.user_dashboard') }}" class="btn btn-full">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            &nbsp;Back to Dashboard
+        </a>
+    </div>
+    <div class="row game-detail">
+        <div class="col-md-3">
+            <i class="far fa-newspaper icon-big"></i>
+            <h3>HHT Preview</h3>
+            <p>What does your fearless leader have to say about the upcoming game?</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-users icon-big"></i>
+            <h3>Attandence</h3>
+            <p>See who you will be sharing the upcoming Victory Bourbon Toast with</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-utensils icon-big"></i>
+            <h3>Menu Planner</h3>
+            <p>Tell your tailgate what you plan on bringing!</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-ticket-alt icon-big"></i>
+            <h3>Ticket Marketplace</h3>
+            <p>Help your buddies get from the tailgate to inside the stadium!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row text-center">
+                <div class="col"><h1><strong>{{ game.date }} @ {{ game.time }}</strong></h1></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg"><h2><img
+                        src="../../static/images/teams/{{ game.away_team.team.logo }}"/>
+                </h2>
+                </div>
+                <div class="col-sm"><h2></h2></div>
+                <div class="col-lg"><h2><img
+                        src="../../static/images/teams/{{ game.home_team.team.logo }}"/>
+                </h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg"><h3><strong>{{ game.away_team.team.school_name }}</strong></h3></div>
+                <div class="col-sm"><h2></h2></div>
+                <div class="col-lg"><h3><strong>{{ game.home_team.team.school_name }}</strong></h3></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg"><h4>{{ game.away_team.team.mascot }}</h4></div>
+                <div class="col-sm"><h2><i class="fa fa-at fa-2x" aria-hidden="true"></i></h2></div>
+                <div class="col-lg"><h4>{{ game.home_team.team.mascot }}</h4></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg"><h5><strong>Conference:</strong> {{ game.away_team.conference }}</h5>
+                </div>
+                <div class="col-sm"><h2></h2></div>
+                <div class="col-lg"><h5><strong>Conference:</strong> {{ game.home_team.conference }}</h5>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg"><h5><strong>Record:</strong> {{ game.away_team.wins }}-{{
+                    game.away_team.losses }}</h5></div>
+                <div class="col-sm"><h2></h2></div>
+                <div class="col-lg"><h5><strong>Record:</strong> {{ game.home_team.wins }}-{{
+                    game.home_team.losses }}</h5></div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><strong>{{ game.theme if game.theme}}</strong></div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><strong>Location:</strong> {{ game.location.city }}, {{ game.location.state
+                    }}
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><strong>Stadium:</strong> {{ game.stadium }}</div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><strong>Spread:</strong></div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><strong>TV:</strong> {{ game.TV }}</div>
+            </div>
+        </div>
+        <!--PREVIEW-->
+        <div class="row">
+            <div class="col-12">
+                {% if not preview %}
+                The preview for this game has not been posted yet. Please check back later.
+                {% else %}
+                {% for p in preview %}
+                {{ p.preview }}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <!--ATTENDANCE-->
+        <section>
+            <div class="row">
+                <div class="col-12 text-center"><h1>Attendance for
+                    {% if game.away_team.school_name == 'Virginia Tech' %}
+                    {{ game.home_team.school_name }}
+                    {% else %}
+                    {{ game.away_team.school_name }}
+                    {% endif %}
+                    Game</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center"><h5>Which friends will be joining you in a victory Bourbon
+                    toast?</h5></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center"><h5>&nbsp;</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-4"
+                     style="background: #660000; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000;border-top: 2px solid #000;">
+                    <h4>Yes!</h4>
+                    <p><strong>Hokie, Hokie, Hokie, Hy!</strong></p>
+                </div>
+                <div class="col-4" style="border-top: 2px solid #000;">
+                    <h4>Maybe?</h4>
+                    <p><strong>Are we playing at FedEx Field?</strong></p>
+                </div>
+                <div class="col-4"
+                     style="background: #FF6600; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000;border-top: 2px solid #000;">
+                    <h4>No</h4>
+                    <p><strong>I'm attending a Wahoo football festival</strong></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"
+                     style="background: #660000; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                    <ul class="list-unstyled">
+                        {% for yes in yes_attendance %}
+                        <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-4" style=" border-bottom: 2px solid #000;">
+                    <ul class="list-unstyled">
+                        {% for maybe in maybe_attendance %}
+                        <li>{{ maybe.user.f_name + ' ' + maybe.user.l_name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-4"
+                     style="background: #FF6600; color: #FFF; border-left: 2px solid #000; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                    <ul class="list-unstyled">
+                        {% for no in no_attendance %}
+                        <li>{{ no.user.f_name + ' ' + no.user.l_name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+
+            <div class="row">
+                <div class="col-12 text-center"><h1>Menu for
+                    {% if game.away_team.school_name == 'Virginia Tech' %}
+                    {{ game.home_team.team.school_name }}
+                    {% else %}
+                    {{ game.away_team.team.school_name }}
+                    {% endif %} Game</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center"><h5>Tell your tailgate what you plan on
+                    bringing!</h5></div>
+            </div>
+            <hr>
+            <!-- Modal -->
+            <div class="modal fade" id="gameFoodModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Grub</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post"
+                                  action="{{ url_for('game_food.add_food', game_id=game._id) }}">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="game_food">What can your tailgate
+                                        plan on
+                                        enjoying?</label>
+                                    <input class="form-control" type="text" name="game_food" id="game_food"
+                                           placeholder="Ex: Baked Beans">
+                                </div>
+                                <button class="btn btn-success" type="submit" name="AddFood">
+                                    <i class="fas fa-save"></i> Save
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success" type="button" data-toggle="modal" data-target="#gameFoodModal">
+                <i class="fas fa-utensils"></i> Add food
+            </button>
+            <div>&nbsp;</div>
+            <table class="table table-striped">
+                <form method="post">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Food</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col" style="width: 10px"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for food in food_for_game %}
+                    <tr>
+                        <td>{{ food.food }}</td>
+                        <td>{{ food.user.f_name }} {{ food.user.l_name }}</td>
+                        <td style="width: 10px">
+                            {% if food.user._id == user %}
+                            <a class="btn btn-danger btn-sm"
+                               href="{{ url_for('game_food.delete_food', food=food._id) }}"
+                               role="button">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </form>
+            </table>
+        </section>
+        <section>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Tickets for
+                        {% if game.away_team.school_name == 'Virginia Tech' %}
+                        {{ game.home_team.team.school_name }}
+                        {% else %}
+                        {{ game.away_team.team.school_name }}
+                        {% endif %} Game</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h5>Help your buddies get from the tailgate to inside the stadium!</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-8">
+                    <div><h2>I Have Tickets!</h2></div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="addHaveTickets" tabindex="-1" role="dialog"
+                         aria-labelledby="haveTicketsLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="haveTicketsLabel">What do you have to
+                                        offer?</h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post"
+                                          action="{{ url_for('have_tickets.add', game_id=game._id) }}">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="total_num">Total #</label>
+                                            <input class="form-control" type="text" name="total_num"
+                                                   id="total_num"
+                                                   placeholder="Ex: 4">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="section">Section</label>
+                                            <input class="form-control" type="text" name="section"
+                                                   id="section"
+                                                   placeholder="Ex: 132">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="seats">Seats</label>
+                                            <input class="form-control" type="text" name="seats" id="seats"
+                                                   placeholder="Ex: 28-30, 32">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="price">Price</label>
+                                            <input class="form-control" type="text" name="price" id="price"
+                                                   placeholder="Ex: 120">
+                                        </div>
+
+                                        <button class="btn btn-success" type="submit" name="AddHaveTickets">
+                                            <i class="fas fa-save"></i> Save
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" type="button" data-toggle="modal"
+                            data-target="#addHaveTickets">
+                        <i class="fas fa-ticket-alt"></i> Add extra tickets
+                    </button>
+                </div>
+                <div class="col-3">
+                    <div><h2>I Need Tickets!</h2></div>
+                    <div class="modal fade" id="gameWantTickets" tabindex="-1" role="dialog"
+                         aria-labelledby="wantTicketsLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="wantTicketsLabel">Tell the people what you
+                                        need</h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post"
+                                          action="{{ url_for('want_tickets.add', game_id=game._id) }}">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="total_num">Total #</label>
+                                            <input class="form-control" type="text" name="want_total_num"
+                                                   id="want_total_num" placeholder="Ex: 4">
+                                        </div>
+
+                                        <button class="btn btn-success" type="submit" name="AddWantTickets">
+                                            <i class="fas fa-save"></i> Save
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" type="button" data-toggle="modal"
+                            data-target="#gameWantTickets">
+                        <i class="fas fa-ticket-alt"></i> Add wanted tickets
+                    </button>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-8">
+                    <form method="post">
+                        <table class="table table-striped table-sm">
+                            <colgroup>
+                                <col style="width:9%"/>
+                                <col style="width:9%"/>
+                                <col style="width:12%"/>
+                                <col style="width:8%"/>
+                                <col style="width:26%"/>
+                                <col style="width:18%"/>
+                            </colgroup>
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-center">Total #</th>
+                                <th scope="col">Section</th>
+                                <th scope="col">Seats</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Owner</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for ht in have_tickets_for_game %}
+                            {% if ht.sold_flag != "SOLD" %}
+                            <tr>
+                                <td class="text-center">{{ ht.number }}</td>
+                                <td class="text-center">{{ ht.section }}</td>
+                                <td>{{ ht.seats }}</td>
+                                <td>{{ '${:,.2f}'.format(ht.price) }}</td>
+                                <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
+                                <td>
+                                    {% if ht.user._id == user %}
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ url_for('have_tickets.sold', ticket=ht._id) }}"
+                                       role="button">
+                                        Mark Sold</a>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ url_for('have_tickets.delete', ticket=ht._id) }}"
+                                       role="button">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                    {% else %}
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        Email
+                                    </button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td class="text-center">
+                                    <del>{{ ht.number }}</del>
+                                </td>
+                                <td class="text-center">
+                                    <del>{{ ht.section }}</del>
+                                </td>
+                                <td>
+                                    <del>{{ ht.seats }}</del>
+                                </td>
+                                <td>
+                                    <del>{{ '${:,.2f}'.format(ht.price) }}</del>
+                                </td>
+                                <td>
+                                    <del>{{ ht.user.f_name }} {{ ht.user.l_name }}</del>
+                                </td>
+                                <td></td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="col-4">
+                    <form method="post">
+                        <table class="table table-striped table-sm">
+                            <colgroup>
+                                <col style="width:30%"/>
+                                <col style="width:55%"/>
+                                <col style="width:15%"/>
+                            </colgroup>
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-center">Total #</th>
+                                <th scope="col">Requestor</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for wt in want_tickets_for_game %}
+                            <tr>
+                                <td class="text-center">{{ wt.number }}</td>
+                                <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-success btn-sm"><i
+                                            class="fa fa-envelope"
+                                            aria-hidden="true"></i>
+                                        Email
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

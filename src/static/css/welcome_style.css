@@ -5,13 +5,13 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(../images/hokiestone_blur_full.jpg);
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 600px;
 }
 
 .header-text-box {
     position: relative;
     width: 55%;
-    top: 25%;
+    top: 20%;
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%)
@@ -31,9 +31,16 @@ header {
 }
 
 .center-logo {
-    margin: auto;
-    width: 250px;
+    margin: 10px auto;
+    width: 225px;
 }
+
+.logo {
+    margin-top: 15%;
+    height: 100%;
+    width: auto;
+}
+
 
 /*---- PARAGRAPHS -----*/
 .long-copy {
@@ -49,9 +56,22 @@ header {
     font-weight: 400;
 }
 
-.logo {
-    margin-top: 15%;
-    height: 100%;
-    width: 100%;
+
+/*---- BUTTONS -----*/
+.btn:hover,
+.btn:active {
+    background-color: #dd5800;
+}
+
+
+/*---- HEADINGS -----*/
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #f60;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
