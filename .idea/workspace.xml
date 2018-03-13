@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" afterPath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" />
+      <change beforePath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" afterPath="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,20 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_detail.jinja2" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game_detail.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/games/game_detail.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2904">
-              <caret line="317" column="93" lean-forward="false" selection-start-line="317" selection-start-column="93" selection-end-line="317" selection-end-column="93" />
+            <state relative-caret-position="1728">
+              <caret line="120" column="26" lean-forward="false" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
               <folding>
                 <element signature="e#318#324#0" expanded="true" />
-                <element signature="e#7638#7645#1" expanded="true" />
+                <element signature="e#7620#7627#1" expanded="true" />
                 <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
-                <element signature="e#11182#11189#1" expanded="true" />
-                <element signature="e#14313#14320#1" expanded="true" />
+                <element signature="e#11155#11162#1" expanded="true" />
+                <element signature="e#14286#14293#1" expanded="true" />
                 <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
@@ -89,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="-63">
+              <caret line="102" column="111" lean-forward="false" selection-start-line="102" selection-start-column="111" selection-end-line="102" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -241,10 +242,10 @@
         <option value="$PROJECT_DIR$/src/static/css/welcome_style.css" />
         <option value="$PROJECT_DIR$/src/static/css/main_style.css" />
         <option value="$PROJECT_DIR$/src/static/css/app_style.css" />
-        <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/games/game_detail_OLD.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/base_logged_in.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" />
+        <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
       </list>
     </option>
   </component>
@@ -894,14 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/base_welcome.jinja2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -962,17 +955,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/games/game_detail.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2904">
-          <caret line="317" column="93" lean-forward="false" selection-start-line="317" selection-start-column="93" selection-end-line="317" selection-end-column="93" />
+        <state relative-caret-position="1728">
+          <caret line="120" column="26" lean-forward="false" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
           <folding>
             <element signature="e#318#324#0" expanded="true" />
-            <element signature="e#7638#7645#1" expanded="true" />
+            <element signature="e#7620#7627#1" expanded="true" />
             <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
-            <element signature="e#11182#11189#1" expanded="true" />
-            <element signature="e#14313#14320#1" expanded="true" />
+            <element signature="e#11155#11162#1" expanded="true" />
+            <element signature="e#14286#14293#1" expanded="true" />
             <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#form#0;n#div#0;n#div#2;n#section#4;n#!!top" expanded="true" />
@@ -983,6 +976,14 @@
             <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#form#0;n#div#1;n#div#2;n#section#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#form#0;n#div#1;n#div#2;n#section#4;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="102" column="111" lean-forward="false" selection-start-line="102" selection-start-column="111" selection-end-line="102" selection-end-column="111" />
+          <folding />
         </state>
       </provider>
     </entry>
