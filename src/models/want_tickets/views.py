@@ -16,12 +16,15 @@ def add(game_id):
 
 @wanttickets_blueprint.route('/delete/<string:ticket>')
 def delete(ticket):
+    game_id = WantTicket.get_wantticket_by_id(ticket).game._id
     WantTicket.get_wantticket_by_id(ticket).delete_wantticket()
-    return redirect(url_for('games.detail', game_id=WantTicket.get_wantticket_by_id(ticket).game._id,
+    return redirect(url_for('games.detail', game_id=game_id,
                             active='tickets'))
+
 
 @wanttickets_blueprint.route('/purchased/<string:ticket>')
 def purchased(ticket):
+    game_id = WantTicket.get_wantticket_by_id(ticket).game._id
     WantTicket.get_wantticket_by_id(ticket).update_ticket_purchased_flag()
-    return redirect(url_for('games.detail', game_id=WantTicket.get_wantticket_by_id(ticket).game._id,
+    return redirect(url_for('games.detail', game_id=game_id,
                             active='tickets'))

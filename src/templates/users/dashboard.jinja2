@@ -73,7 +73,7 @@
                                     </label>
                                     <input class="form-control dashboard-input" type="text"
                                            name="home_score{{ game.game.game_num }}"
-                                           value="{{ game.home_score }}"
+                                           value="{{ game.home_score }}" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                     <label class="col-form-label dashboard-label">
@@ -81,7 +81,7 @@
                                     </label>
                                     <input class="form-control dashboard-input dashboard-input-oppt" type="text"
                                            name="away_score{{ game.game.game_num }}"
-                                           value="{{ game.away_score }}"
+                                           value="{{ game.away_score }}" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                 </div>
@@ -94,7 +94,7 @@
                                     </label>
                                     <input class="form-control dashboard-input" type="text"
                                            name="away_score{{ game.game.game_num }}"
-                                           value="{{ game.away_score }}"
+                                           value="{{ game.away_score }}" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                     <label class="col-form-label dashboard-label">
@@ -102,7 +102,7 @@
                                     </label>
                                     <input class="form-control dashboard-input dashboard-input-oppt" type="text"
                                            name="home_score{{ game.game.game_num }}"
-                                           value="{{ game.home_score }}"
+                                           value="{{ game.home_score }}" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                 </div>
