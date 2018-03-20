@@ -16,23 +16,6 @@ body {
     width: auto;
 }
 
-/*---- LOGIN -----*/
-.main-login{
-    background-color: #f3f3f3;
-    /* shadows and rounded borders */
-    border-radius: 2px;
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    height: 450px;
-}
-
-.main-center{
- 	margin-top: 30px;
- 	margin: 0 auto;
-    padding: 50px 40px;
-}
-
 
 /*---- HEADINGS -----*/
 
@@ -61,4 +44,111 @@ h2:after {
 .btn:hover,
 .btn:active {
     background-color: #dd5800;
+}
+
+/*-------BREADCRUMB----------*/
+#breadcrumb {
+  list-style: none;
+  display:table; margin:0 auto;
+  }
+
+#breadcrumb .icon {
+  font-size: 14px;
+}
+#breadcrumb li {
+  float: left;
+}
+#breadcrumb li a {
+  color: #FFF;
+  display: block;
+  background: #660000;
+  text-decoration: none;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px 0 5px;
+  text-align: center;
+  margin-right: 23px;
+}
+#breadcrumb-active a {
+  color: #FFF;
+  display: block;
+  background: #FF6600;
+  text-decoration: none;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px 0 5px;
+  text-align: center;
+  margin-right: 23px;
+}
+
+/*#breadcrumb li:nth-child(even) a {
+  background-color: #2980b9;
+}
+#breadcrumb li:nth-child(even) a:before {
+  border-color: #2980b9;
+  border-left-color: transparent;
+}
+#breadcrumb li:nth-child(even) a:after {
+  border-left-color: #2980b9;
+}
+#breadcrumb li:first-child a {
+  padding-left: 15px;
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+}
+#breadcrumb li:first-child a:before {
+  border: none;
+}
+#breadcrumb li:last-child a {
+  padding-right: 15px;
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 4px 4px 0;
+}
+#breadcrumb li:last-child a:after {
+  border: none;
+}
+*/
+#breadcrumb li a:before, #breadcrumb li a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 0 solid #660000;
+  border-width: 20px 10px;
+  width: 0;
+  height: 0;
+}
+
+#breadcrumb li a:before {
+  left: -20px;
+  border-left-color: transparent;
+}
+#breadcrumb li a:after {
+  left: 100%;
+  border-color: transparent;
+  border-left-color: #660000;
+}
+/*
+#breadcrumb li a:hover {
+  background-color: #FF6600;
+}
+#breadcrumb li a:hover:before {
+  border-color: #FF6600;
+  border-left-color: transparent;
+}
+#breadcrumb li a:hover:after {
+  border-left-color: #FF6600;
+}
+#breadcrumb li a:active {
+  background-color: #FF6600;
+}
+#breadcrumb li a:active:before {
+  border-color: #FF6600;
+  border-left-color: transparent;
+}
+#breadcrumb li a:active:after {
+  border-left-color: #FF6600;
 }

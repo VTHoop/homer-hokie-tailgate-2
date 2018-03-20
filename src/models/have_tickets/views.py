@@ -26,4 +26,4 @@ def delete(ticket):
 def sold(ticket):
     game_id = HaveTicket.get_havetickets_by_id(ticket).game._id
     HaveTicket.get_havetickets_by_id(ticket).update_ticket_sold_flag()
-    return redirect(url_for('games.detail', game_num=game_id, active='tickets'))
+    return redirect(url_for('games.detail', game_id=game_id, active='tickets'))

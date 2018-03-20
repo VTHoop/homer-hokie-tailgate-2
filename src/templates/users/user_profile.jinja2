@@ -1,208 +1,190 @@
 {% extends "base_logged_in.jinja2" %}
 {% block content %}
 
-<div class="row">
-    <div class="col-md-2">
-        <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action" id="back"
-               href="{{ url_for('dashboard.user_dashboard') }}"><< Back to Dashboard</a>
-            <a class="list-group-item list-group-item-action {% if active_page == 'profile' %}active{% endif %}"
-               id="list-profile-list" data-toggle="list"
-               href="#profile" role="tab" aria-controls="profile">Profile Basic</a>
-            <a class="list-group-item list-group-item-action {% if active_page == 'notifications' %}active{% endif %}"
-               id="list-hht-notifications-list" data-toggle="list"
-               href="#notifications" role="tab" aria-controls="notifications">Notification Settings</a>
-        </div>
+<div class="container">
+    <div class="row btn-back center">
+        <a href="{{ url_for('dashboard.user_dashboard') }}" class="btn btn-full">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            &nbsp;Back to Dashboard
+        </a>
     </div>
-    <div class="col-md-9">
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade {% if active_page == 'profile' %}show active{% endif %}" id="profile"
-                 role="tabpanel" aria-labelledby="list-profile-list">
-                <div class="container">
-                    <div class="panel-title text-center">
-                        <h1>Profile Basics</h1>
-                        <h5>So your friends know who picked the closest score</h5>
+    <section>
+        <div class="panel-title text-center">
+            <h1>Profile Basics</h1>
+            <h5>So your friends know who picked the closest score</h5>
+        </div>
+        <hr/>
+        <div class="main-register main-center">
+            <form method="post">
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <div class="form-group required">
+                    <label class="control-label"><strong>Email</strong></label>
+                    <div class="input-group">
+                        <input type="email" name="email" id="email" readonly class="form-control-plaintext"
+                               aria-describedby="emailsuccess" value="{{ user.email }}" required>
                     </div>
-                    <hr/>
-                    <div class="main-register main-center">
-                        <form method="post">
-                            {% if error %}
-                            <div class="alert alert-danger" role="alert">
-                                {{ error }}
-                            </div>
-                            {% endif %}
-                            <div class="form-group required">
-                                <label class="control-label"><strong>Email</strong></label>
-                                <div class="input-group">
-                                    <input type="email" name="email" id="email" readonly class="form-control-plaintext"
-                                           aria-describedby="emailsuccess" value="{{ user.email }}" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6 required">
-                                    <label class="control-label"><strong>First Name</strong></label>
-                                    <div class="input-group">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 required">
+                        <label class="control-label"><strong>First Name</strong></label>
+                        <div class="input-group">
 
-                                        <input type="text" name="fname" id="fname" readonly
-                                               class="form-control-plaintext"
-                                               aria-describedby="fnamesuccess" value="{{ user.f_name }}" required>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6 required">
-                                    <label class="control-label"><strong>Last Name</strong></label>
-                                    <div class="input-group">
-                                        <input type="text" name="lname" id="lname" readonly
-                                               class="form-control-plaintext"
-                                               aria-describedby="lnamesuccess" value="{{ user.l_name }}" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Phone (optional)</label>
-                                <div class="input-group">
+                            <input type="text" name="fname" id="fname" readonly
+                                   class="form-control-plaintext"
+                                   aria-describedby="fnamesuccess" value="{{ user.f_name }}" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 required">
+                        <label class="control-label"><strong>Last Name</strong></label>
+                        <div class="input-group">
+                            <input type="text" name="lname" id="lname" readonly
+                                   class="form-control-plaintext"
+                                   aria-describedby="lnamesuccess" value="{{ user.l_name }}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phone (optional)</label>
+                    <div class="input-group">
                         <span class="input-group-addon" id="phonesuccess">
                             <i class="fa fa-mobile" aria-hidden="true"></i>
                         </span>
-                                    <input type="text" name="phone" id="phone" class="form-control"
-                                           aria-describedby="phonesuccess" ,
-                                           placeholder="Enter if you would like people in your tailgate to quickly text/call about something such as tickets"
-                                           {% if user.phone is not none %} value="{{ user.phone }}" {% endif %}>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Location (optional)</label>
-                                <div class="input-group">
+                        <input type="text" name="phone" id="phone" class="form-control"
+                               aria-describedby="phonesuccess" ,
+                               placeholder="Enter if you would like people in your tailgate to quickly text/call about something such as tickets"
+                               {% if user.phone is not none %} value="{{ user.phone }}" {% endif %}>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Location (optional)</label>
+                    <div class="input-group">
                                     <span class="input-group-addon" id="locationsuccess">
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" name="location" id="location" class="form-control"
-                                           aria-describedby="locationsuccess" ,
-                                           placeholder="Where are you coming from?, e.g. Richmond, VA; Bourbontown, USA; Deep in Enemy Territory"
-                                           {% if user.location is not none %} value="{{ user.location }}" {% endif %}>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i> Update Email
-                                    </button>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal"
-                                            data-target="#">
-                                        <i class="fa fa-key" aria-hidden="true"></i> Reset Password
-                                    </button>
-                                    <button class='btn btn-outline-success btn-lg float-right' name='profile'
-                                            type='submit'>
-                                        <i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        <input type="text" name="location" id="location" class="form-control"
+                               aria-describedby="locationsuccess" ,
+                               placeholder="Where are you coming from?, e.g. Richmond, VA; Bourbontown, USA; Deep in Enemy Territory"
+                               {% if user.location is not none %} value="{{ user.location }}" {% endif %}>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade {% if active_page == 'notifications' %}show active{% endif %}" id="notifications"
-                 role="tabpanel" aria-labelledby="list-notifications-list">
                 <div class="row">
-                    <div class='col-12'>
-                        <div class="container">
-                            <div class="panel-title text-center">
-                                <h1>Notification Settings</h1>
-                                <h5>Let us know when you would like us to send you friendly email reminders</h5>
-                            </div>
-                            <hr/>
-                            <div class="main-register main-center">
-                                <form role="form" method="post">
-                                    {% for a in alerts %}
-                                    <div class="row center-row">
-                                        <div class="col-9 text-right">
-                                            {{ a_constants[a.alert] }}
-                                        </div>
-                                        <div class="col-3">
-                                            <div class=" btn-group" data-toggle="buttons">
-                                                <label class="btn btn-hokie-group btn-sm {% if a.yes_no == 'On' %}active{% endif %}">
-                                                    {% if a.yes_no == 'On' %}
-                                                    <input type="radio" name="alerts{{ a._id }}" id="on" value="On"
-                                                           autocomplete="off"
-                                                           checked>On
-                                                    {% else %}
-                                                    <input type="radio" name="alerts{{ a._id }}" id="on" value="On"
-                                                           autocomplete="off">On
-                                                    {% endif %}
-                                                </label>
-                                                <label class="btn btn-hokie-group btn-sm {% if a.yes_no == 'Off' %}active{% endif %}">
-                                                    {% if a.yes_no == 'Off' %}
-                                                    <input type="radio" name="alerts{{ a._id }}" id="off" value="Off"
-                                                           autocomplete="off"
-                                                           checked>Off
-                                                    {% else %}
-                                                    <input type="radio" name="alerts{{ a._id }}" id="off" value="Off"
-                                                           autocomplete="off">Off
-                                                    {% endif %}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class='btn btn-outline-success btn-lg float-right'
-                                                    name='notifications'
-                                                    type='submit'>
-                                                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> Update Email
+                        </button>
+                        <button type="button" class="btn btn-warning" data-toggle="modal"
+                                data-target="#">
+                            <i class="fa fa-key" aria-hidden="true"></i> Reset Password
+                        </button>
+                        <button class='btn btn-outline-success btn-lg float-right' name='profile'
+                                type='submit'>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="panel-title text-center">
+        <h1>Notification Settings</h1>
+        <h5>Let us know when you would like us to send you friendly email reminders</h5>
+        <hr/>
+        <div class="main-register main-center">
+            <form role="form" method="post">
+                {% for a in alerts %}
+                <div class="row center-row">
+                    <div class="col-9 text-right">
+                        {{ a_constants[a.alert] }}
+                    </div>
+                    <div class="col-3">
+                        <div class=" btn-group" data-toggle="buttons">
+                            <label class="btn btn-hokie-group btn-sm {% if a.yes_no == 'On' %}active{% endif %}">
+                                {% if a.yes_no == 'On' %}
+                                <input type="radio" name="alerts{{ a._id }}" id="on" value="On"
+                                       autocomplete="off"
+                                       checked>On
+                                {% else %}
+                                <input type="radio" name="alerts{{ a._id }}" id="on" value="On"
+                                       autocomplete="off">On
+                                {% endif %}
+                            </label>
+                            <label class="btn btn-hokie-group btn-sm {% if a.yes_no == 'Off' %}active{% endif %}">
+                                {% if a.yes_no == 'Off' %}
+                                <input type="radio" name="alerts{{ a._id }}" id="off" value="Off"
+                                       autocomplete="off"
+                                       checked>Off
+                                {% else %}
+                                <input type="radio" name="alerts{{ a._id }}" id="off" value="Off"
+                                       autocomplete="off">Off
+                                {% endif %}
+                            </label>
                         </div>
                     </div>
                 </div>
-            </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class='btn btn-outline-success btn-lg float-right'
+                                name='notifications'
+                                type='submit'>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
-</div>
+    </section>
+    >
 
-<!--Reset Password Modal-->
-<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="ResetPasswordLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ResetPasswordLabel">Reset Password</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="control-label">New Password</label>
-                        <div class="input-group">
+
+    <!--Reset Password Modal-->
+    <div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="ResetPasswordLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ResetPasswordLabel">Reset Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label">New Password</label>
+                            <div class="input-group">
                                 <span class="input-group-addon" id="pwordsuccess">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
-                            <input type="password" name="pword" id="pword" class="form-control"
-                                   aria-describedby="pwordsuccess" , placeholder="Min 6 characters" required>
+                                <input type="password" name="pword" id="pword" class="form-control"
+                                       aria-describedby="pwordsuccess" , placeholder="Min 6 characters" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Retype Password</label>
-                        <div class="input-group">
+                        <div class="form-group">
+                            <label class="control-label">Retype Password</label>
+                            <div class="input-group">
                                 <span class="input-group-addon" id="confirmpwordsuccess">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
-                            <input type="password" name="confirmpword" id="confirmpword" class="form-control"
-                                   aria-describedby="confirmpwordsuccess" , placeholder="Verify the password entered"
-                                   required>
+                                <input type="password" name="confirmpword" id="confirmpword" class="form-control"
+                                       aria-describedby="confirmpwordsuccess" ,
+                                       placeholder="Verify the password entered"
+                                       required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

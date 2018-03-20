@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row btn-back center">
-            <a href="/dashboard/" class="btn btn-full">
+            <a href="{{ url_for('dashboard.user_dashboard') }}" class="btn btn-full">
                 <i class="fas fa-arrow-alt-circle-left"></i>
                 &nbsp;Back to Dashboard
             </a>
@@ -434,11 +434,21 @@
                         <td class="text-center">{{ wt.number }}</td>
                         <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
                         <td>
-                            <button type="button" class="btn btn-success btn-sm"><i
-                                    class="fa fa-envelope"
-                                    aria-hidden="true"></i>
+                            {% if wt.user._id == user %}
+                            <a class="btn btn-danger btn-sm"
+                               href="{{ url_for('want_tickets.purchased', ticket=wt._id) }}"
+                               role="button">
+                                Purchased</a>
+                            <a class="btn btn-danger btn-sm"
+                               href="{{ url_for('want_tickets.delete', ticket=wt._id) }}"
+                               role="button">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            {% else %}
+                            <button type="button" class="btn btn-success btn-sm">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email
                             </button>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}

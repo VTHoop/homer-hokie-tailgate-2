@@ -134,7 +134,7 @@ h1 {
 }
 
 .dashboard-input {
-    width: 50px;
+    width: 45px;
     margin: 0px 15px;
     float: left;
 }
@@ -376,5 +376,16 @@ btn-hokie.focus,.btn-hokie:focus{
 
 .icon-big-no {
     color: #600;
+}
+
+/*reposition bootstrap modal element*/
+.modal {
+   top: 120px;
+   right: 100px;
+   bottom: 0;
+   left: 0;
+   z-index: 10040;
+   overflow: auto;
+   overflow-y: auto;
 }
 

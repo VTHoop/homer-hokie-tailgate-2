@@ -87,7 +87,7 @@ class User(object):
         attendance = {}
         games = Game.get_all_games()
         for i in games:
-            if i.home_team.location == 'Blacksburg, VA':
+            if i.home_team.team.location == 'Blacksburg, VA':
                 attendance[i.game_num] = 'Yes'
             else:
                 attendance[i.game_num] = 'No'
