@@ -128,7 +128,9 @@ h1 {
 .dashboard-input {
     width: 45px;
     margin: 0px 15px;
+    padding: .375rem .4rem;
     float: left;
+    text-align: center;
 }
 
 .dashboard-input-oppt {

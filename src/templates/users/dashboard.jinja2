@@ -1,8 +1,11 @@
 {% extends "base_logged_in.jinja2" %}
 {% block content %}
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard_validator.js') }}"></script>
+
 <div class="container">
-    <form method="post">
+    <form method="post" id="dashboardScores">
         <main role="main">
             <div class="col-12">
                 <nav class="nav nav-pills nav-justified">
@@ -68,20 +71,24 @@
                             {% if game.game.home_team.team.school_name == 'Virginia Tech' %}
                             <td>
                                 <div class="form-group row">
-                                    <label class="col-form-label dashboard-label">
+                                    <label for="home_score{{ game.game.game_num }}"
+                                            class="col-form-label dashboard-label">
                                         {{ game.game.home_team.team.short_name}}&nbsp;
                                     </label>
                                     <input class="form-control dashboard-input" type="text"
                                            name="home_score{{ game.game.game_num }}"
-                                           value="{{ game.home_score }}" required
+                                           value="{{ game.home_score }}"
+                                           maxlength="2" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
-                                    <label class="col-form-label dashboard-label">
+                                    <label for="away_score{{ game.game.game_num }}"
+                                           class="col-form-label dashboard-label">
                                         {{ game.game.away_team.team.short_name }}
                                     </label>
                                     <input class="form-control dashboard-input dashboard-input-oppt" type="text"
                                            name="away_score{{ game.game.game_num }}"
-                                           value="{{ game.away_score }}" required
+                                           value="{{ game.away_score }}"
+                                           maxlength="2" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                 </div>
@@ -89,20 +96,24 @@
                             {% else %}
                             <td>
                                 <div class="form-group row">
-                                    <label class="col-form-label dashboard-label">
+                                    <label for="away_score{{ game.game.game_num }}"
+                                           class="col-form-label dashboard-label">
                                         {{ game.game.away_team.team.short_name}}&nbsp;
                                     </label>
                                     <input class="form-control dashboard-input" type="text"
                                            name="away_score{{ game.game.game_num }}"
-                                           value="{{ game.away_score }}" required
+                                           value="{{ game.away_score }}"
+                                           maxlength="2" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
-                                    <label class="col-form-label dashboard-label">
+                                    <label for="home_score{{ game.game.game_num }}"
+                                           class="col-form-label dashboard-label">
                                         {{ game.game.home_team.team.short_name }}
                                     </label>
                                     <input class="form-control dashboard-input dashboard-input-oppt" type="text"
                                            name="home_score{{ game.game.game_num }}"
-                                           value="{{ game.home_score }}" required
+                                           value="{{ game.home_score }}"
+                                           maxlength="2" required
                                            {% if game.game.date <= now %} readonly {% endif %}
                                     >
                                 </div>

@@ -18,89 +18,87 @@
     <h1>Profile Basics</h1>
 </div>
 <div class="main-register main-center">
-    <form method="post">
+    <form method="post" id="newUser">
         {% if error %}
         <div class="alert alert-danger" role="alert">
             {{ error }}
         </div>
         {% endif %}
         <div class="form-group required">
-            <label class="control-label label-text"><strong>Email</strong></label>
+            <label class="control-label label-text" for="email"><strong>Email</strong></label>
             <div class="input-group">
                         <span class="input-group-addon" id="emailsuccess">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
                 <input type="email" name="email" id="email" class="form-control" aria-describedby="emailsuccess"
-                       , placeholder="youremail@domain.com" value="{{ user.email }}" required>
+                       placeholder="youremail@domain.com" value="{{ user.email }}" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6 required">
-                <label class="control-label label-text"><strong>First Name</strong></label>
+                <label class="control-label label-text" for="fname"><strong>First Name</strong></label>
                 <div class="input-group">
                                 <span class="input-group-addon" id="fnamesuccess">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 </span>
                     <input type="text" name="fname" id="fname" class="form-control"
-                           aria-describedby="fnamesuccess"
-                           , placeholder="First Name" value="{{ user.f_name }}" required>
+                           aria-describedby="fnamesuccess" placeholder="First Name" value="{{ user.f_name }}" required>
                 </div>
             </div>
             <div class="form-group col-md-6 required">
-                <label class="control-label label-text"><strong>Last Name</strong></label>
+                <label class="control-label label-text" for="lname"><strong>Last Name</strong></label>
                 <div class="input-group">
                                 <span class="input-group-addon" id="lnamesuccess">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 </span>
                     <input type="text" name="lname" id="lname" class="form-control"
-                           aria-describedby="lnamesuccess"
-                           , placeholder="Last Name" value="{{ user.l_name }}" required>
+                           aria-describedby="lnamesuccess" placeholder="Last Name" value="{{ user.l_name }}" required>
                 </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6 required">
-                <label class="control-label label-text"><strong>Password</strong></label>
+                <label class="control-label label-text" for="pword"><strong>Password</strong></label>
                 <div class="input-group">
                                 <span class="input-group-addon" id="pwordsuccess">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
-                    <input type="password" name="pword" id="pword" class="form-control"
-                           aria-describedby="pwordsuccess" , placeholder="Min 6 characters" required>
+                    <input type="password" name="pword" id="pword" class="form-control" minlength="6"
+                           aria-describedby="pwordsuccess" placeholder="Min 6 characters" required>
                 </div>
             </div>
             <div class="form-group col-md-6 required">
-                <label class="control-label label-text"><strong>Confirm Password</strong></label>
+                <label class="control-label label-text" for="confirmpword"><strong>Confirm Password</strong></label>
                 <div class="input-group">
                                 <span class="input-group-addon" id="confirmpwordsuccess">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
                     <input type="password" name="confirmpword" id="confirmpword" class="form-control"
-                           aria-describedby="confirmpwordsuccess" , placeholder="Verify the password entered"
+                           aria-describedby="confirmpwordsuccess" minlength="6"
+                           placeholder="Verify the password entered"
                            required>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label label-text">Phone (optional)</label>
+            <label class="control-label label-text" for="phone">Phone (optional)</label>
             <div class="input-group">
                         <span class="input-group-addon" id="phonesuccess">
                             <i class="fa fa-mobile" aria-hidden="true"></i>
                         </span>
                 <input type="text" name="phone" id="phone" class="form-control"
-                       aria-describedby="phonesuccess" ,
+                       aria-describedby="phonesuccess"
                        placeholder="Enter if you would like people in your tailgate to quickly text/call about something such as tickets"
                        value="{{ user.phone }}">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label label-text">Location (optional)</label>
+            <label class="control-label label-text" for="location">Location (optional)</label>
             <div class="input-group">
                         <span class="input-group-addon" id="locationsuccess">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </span>
-                <input type="text" name="location" id="location" class="form-control"
-                       aria-describedby="locationsuccess" ,
+                <input type="text" name="location" id="location" class="form-control" aria-describedby="locationsuccess"
                        placeholder="Where are you coming from?, e.g. Richmond, VA; Bourbontown, USA; Deep in Enemy Territory"
                        value="{{ user.location }}">
             </div>
