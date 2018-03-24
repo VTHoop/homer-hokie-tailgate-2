@@ -7,6 +7,7 @@ from src.models.alerts.alert import Alert
 from src.models.user_games.user_game import UserGame
 import src.models.alerts.constants as AlertConstants
 import src.models.users.errors as UserErrors
+from src.models.years.year import Year
 
 __author__ = 'hooper-p'
 
@@ -87,7 +88,7 @@ def new_user():
                 alerts = {}
                 for a in AlertConstants.ALERTS:
                     alerts[a] = request.form['alerts_' + a]
-                games = Game.get_all_games()
+                games = Game.get_games_by_year(Year.get_current_year()._id)
                 # set the values of the attendance dict based on user entries
                 attendance = {}
                 for i in games:
@@ -113,11 +114,15 @@ def new_user():
                         new_alert = Alert(user._id, alert, alerts[alert])
                         new_alert.save_to_mongo()
                     for na in attendance:
-                        new_attendance = UserGame(user._id, na, attendance[na], 0, 0)
+                        print(Game.get_game_by_num(na, Year.get_current_year()._id)._id)
+                        new_attendance = UserGame(user=user.json(),
+                                                  game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
+                                                  attendance=attendance[na], home_score=0,
+                                                  away_score=0, game_date=0)
                         new_attendance.save_to_mongo()
 
                     session['user'] = user._id
-                    return redirect(url_for('.user_dashboard'))
+                    return redirect(url_for('dashboard.user_dashboard'))
         except UserErrors.UserError as e:
             alerts, attendance = User.user_default_values()
             return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
@@ -144,4 +149,3 @@ def profile():
 
     return render_template("users/user_profile.jinja2", user=user, active_page=active,
                            alerts=Alert.get_alerts_by_user(session['user']), a_constants=AlertConstants.ALERTS)
-

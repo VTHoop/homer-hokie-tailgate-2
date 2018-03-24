@@ -1,70 +1,72 @@
 {% extends "base_no_nav.jinja2" %}
 {% block content %}
+<header>
+    <nav class="navbar navbar-main">
+        <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" class="logo">
+    </nav>
+</header>
 
-<div class="container">
+<ul id="breadcrumb">
+    <li><a href="#">Basic Details</a></li>
+    <li><a href="#">Notification Settings</a></li>
+    <li><a href="#">Game Attendance</a></li>
+</ul>
 
-    <ul id="breadcrumb">
-        <li><a href="{{ url_for('users.new_user') }}">Basic Details</a></li>
-        <li><a href="#">Notification Settings</a></li>
-        <li><a href="#">Game Attendance</a></li>
-    </ul>
-
-    <br>
-    <div class="panel-title text-center">
-        <h1>
-            Notification Settings
-        </h1>
-    </div>
-    <hr/>
+<br>
+<div class="panel-title text-center">
+    <h1>Profile Basics</h1>
+</div>
+<form method="post" id="notificationSettings">
     <div class="main-register main-center">
-        <form role="form" method="post">
-            {% for a in alerts %}
-			<div class="row center-row">
-                <div class="col-9 text-right">
-					{{ a_constants[a] }}
-                </div>                
-				<div class="col-3">
-                    <div class=" btn-group" data-toggle="buttons">
-						{% if alerts[a] == 'On' %}
-							<label class="btn btn-hokie-group btn-sm active">
-								<input type="radio" name="alerts_{{ a }}" id="preview_on" value="On" checked> On
-							</label>
-							<label class="btn btn-hokie-group btn-sm">
-								<input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off"> Off
-							</label>
-							{% else %}
-							<label class="btn btn-hokie-group btn-sm">
-								<input type="radio" name="alerts_{{ a }}" id="preview_on" value="On"> On
-							</label>
-							<label class="btn btn-hokie-group btn-sm active">
-								<input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off" checked> Off
-							</label>
-							{% endif %}
-                    </div>
+        {% for a in alerts %}
+        <div class="row center-row">
+            <div class="col-9 text-right">
+                {{ a_constants[a] }}
+            </div>
+            <div class="col-3">
+                <div class=" btn-group" data-toggle="buttons">
+                    {% if alerts[a] == 'On' %}
+                    <label class="btn btn-hokie-group btn-sm active">
+                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On" checked> On
+                    </label>
+                    <label class="btn btn-hokie-group btn-sm">
+                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off"> Off
+                    </label>
+                    {% else %}
+                    <label class="btn btn-hokie-group btn-sm">
+                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On"> On
+                    </label>
+                    <label class="btn btn-hokie-group btn-sm active">
+                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off" checked> Off
+                    </label>
+                    {% endif %}
                 </div>
             </div>
-                {% endfor %}
-                <button type="submit" name="basic_details" class="btn btn-hokie btn-lg">
-                    <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
-                    Prev
-                </button>
-                <button type="submit" name="game_attendance" class="btn btn-hokie float-right btn-lg">
-                    Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                </button>
-                <input type="hidden" name="fname" value="{{ user.f_name }}">
-                <input type="hidden" name="lname" value="{{ user.l_name }}">
-                <input type="hidden" name="email" value="{{ user.email }}">
-                <input type="hidden" name="pword" value="{{ user.password }}">
-                <input type="hidden" name="confirmpword" value="{{ user.password }}">
-                <input type="hidden" name="phone" value="{{ user.phone }}">
-                <input type="hidden" name="location" value="{{ user.location }}">
-                {% for i in attendance %}
-                <input type="hidden" name="attendance{{ i }}" value="{{ attendance[i] }}">
-                {% endfor %}
+        </div>
+        {% endfor %}
 
-            </form>
-        
+        <input type="hidden" name="fname" value="{{ user.f_name }}">
+        <input type="hidden" name="lname" value="{{ user.l_name }}">
+        <input type="hidden" name="email" value="{{ user.email }}">
+        <input type="hidden" name="pword" value="{{ user.password }}">
+        <input type="hidden" name="confirmpword" value="{{ user.password }}">
+        <input type="hidden" name="phone" value="{{ user.phone }}">
+        <input type="hidden" name="location" value="{{ user.location }}">
+        {% for i in attendance %}
+        <input type="hidden" name="attendance{{ i }}" value="{{ attendance[i] }}">
+        {% endfor %}
+
+
     </div>
-</div>
+    <div class="main-bottom-buttons">
+        <button type="submit" name="basic_details" class="btn btn-ghost btn-left">
+            <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+            Prev
+        </button>
+        <button type="submit" name="game_attendance" class="btn btn-full btn-right">
+            Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>
 
 {% endblock %}

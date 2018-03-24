@@ -9,7 +9,6 @@ body {
     color: #555;
     font-family: 'Raleway', 'Arial', sans-serif; 
     font-weight: 300;
-    font-size: 20x;
     text-rendering: optimizeLegibility; 
     background-color: #fff;
 }
@@ -77,8 +76,8 @@ h3 {
     font-weight: 600;
 }
 
-.btn:link,
-.btn:visited {
+/*----GENERAL BUTTON-----*/
+.btn {
     display: inline-block;
     padding: 10px 30px;
     font-weight: 300;
@@ -89,27 +88,39 @@ h3 {
     transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
-
-.btn-full:link,
-.btn-full:visited {
+/*---ANCHOR BUTTONS-----*/
+.a-btn-full:link,
+.a-btn-full:visited {
     background-color: #f60;
     color: #fff;
     margin-right: 15px;
 }
 
-.btn-full:hover,
-.btn-full:active {
+.a-btn-full:hover,
+.a-btn-full:active {
     background-color: #dd5800;
     border: 1px solid #dd5800;
 }
 
-.btn-ghost:link,
-.btn-ghost:visited {
-    color: #f60
+.a-btn-ghost:link,
+.a-btn-ghost:visited {
+    color: #f60;
 }
 
-.btn-ghost:hover,
-.btn-ghost:active {
+.a-btn-ghost:hover,
+.a-btn-ghost:active {
+    background-color: #dd5800;
+    border: 1px solid #dd5800;
+    color: #fff;
+}
+
+.btn-full {
+    background-color: #f60;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-ghost {
     background-color: #dd5800;
     border: 1px solid #dd5800;
     color: #fff;
@@ -135,6 +146,70 @@ h3 {
     background-color: #dd5800;
     border: 1px solid #dd5800;
 }
+
+.btn-outline-orange:hover{
+    color:#fff;
+    background-color:#ff6600;
+    border:#ff6600 1px solid;
+}
+
+.btn-orange{
+    color:#fff;
+    background-color:#ff6600;
+    border:#fff 1px solid;
+}
+
+.btn-orange:hover{
+    color:#660000;
+    background-color:#fff;
+    border:#fff 1px solid;
+}
+
+.btn-hokie{
+    background-color:#660000;
+    color:#fff;
+}
+
+.btn-hokie:hover{
+    color:#fff;
+    background-color:#FF6600;
+    border-color:#6c757d
+}
+
+.btn-hokie-group{
+    background-color:#888;
+    color:#fff;
+    border: 1px solid #fff;
+    font-size: 95%;
+    padding: .25rem .75rem;
+}
+
+.btn-hokie-group-sm {
+    font-size: .87rem;
+}
+
+.btn-hokie-group:hover{
+    background-color:#ff6600;
+}
+
+btn-hokie.focus,.btn-hokie:focus{
+    -webkit-box-shadow:0 0 0 .2rem rgba(134,142,150,.5);
+    box-shadow:0 0 0 .2rem rgba(134,142,150,.5)
+}
+
+.btn-hokie.disabled,.btn-hokie:disabled{
+    background-color:#888;border-color:#888}
+
+.btn-hokie-group:not([disabled]):not(.disabled).active,
+.btn-hokie-group:not([disabled]):not(.disabled):active,
+.show>.btn-hokie-group.dropdown-toggle{
+    color:#fff;
+    background-color:#660000;
+    border-color:#666e76;
+    -webkit-box-shadow:0 0 0 .2rem rgba(255, 102, 0,.3);
+    box-shadow:0 0 0 .2rem rgba(255, 102, 0,.3)}
+
+
 /*---- COMPONENTS -----*/
 .center {
     display: block;
@@ -152,6 +227,16 @@ h3 {
     padding: 0 1%;
 }
 
+
+.btn-left {
+    float: left;
+}
+
+.btn-right {
+    float: right;
+}
+
+
 /*---- ICONS -----*/
 .icon-big {
     font-size: 500%;
@@ -162,7 +247,8 @@ h3 {
 
 /*---- LOGIN -----*/
 .main-login,
-.main-register{
+.main-register,
+.main-bottom-buttons {
     background-color: #f3f3f3;
     /* shadows and rounded borders */
     border-radius: 2px;
@@ -181,8 +267,14 @@ h3 {
     height: 600px;
 }
 
+.main-bottom-buttons {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0px 40px 50px 40px;
+}
+
 .main-center{
  	margin-top: 30px;
  	margin: 0 auto;
-    padding: 50px 40px;
+    padding: 40px 40px;
 }

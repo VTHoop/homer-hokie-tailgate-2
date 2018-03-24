@@ -7,6 +7,7 @@ import src.models.users.constants as UserConstants
 import src.models.users.errors as UserErrors
 import src.models.alerts.constants as AlertConstants
 from src.models.games.game import Game
+from src.models.years.year import Year
 
 __author__ = 'hooper-p'
 
@@ -85,9 +86,9 @@ class User(object):
         for a in AlertConstants.ALERTS:
             alerts[a] = 'On'
         attendance = {}
-        games = Game.get_all_games()
+        games = Game.get_games_by_year(Year.get_current_year()._id)
         for i in games:
-            if i.home_team.team.location == 'Blacksburg, VA':
+            if i.location.city == 'Blacksburg':
                 attendance[i.game_num] = 'Yes'
             else:
                 attendance[i.game_num] = 'No'

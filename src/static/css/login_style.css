@@ -4,8 +4,7 @@ body {
     background-size: cover;
     color: #555;
     font-family: 'Raleway', 'Arial', sans-serif; 
-    font-weight: 300;
-    font-size: 20x;
+    font-weight: 400;
     text-rendering: optimizeLegibility;   
 }
     
@@ -22,16 +21,16 @@ body {
 
 h1:after {
     display: block;
-    height: 2px;
+    height: 1px;
     background-color: #f60;
     content: " ";
     width: 200px;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 h2:after {
     display: block;
-    height: 2px;
+    height: 1px;
     background-color: #f60;
     content: " ";
     width: 100px;
@@ -151,4 +150,9 @@ h2:after {
 }
 #breadcrumb li a:active:after {
   border-left-color: #FF6600;
+}
+
+/*------TABLE RESIZE----------*/
+.table-sm td, .table-sm th {
+    padding: .05rem;
 }

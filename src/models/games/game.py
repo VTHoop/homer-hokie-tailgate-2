@@ -46,8 +46,8 @@ class Game(object):
         return cls(**Database.find_one(GameConstants.COLLECTION, {"_id": _id}))
 
     @classmethod
-    def get_game_by_num(cls, num):
-        return cls(**Database.find_one(GameConstants.COLLECTION, {"game_num": num}))
+    def get_game_by_num(cls, num, year):
+        return cls(**Database.find_one(GameConstants.COLLECTION, {"game_num": num, "year": year}))
 
     @classmethod
     def get_games_by_year(cls, year):
