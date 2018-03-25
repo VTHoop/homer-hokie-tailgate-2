@@ -16,25 +16,25 @@
                 <i class="far fa-newspaper icon-big"></i>
                 <h3>HHT Preview</h3>
                 <p>What does your fearless leader have to say about the upcoming game?</p>
-                <a href="#" class="btn btn-ghost js--scroll-to-preview">Check it out</a>
+                <a href="#" class="btn a-btn-ghost js--scroll-to-preview">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-users icon-big"></i>
                 <h3>Attendence</h3>
                 <p>See who you will be sharing the upcoming Victory Bourbon Toast with</p>
-                <a href="#" class="btn btn-ghost js--scroll-to-attendance">Check it out</a>
+                <a href="#" class="btn a-btn-ghost js--scroll-to-attendance">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-utensils icon-big"></i>
                 <h3>Menu Planner</h3>
                 <p>Tell your tailgate what you plan on bringing</p>
-                <a href="#" class="btn btn-ghost js--scroll-to-menu">Check it out</a>
+                <a href="#" class="btn a-btn-ghost js--scroll-to-menu">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-ticket-alt icon-big"></i>
                 <h3>Ticket Marketplace</h3>
                 <p>Help your buddies get from the tailgate to inside the stadium</p>
-                <a href="#" class="btn btn-ghost js--scroll-to-tickets">Check it out</a>
+                <a href="#" class="btn a-btn-ghost js--scroll-to-tickets">Check it out</a>
             </div>
         </div>
 
@@ -237,111 +237,101 @@
 <!--TICKETS SECTION-->
 <section class="game-detail-section-light js--section-tickets">
 
-    <div class="row game-detail-header">
-        <div class="col-12 text-center">
-            <h1>Tickets</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-8">
-            <div><h2>I Have Tickets!</h2></div>
-            <!-- Modal for Adding Ticket to Offer-->
-            <div class="modal fade" id="addHaveTickets" tabindex="-1" role="dialog"
-                 aria-labelledby="haveTicketsLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="haveTicketsLabel">What do you have to
-                                offer?</h5>
-                            <button type="button" class="close" data-dismiss="modal"
-                                    aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post"
-                                  action="{{ url_for('have_tickets.add', game_id=game._id) }}">
+    <div class="modal fade" id="gameWantTickets" tabindex="-1" role="dialog"
+         aria-labelledby="wantTicketsLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wantTicketsLabel">Tell the people what you
+                        need</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post"
+                          action="{{ url_for('want_tickets.add', game_id=game._id) }}">
 
-                                <div class="form-group col-md-6">
-                                    <label for="total_num">Total #</label>
-                                    <input class="form-control" type="text" name="total_num"
-                                           id="total_num"
-                                           placeholder="Ex: 4">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="section">Section</label>
-                                    <input class="form-control" type="text" name="section"
-                                           id="section"
-                                           placeholder="Ex: 132">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="seats">Seats</label>
-                                    <input class="form-control" type="text" name="seats" id="seats"
-                                           placeholder="Ex: 28-30, 32">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="price">Price</label>
-                                    <input class="form-control" type="text" name="price" id="price"
-                                           placeholder="Ex: 120">
-                                </div>
-
-                                <button class="btn btn-success" type="submit" name="AddHaveTickets">
-                                    <i class="fas fa-save"></i> Save
-                                </button>
-                            </form>
+                        <div class="form-group col-md-6">
+                            <label for="total_num">Total #</label>
+                            <input class="form-control" type="text" name="want_total_num"
+                                   id="want_total_num" placeholder="Ex: 4">
                         </div>
-                    </div>
+
+                        <button class="btn btn-success" type="submit" name="AddWantTickets">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </form>
                 </div>
             </div>
-            <button class="btn btn-success" type="button" data-toggle="modal"
-                    data-target="#addHaveTickets">
-                <i class="fas fa-ticket-alt"></i> Add extra tickets
-            </button>
-        </div>
-        <div class="col-3">
-            <div><h2>I Need Tickets!</h2></div>
-            <!--                    MODAL TO ADD TICKETS TO BUY -->
-            <div class="modal fade" id="gameWantTickets" tabindex="-1" role="dialog"
-                 aria-labelledby="wantTicketsLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="wantTicketsLabel">Tell the people what you
-                                need</h5>
-                            <button type="button" class="close" data-dismiss="modal"
-                                    aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post"
-                                  action="{{ url_for('want_tickets.add', game_id=game._id) }}">
-
-                                <div class="form-group col-md-6">
-                                    <label for="total_num">Total #</label>
-                                    <input class="form-control" type="text" name="want_total_num"
-                                           id="want_total_num" placeholder="Ex: 4">
-                                </div>
-
-                                <button class="btn btn-success" type="submit" name="AddWantTickets">
-                                    <i class="fas fa-save"></i> Save
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-success" type="button" data-toggle="modal"
-                    data-target="#gameWantTickets">
-                <i class="fas fa-ticket-alt"></i> Add wanted tickets
-            </button>
         </div>
     </div>
 
-    <hr>
-    <div class="row">
-        <div class="col-8">
-            <form method="post">
+    <!-- Modal for Adding Ticket to Offer-->
+    <div class="modal fade" id="addHaveTickets" tabindex="-1" role="dialog"
+         aria-labelledby="haveTicketsLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="haveTicketsLabel">What do you have to
+                        offer?</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post"
+                          action="{{ url_for('have_tickets.add', game_id=game._id) }}">
+
+                        <div class="form-group col-md-6">
+                            <label for="total_num">Total #</label>
+                            <input class="form-control" type="text" name="total_num"
+                                   id="total_num"
+                                   placeholder="Ex: 4">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="section">Section</label>
+                            <input class="form-control" type="text" name="section"
+                                   id="section"
+                                   placeholder="Ex: 132">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="seats">Seats</label>
+                            <input class="form-control" type="text" name="seats" id="seats"
+                                   placeholder="Ex: 28-30, 32">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="price">Price</label>
+                            <input class="form-control" type="text" name="price" id="price"
+                                   placeholder="Ex: 120">
+                        </div>
+
+                        <button class="btn btn-success" type="submit" name="AddHaveTickets">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticket-section">
+        <div class="row game-detail-header">
+            <div class="col-md-12 text-center">
+                <h1>I Have Tickets!</h1>
+            </div>
+        </div>
+        <div class="row tbl-tickets">
+            <div class="col-md-12">
+                <button class="btn btn-success game-detail-btn"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#addHaveTickets">
+                    <i class="fas fa-ticket-alt"></i>
+                    Add Available Tickets
+                </button>
                 <table class="table table-striped table-sm">
                     <colgroup>
                         <col style="width:9%"/>
@@ -411,21 +401,36 @@
                     {% endfor %}
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
-        <div class="col-4">
-            <form method="post">
+    </div>
+    <div class="ticket-section">
+        <div class="row game-detail-header">
+            <div class="col-md-12 text-center">
+                <h1>I Need Tickets!</h1>
+            </div>
+        </div>
+        <div class="row tbl-tickets">
+            <div class="col-md-12">
+                <button
+                        class="btn btn-success game-detail-btn"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#gameWantTickets">
+                    <i class="fas fa-ticket-alt"></i>
+                    Add Needed Tickets
+                </button>
                 <table class="table table-striped table-sm">
                     <colgroup>
-                        <col style="width:30%"/>
+                        <col style="width:27%"/>
                         <col style="width:55%"/>
-                        <col style="width:15%"/>
+                        <col style="width:18%"/>
                     </colgroup>
                     <thead class="thead-light">
                     <tr>
                         <th scope="col" class="text-center">Total #</th>
                         <th scope="col">Requestor</th>
-                        <th scope="col">Action</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -455,10 +460,10 @@
 
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
     </div>
-
 </section>
+
 
 {% endblock %}

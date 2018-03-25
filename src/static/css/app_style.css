@@ -289,6 +289,8 @@ a.btn.btn-full{
 
 .game-detail-btn {
     margin-bottom: 20px;
+    font-size: 90%;
+    padding: .375rem .75rem;
 }
 
 /*------------------------*/
@@ -353,3 +355,10 @@ a.btn.btn-full{
    overflow-y: auto;
 }
 
+/*------------------------*/
+/*---TICKETS SECTION ---*/
+/*------------------------*/
+
+.ticket-section {
+    height: 40vh;
+}

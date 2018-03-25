@@ -83,7 +83,6 @@ h3 {
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px;
-    border: 1px solid #f60;
     -webkit-transition: background 0.2s, border 0.2s, color 0.2s;
     transition: background 0.2s, border 0.2s, color 0.2s;
 }
@@ -94,6 +93,7 @@ h3 {
     background-color: #f60;
     color: #fff;
     margin-right: 15px;
+    border: 1px solid #f60;
 }
 
 .a-btn-full:hover,
@@ -105,6 +105,7 @@ h3 {
 .a-btn-ghost:link,
 .a-btn-ghost:visited {
     color: #f60;
+    border: 1px solid #f60;
 }
 
 .a-btn-ghost:hover,
@@ -121,6 +122,13 @@ h3 {
 }
 
 .btn-ghost {
+    background-color: #fff;
+    border: 1px solid #dd5800;
+    color: #600;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
     background-color: #dd5800;
     border: 1px solid #dd5800;
     color: #fff;
