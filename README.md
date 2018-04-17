@@ -1,5 +1,7 @@
 # homer-hokie-tailgate-2
 
+http://homer-hokie-tailgate.herokuapp.com/
+
 ### Summary
 This web application is designed to allow users to register and interact socially with the other members of their specific tailgate.  A website was initially launched in 2010 and this is the second iteration of the website.
 
@@ -10,6 +12,8 @@ This web application is designed to allow users to register and interact sociall
 * MongoDB
 * Mailgun (in the near future)
 * Bootstrap CSS and jQuery
+
+Currently hosted on free tier of heroku as a QA box.
 
 ### Features
 
