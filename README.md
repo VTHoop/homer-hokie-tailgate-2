@@ -23,3 +23,17 @@ Users will indicate their attendance and the summary of that attendance is liste
 Users can list new tickets and needed tickets to exchage with the tailgate
 ##### Game Menu Planner
 Users can list menu items that they will bring to the game
+
+### Folder Structure
+* Dev  
+  This folder is used strictly for offline testing and file transfer when not on main developmemnt machine
+* Src  
+  This is the main source folder
+  *  Common  
+     Used for global utilities
+  *  Models  
+     Standard folders for Python objects and their Flask views
+  *  Static  
+     Images, JS, CSS
+  *  Templates  
+      Standard folders for Jinja templating based on each Python object
