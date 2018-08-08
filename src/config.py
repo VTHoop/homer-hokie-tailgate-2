@@ -4,3 +4,4 @@ DEBUG = True
 ADMINS = frozenset([
 
 ])
+SECRET_KEY = '123'

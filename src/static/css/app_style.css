@@ -79,7 +79,7 @@ body {
 }
 
 .container {
-    margin-top: 150px;
+    margin-top: 130px;
 }
 
 .logo {
@@ -105,6 +105,13 @@ body {
 .my-profile-icon {
     font-size: 300%;
 }
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
 
 /*------------------------------*/
 /*-----HEADINGS ------*/
@@ -207,6 +214,9 @@ a.btn.btn-full{
 /*------------------------*/
 /*---GAME DETAIL SECTION ---*/
 /*------------------------*/
+.dashboard-title {
+    margin-bottom: 0px;
+}
 
 .game-detail-top {
     height: 90vh;
@@ -225,6 +235,10 @@ a.btn.btn-full{
     width: 200px;
     margin: 0 auto;
     margin-top: 30px;
+}
+
+.game-detail-title {
+    margin: 10px 0px;
 }
 
 .game-detail h3 {
@@ -306,6 +320,7 @@ a.btn.btn-full{
 .attendance-no {
     padding-top: 30px;
     height: 60vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .attendance-yes {
@@ -361,4 +376,16 @@ a.btn.btn-full{
 
 .ticket-section {
     height: 40vh;
+}
+
+.btn-ticket-others {
+    width: 90%;
+}
+
+.btn-ticket-self-1 {
+    width: 65%;
+}
+
+.btn-ticket-self-2 {
+    width: 25%;
 }

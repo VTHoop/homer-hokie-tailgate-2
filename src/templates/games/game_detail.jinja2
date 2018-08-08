@@ -14,25 +14,25 @@
         <div class="row game-detail">
             <div class="col-md-3 center">
                 <i class="far fa-newspaper icon-big"></i>
-                <h3>HHT Preview</h3>
+                <h3 id="hht-preview-dashboard-title" class="dashboard-title">HHT Preview</h3>
                 <p>What does your fearless leader have to say about the upcoming game?</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-preview">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-users icon-big"></i>
-                <h3>Attendence</h3>
+                <h3 class="dashboard-title">Attendence</h3>
                 <p>See who you will be sharing the upcoming Victory Bourbon Toast with</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-attendance">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-utensils icon-big"></i>
-                <h3>Menu Planner</h3>
+                <h3 class="dashboard-title">Menu Planner</h3>
                 <p>Tell your tailgate what you plan on bringing</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-menu">Check it out</a>
             </div>
             <div class="col-md-3 center">
                 <i class="fas fa-ticket-alt icon-big"></i>
-                <h3>Ticket Marketplace</h3>
+                <h3 class="dashboard-title">Ticket Marketplace</h3>
                 <p>Help your buddies get from the tailgate to inside the stadium</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-tickets">Check it out</a>
             </div>
@@ -41,7 +41,7 @@
         <section class="game-details js--game-details">
             <div class="row game-header">
                 <div class="col-12">
-                    <h1>{{ game.date }} @ {{ game.time }}</h1>
+                    <h1 class="game-detail-title">{{ game.date }} @ {{ game.time }}</h1>
                 </div>
             </div>
             <div class="row game-logos text-center">
@@ -84,10 +84,10 @@
                         }}</p> <br>
                     <p class="subject">Stadium:</p>
                     <p class="details"> {{ game.stadium }}</p><br>
-                    <p class="subject">Spread:</p>
-                    <p class="details"></p><br>
-                    <p class="subject">TV:</p>
-                    <p class="details"> {{ game.tv }}</p> <br>
+                    <!--<p class="subject">Spread:</p>-->
+                    <!--<p class="details"></p><br>-->
+                    <!--<p class="subject">TV:</p>-->
+                    <!--<p class="details"> {{ game.tv }}</p> <br>-->
                 </div>
             </div>
         </section>
@@ -124,15 +124,17 @@
     <div class="row attendance-listing">
         <div class="col-12">
             <div class="row attendence-listing-headers">
-                <div class="col-4 attendance-yes">
-                    <i class="fas fa-thumbs-up icon-big icon-big-yes"></i>
-                    <p>Hokie, Hokie, Hokie, Hy!</p>
-                    <ul class="list-unstyled">
-                        {% for yes in yes_attendance %}
-                        <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                <!--<div class="card">-->
+                    <div class="col-4 attendance-yes">
+                        <i class="fas fa-thumbs-up icon-big icon-big-yes"></i>
+                        <p>Hokie, Hokie, Hokie, Hy!</p>
+                        <ul class="list-unstyled">
+                            {% for yes in yes_attendance %}
+                            <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                <!--</div>-->
                 <div class="col-4 attendance-maybe">
                     <i class="fas fa-meh icon-big icon-big-maybe"></i>
                     <p>Are we playing at FedEx Field?</p>
@@ -334,12 +336,12 @@
                 </button>
                 <table class="table table-striped table-sm">
                     <colgroup>
-                        <col style="width:9%"/>
-                        <col style="width:9%"/>
+                        <col style="width:10%"/>
                         <col style="width:12%"/>
+                        <col style="width:15%"/>
                         <col style="width:8%"/>
-                        <col style="width:26%"/>
-                        <col style="width:18%"/>
+                        <col style="width:40%"/>
+                        <col style="width:15%"/>
                     </colgroup>
                     <thead class="thead-light">
                     <tr>
@@ -362,16 +364,16 @@
                         <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
                         <td>
                             {% if ht.user._id == user %}
-                            <a class="btn btn-danger btn-sm"
+                            <a class="btn btn-ghost btn-ticket-self-1 btn-sm"
                                href="{{ url_for('have_tickets.sold', ticket=ht._id) }}"
                                role="button">
                                 Mark Sold</a>
-                            <a class="btn btn-danger btn-sm"
+                            <a class="btn btn-danger btn-ticket-self-2 btn-sm"
                                href="{{ url_for('have_tickets.delete', ticket=ht._id) }}"
                                role="button">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
-                            <button type="button" class="btn btn-success btn-sm">
+                            <button type="button" class="btn btn-ghost btn-ticket-others btn-sm">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email
                             </button>
@@ -422,13 +424,15 @@
                 </button>
                 <table class="table table-striped table-sm">
                     <colgroup>
-                        <col style="width:27%"/>
-                        <col style="width:55%"/>
-                        <col style="width:18%"/>
+                        <col style="width:10%"/>
+                        <col style="width:35%"/>
+                        <col style="width:40%"/>
+                        <col style="width:15%"/>
                     </colgroup>
                     <thead class="thead-light">
                     <tr>
                         <th scope="col" class="text-center">Total #</th>
+                        <th scope="col" class="text-center"></th>
                         <th scope="col">Requestor</th>
                         <th scope="col"></th>
                     </tr>
@@ -437,19 +441,20 @@
                     {% for wt in want_tickets_for_game %}
                     <tr>
                         <td class="text-center">{{ wt.number }}</td>
+                        <td></td>
                         <td>{{ wt.user.f_name }} {{ wt.user.l_name }}</td>
                         <td>
                             {% if wt.user._id == user %}
-                            <a class="btn btn-danger btn-sm"
+                            <a class="btn btn-ghost btn-ticket-self-1 btn-sm"
                                href="{{ url_for('want_tickets.purchased', ticket=wt._id) }}"
                                role="button">
                                 Purchased</a>
-                            <a class="btn btn-danger btn-sm"
+                            <a class="btn btn-danger btn-ticket-self-2 btn-sm"
                                href="{{ url_for('want_tickets.delete', ticket=wt._id) }}"
                                role="button">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
-                            <button type="button" class="btn btn-success btn-sm">
+                            <button type="button" class="btn btn-ghost btn-ticket-others btn-sm">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email
                             </button>

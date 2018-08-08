@@ -57,7 +57,8 @@ class UserGame(object):
     @classmethod
     def get_attendance_by_game_and_status(cls, game, attendance):
         return [cls(**elem) for elem in
-                Database.find(UserGameConstants.COLLECTION, {"game": game, "attendance": attendance})]
+                Database.find(UserGameConstants.COLLECTION,
+                              {"game": game, "attendance": attendance, "user.admin_created": "No"})]
 
     @classmethod
     def get_usergames_by_date(cls, beg_date, end_date):
@@ -87,7 +88,10 @@ class UserGame(object):
         user_games = UserGame.get_all_usergames()
 
         for ug in user_games:
+            # if score has been entered
             if ug.score_updated_on is not None:
+                # if game has already happened and user somehow hasn't changed score (should be locked down after game
+                # after game has happened
                 if (ug.game.date < datetime.datetime.now()) and (
                         ug.points_updated_on is None or ug.score_updated_on > ug.points_updated_on):
                     UserGame.calc_points(ug)

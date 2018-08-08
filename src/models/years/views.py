@@ -4,11 +4,14 @@ from flask import Blueprint, request, render_template
 
 from src.models.years.year import Year
 
+import src.models.users.decorators as user_decorators
+
 __author__ = 'hooper-p'
 
 years_blueprint = Blueprint('year', __name__)
 
 
+@user_decorators.requires_admin
 @years_blueprint.route('/create', methods=['GET', 'POST'])
 def create_year():
     if request.method == 'POST':

@@ -115,6 +115,12 @@ h3 {
     color: #fff;
 }
 
+.btn-full,
+.btn-ghost {
+    font-size: 90%;
+    padding: .375rem .75rem;
+}
+
 .btn-full {
     background-color: #f60;
     color: #fff;
@@ -128,7 +134,9 @@ h3 {
 }
 
 .btn-ghost:hover,
-.btn-ghost:active {
+.btn-ghost:active,
+.btn-full:hover,
+.btn-full:active {
     background-color: #dd5800;
     border: 1px solid #dd5800;
     color: #fff;

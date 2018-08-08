@@ -29,8 +29,10 @@
 </script>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" alt="site-logo" class="logo">
+        <a class="navbar-brand" href="{{ url_for('dashboard.user_dashboard') }}">
+            <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}"
+                 alt="site-logo"
+                 class="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -38,8 +40,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
+                {% if session['useradmin'] == 'Yes' %}
                 <li class="nav-item dropdown">
                     <a type="button" class="btn btn-outline-orange dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                        data-toggle="dropdown"
@@ -59,9 +63,12 @@
                            style="padding-left:3em">Team Year</a>
                         <a class="dropdown-item" href="/games/admin/create/"
                            style="padding-left:3em">Game</a>
+                        <a class="dropdown-item" href="/users/admin"
+                           style="padding-left:3em">Offline User</a>
                         <a class="dropdown-item" href="#"><b>Edit</b></a>
                     </div>
                 </li>
+                {% endif %}
             </ul>
             <ul class="scroll-navbar">
                 <li class="scroll-navbar-item js--scroll-to-preview"><a href="#">Preview</a></li>
@@ -83,6 +90,8 @@
 {% block content %}
 
 {% endblock %}
+
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

@@ -8,6 +8,8 @@ from src.models.locations.location import Location
 from src.models.teams.team import Team
 from src.models.user_games.user_game import UserGame
 
+import src.models.users.decorators as user_decorators
+
 from flask import Blueprint, render_template, request, session
 
 from src.models.users.user import User
@@ -51,11 +53,13 @@ def detail(game_id):
 
 
 @games_blueprint.route('/admin/schedule', methods=['GET'])
+@user_decorators.requires_admin
 def admin_schedule():
     return render_template("games/admin_schedule.jinja2", games=Game.get_games_by_year(Year.get_current_year()._id))
 
 
 @games_blueprint.route('/admin/edit/<string:game_id>', methods=['GET', 'POST'])
+@user_decorators.requires_admin
 def edit_game(game_id):
     if request.method == 'POST':
         game = Game.get_game_by_id(game_id)
@@ -74,6 +78,7 @@ def edit_game(game_id):
 
 
 @games_blueprint.route('/admin/create/', methods=['GET', 'POST'])
+@user_decorators.requires_admin
 def create_game():
     if request.method == 'POST':
         new_game = Game(game_num=request.form['game_num'],

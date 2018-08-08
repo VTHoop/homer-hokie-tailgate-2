@@ -27,7 +27,6 @@ from src.models.team_years.views import team_years_blueprint
 
 app = Flask(__name__)
 app.config.from_object('src.config')
-app.secret_key = '123'
 
 app.register_blueprint(users_blueprint, url_prefix='/users')
 app.register_blueprint(alerts_blueprint, url_prefix='/alerts')

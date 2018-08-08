@@ -2,10 +2,13 @@ import uuid
 
 from passlib.hash import sha512_crypt
 
+import requests
+
 from src.common.database import Database
 import src.models.users.constants as UserConstants
 import src.models.users.errors as UserErrors
 import src.models.alerts.constants as AlertConstants
+import src.models.game_preview.constants as PreviewConstants
 from src.models.games.game import Game
 from src.models.years.year import Year
 
@@ -14,6 +17,7 @@ __author__ = 'hooper-p'
 
 class User(object):
     def __init__(self, f_name, l_name, email, password, admin='No', created_on=None, updated_on=None, phone=None,
+                 admin_created='No',
                  location=None, _id=None):
         self.f_name = f_name
         self.l_name = l_name
@@ -24,6 +28,7 @@ class User(object):
         self.updated_on = updated_on
         self.phone = phone
         self.location = location
+        self.admin_created = admin_created
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -63,6 +68,13 @@ class User(object):
         return True
 
     @staticmethod
+    def check_user_exists(email):
+        if Database.find_one(UserConstants.COLLECTION, {"email": email, "admin_created": "No"}) is None:
+            return False
+        else:
+            return True
+
+    @staticmethod
     def new_user_valid(email, password, password2):
         user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
         if user_data is not None:
@@ -77,7 +89,6 @@ class User(object):
     def check_password_strength(password):
         if len(password) < 6:
             UserErrors.PasswordStrength('Your password should be at least 6 characters long.')
-
         return True
 
     @staticmethod
@@ -111,5 +122,17 @@ class User(object):
             "updated_on": self.updated_on,
             "phone": self.phone,
             "location": self.location,
+            "admin_created": self.admin_created,
             "_id": self._id
         }
+
+    def email_password(self, subject, html):
+        response = requests.post(PreviewConstants.URL,
+                                 auth=('api', PreviewConstants.API_KEY),
+                                 data={
+                                     "from": PreviewConstants.FROM,
+                                     "to": self.email,
+                                     "subject": subject,
+                                     "html": html
+                                 })
+        response.raise_for_status()

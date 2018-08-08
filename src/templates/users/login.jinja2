@@ -1,17 +1,8 @@
 {% extends "base_no_nav.jinja2" %}
 {% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
 <header>
     <nav class="navbar navbar-main">
-        <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" class="logo" >
+        <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" class="logo">
     </nav>
 </header>
 <div class="panel-title text-center">
@@ -19,6 +10,11 @@
 </div>
 
 <div class="main-login main-center">
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
     <form method="post">
         <div class="form-group">
             <label class="control-label label-text">Email</label>
@@ -50,7 +46,7 @@
             New User? <a href="{{ url_for('users.new_user') }}">Please sign up!</a>
         </div>
         <div class="text-center">
-            Forgot your password? <a href="#">Reset here</a>
+            Forgot your password? <a href="{{ url_for('users.reset_password') }}">Reset here</a>
         </div>
     </form>
 </div>

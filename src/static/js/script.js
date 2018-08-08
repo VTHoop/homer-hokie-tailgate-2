@@ -27,5 +27,10 @@ $(document).ready(function() {
     $('.js--scroll-to-tickets').click(function () {
        $('html, body').animate({scrollTop: $('.js--section-tickets').offset().top -100}, 1000); 
     });
+
+    $("#dashboardScores input[type='text']").on("click", function () {
+        $(this).select();
+    });
+
     
 });

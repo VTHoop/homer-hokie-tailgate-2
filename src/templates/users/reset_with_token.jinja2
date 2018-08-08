@@ -1,0 +1,35 @@
+{% extends "base_no_nav.jinja2" %}
+{% block content %}
+<header>
+    <nav class="navbar navbar-main">
+        <img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" class="logo">
+    </nav>
+</header>
+<div class="panel-title text-center">
+    <h1>Reset Password</h1>
+</div>
+
+<div class="main-login main-center">
+    <form action="{{ url_for('users.reset_with_token', token=token) }}" method="POST">
+    <div class="form-group">
+            <label class="control-label label-text">Enter your new password</label>
+            <div class="input-group">
+                        <span class="input-group-addon" id="pword">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                <input type="password" name="pword" id="passwordsuccess" class="form-control" aria-describedby="pword"
+                       , required>
+            </div>
+
+        </div>
+        <div>
+            <button type="submit" class="btn btn-login" name="resetpassword">
+                Reset Password
+                <i class="fa fa-key" aria-hidden="true"></i>
+            </button>
+        </div>
+
+</form>
+
+</div>
+{% endblock %}

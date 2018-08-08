@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# my files
+src/common/cleanup
+
 # C extensions
 *.so
 

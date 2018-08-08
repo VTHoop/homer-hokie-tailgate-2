@@ -22,8 +22,11 @@ def edit_preview(game_id):
             preview.author = User.get_user_by_id(session['user'])
             preview.updated_on = datetime.datetime.now()
             preview.save_to_mongo()
+            if 'saveandemail' in request.form:
+                print('sendandemailclicked')
+                Preview.send(preview)
         else:
-            preview = Preview(game_id,session['user'],content,datetime.datetime.now())
+            preview = Preview(game_id,session['user'], content, datetime.datetime.now())
             preview.save_to_mongo()
         return render_template("games/edit_preview.jinja2", preview=preview)
     else:

@@ -1,5 +1,6 @@
 import uuid
 
+import requests
 from flask import session
 
 from src.common.database import Database
@@ -43,3 +44,14 @@ class Preview(object):
             "updated_on": self.updated_on,
             "_id": self._id
         }
+
+    def send(self):
+        response = requests.post(PreviewConstants.URL,
+                             auth=('api', PreviewConstants.API_KEY),
+                             data={
+                                 "from": PreviewConstants.FROM,
+                                 "to": "pat.hooper83@gmail.com",
+                                 "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
+                                 "html": self.preview
+                             })
+        response.raise_for_status()

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>HHT Email Password Reset</title>
+
+    <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/grid.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/main_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/app_style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/trix.css') }}">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
+</head>
+
+<body>
+<!--<header>-->
+    <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top">-->
+        <!--<a class="navbar-brand" href="#">-->
+            <!--<img src="{{ url_for('static', filename='images/hht_logo_flip.png') }}" alt="site-logo" class="logo">-->
+        <!--</a>-->
+    <!--</nav>-->
+<!--</header>-->
+<div class="container">
+    <div class="row">
+        <h1>Homer Hokie Tailgate Password Recovery</h1>
+    </div>
+    <div class="row">
+        <p>You are receiving this email because you requested to reset your password to Homer Hokie Tailgate.</p>
+        <p>Please click the button below to enter a new password to login to HHT.</p>
+    </div>
+    <div class="row">
+        <a role="button" class="btn btn-login" href="{{ recover_url }}">
+                Reset Password
+        </a>
+    </div>
+</div>
+</body>
+</html>

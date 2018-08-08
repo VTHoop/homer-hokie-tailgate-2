@@ -23,3 +23,7 @@ class PasswordsNotMatch(UserError):
 
 class PasswordStrength(UserError):
     pass
+
+
+class ResetPasswordWrongUser(UserError):
+    pass

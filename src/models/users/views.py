@@ -1,5 +1,7 @@
 import datetime
+from os import abort
 
+from src.common.security import ts
 from src.common.utils import Utils
 from src.models.games.game import Game
 from src.models.users.user import User
@@ -16,6 +18,29 @@ from flask import Blueprint, request, session, render_template, redirect, url_fo
 users_blueprint = Blueprint('users', __name__)
 
 
+@users_blueprint.route('/admin', methods=['GET', 'POST'])
+def user_administration():
+    if request.method == 'POST':
+        user = User(f_name=request.form['fname'],
+                    l_name=request.form['lname'],
+                    email=request.form['email'],
+                    admin_created='Yes'
+                    )
+        alerts, attendance = User.user_default_values()
+        user.insert_new_user()
+
+        for alert in alerts:
+            new_alert = Alert(user._id, alert, alerts[alert])
+            new_alert.save_to_mongo()
+        for na in attendance:
+            new_attendance = UserGame(user=user.json(),
+                                      game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
+                                      attendance=attendance[na], home_score=0,
+                                      away_score=0, game_date=0)
+            new_attendance.save_to_mongo()
+    return render_template('users/create_user.jinja2')
+
+
 @users_blueprint.route('/login', methods=['GET', 'POST'])
 def login_user():
     if request.method == 'POST':
@@ -25,11 +50,61 @@ def login_user():
         try:
             if User.is_login_valid(email, password):
                 session['user'] = User.get_user_by_email(email)._id
+                session['useradmin'] = User.get_user_by_email(email).admin
+                print(session['useradmin'])
                 return redirect(url_for("dashboard.user_dashboard"))
+
         except UserErrors.UserError as e:
             return render_template("users/login.jinja2", error=e.message)
 
     return render_template("users/login.jinja2")
+
+
+@users_blueprint.route('/reset', methods=['GET', 'POST'])
+def reset_password():
+    if request.method == 'POST':
+        try:
+            # if user exists
+            if User.check_user_exists(request.form['email']):
+                user = User.get_user_by_email(request.form['email'])
+                subject = 'Password Reset Request from Homer Hokie Tailgate'
+                token = ts.dumps(user.email, salt='recover-key')
+
+                recover_url = url_for(
+                    'users.reset_with_token',
+                    token=token,
+                    _external=True)
+
+                html = render_template(
+                    'email/recover.html',
+                    recover_url=recover_url)
+
+                User.email_password(user, subject, html)
+
+                return redirect(url_for('home'))
+            else:
+                raise UserErrors.ResetPasswordWrongUser(
+                    "Email is not recognized.  Try again or sign up for HHT with that email!")
+        except UserErrors.UserError as e:
+            return render_template("users/reset_password.jinja2", error=e.message)
+    return render_template("users/reset_password.jinja2")
+
+
+@users_blueprint.route('/reset/<token>', methods=["GET", "POST"])
+def reset_with_token(token):
+    try:
+        email = ts.loads(token, salt="recover-key", max_age=86400)
+    except:
+        abort(404)
+
+    if request.method == 'POST':
+        user = User.get_user_by_email(email)
+        user.password = Utils.hash_password(request.form['pword'])
+        user.save_to_mongo()
+
+        return redirect(url_for('users.login_user'))
+
+    return render_template('users/reset_with_token.jinja2', token=token)
 
 
 @users_blueprint.route('/logout')
@@ -149,3 +224,5 @@ def profile():
 
     return render_template("users/user_profile.jinja2", user=user, active_page=active,
                            alerts=Alert.get_alerts_by_user(session['user']), a_constants=AlertConstants.ALERTS)
+
+
