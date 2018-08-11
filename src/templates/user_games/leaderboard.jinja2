@@ -118,10 +118,10 @@
                                 <td>{{ user_game.away_score }}</td>
                                 <td>{{ user_game.away_points }}</td>
                                 {% endif %}
-                                {% if user_game.admin_enter != 'None' %}
-                                <td>1</td>
-                                {% else %}
+                                {% if user_game.admin_enter == 'Yes' %}
                                 <td>0</td>
+                                {% else %}
+                                <td>1</td>
                                 {% endif %}
                                 <td>{{ user_game.total_points }}</td>
                                 <td>{{ leader_points }}</td>
