@@ -5,6 +5,7 @@ __pycache__/
 
 # my files
 src/common/cleanup
+dev/
 
 # C extensions
 *.so

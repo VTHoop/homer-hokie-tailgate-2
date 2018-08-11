@@ -57,19 +57,19 @@ def init_db():
     UserGame.update_user_points()
 
     # dev cleanup work
-    # game_foods = Food.get_all_food()
-    # for gf in game_foods:
-    #     gf.save_to_mongo()
-    # for wt in WantTicket.get_all_wanttickets():
-    #     wt.save_to_mongo()
-    # for ht in HaveTicket.get_all_havetickets():
-    #     ht.save_to_mongo()
-    # for g in Game.get_all_games():
-    #     g.save_to_mongo()
-    # for ug in UserGame.get_all_usergames():
-    #     ug.save_to_mongo()
-    # for ty in TeamYear.get_all_teamyears():
-    #     ty.save_to_mongo()
+    game_foods = Food.get_all_food()
+    for gf in game_foods:
+        gf.save_to_mongo()
+    for wt in WantTicket.get_all_wanttickets():
+        wt.save_to_mongo()
+    for ht in HaveTicket.get_all_havetickets():
+        ht.save_to_mongo()
+    for g in Game.get_all_games():
+        g.save_to_mongo()
+    for ug in UserGame.get_all_usergames():
+        ug.save_to_mongo()
+    for ty in TeamYear.get_all_teamyears():
+        ty.save_to_mongo()
 
 
 @app.route('/')
