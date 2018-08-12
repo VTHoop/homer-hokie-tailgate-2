@@ -6,6 +6,7 @@ __pycache__/
 # my files
 src/common/cleanup
 dev/
+workspace.xml
 
 # C extensions
 *.so
