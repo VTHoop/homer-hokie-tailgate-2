@@ -16,7 +16,7 @@ __author__ = 'hooper-p'
 
 
 class User(object):
-    def __init__(self, f_name, l_name, email, password, admin='No', created_on=None, updated_on=None, phone=None,
+    def __init__(self, f_name, l_name, email, password=None, admin='No', created_on=None, updated_on=None, phone=None,
                  admin_created='No',
                  location=None, _id=None):
         self.f_name = f_name
@@ -57,10 +57,15 @@ class User(object):
         :return: True if valid, False otherwise
         """
         user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
+        admin_created_user = Database.find_one(UserConstants.COLLECTION, {"email": email, "admin_created": "Yes"})
         if user_data is None:
             # Tell the user that their e-mail doesn't exist
             raise UserErrors.UserNotExistsError(
                 "Email is not recognized.  Please use link below to sign-up if you have not created an account.")
+        if admin_created_user is not None:
+            # Tell the user to sign up
+            raise UserErrors.AdminCreatedUserError(
+                "Your account was created by an admin.  Please register with HHT to enjoy the full functionality of the site.")
         if not sha512_crypt.verify(password, user_data['password']):
             # Tell the user that their password is wrong
             raise UserErrors.IncorrectPasswordError("Password does not match the one registered.")

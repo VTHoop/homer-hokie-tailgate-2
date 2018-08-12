@@ -27,3 +27,7 @@ class PasswordStrength(UserError):
 
 class ResetPasswordWrongUser(UserError):
     pass
+
+
+class AdminCreatedUserError(UserError):
+    pass
