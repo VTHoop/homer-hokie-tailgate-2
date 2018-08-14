@@ -17,7 +17,7 @@ __author__ = 'hooper-p'
 
 class User(object):
     def __init__(self, f_name, l_name, email, password=None, admin='No', created_on=None, updated_on=None, phone=None,
-                 admin_created='No',
+                 admin_created='No', prognosticator='Yes',
                  location=None, _id=None):
         self.f_name = f_name
         self.l_name = l_name
@@ -29,6 +29,7 @@ class User(object):
         self.phone = phone
         self.location = location
         self.admin_created = admin_created
+        self.prognosticator = prognosticator
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -116,6 +117,9 @@ class User(object):
     def insert_new_user(self):
         Database.insert(UserConstants.COLLECTION, self.json())
 
+    def remove_user(self):
+        Database.delete(UserConstants.COLLECTION, {"_id": self._id})
+
     def json(self):
         return {
             "f_name": self.f_name,
@@ -128,6 +132,7 @@ class User(object):
             "phone": self.phone,
             "location": self.location,
             "admin_created": self.admin_created,
+            "prognosticator": self.prognosticator,
             "_id": self._id
         }
 

@@ -41,6 +41,12 @@ class UserGame(object):
         return cls(**Database.find_one(UserGameConstants.COLLECTION, {"_id": _id}))
 
     @classmethod
+    def get_all_attendance_by_user(cls, user):
+        return [cls(**elem) for elem in
+                Database.find(UserGameConstants.COLLECTION,
+                                       {"user._id": user})]
+
+    @classmethod
     def get_attendance_by_user(cls, user, beg_date, end_date):
         return [cls(**elem) for elem in
                 Database.find_and_sort(UserGameConstants.COLLECTION,
@@ -110,6 +116,9 @@ class UserGame(object):
 
     def save_to_mongo(self):
         Database.update(UserGameConstants.COLLECTION, {"_id": self._id}, self.json())
+
+    def remove_user_games(self):
+        Database.delete(UserGameConstants.COLLECTION, {"_id": self._id})
 
     def json(self):
         return {

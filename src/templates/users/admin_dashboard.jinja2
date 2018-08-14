@@ -1,0 +1,125 @@
+{% extends "base_logged_in.jinja2" %}
+{% block content %}
+
+<div class="container">
+    <div class="row btn-back center">
+        <a href="{{ url_for('dashboard.user_dashboard') }}" class="btn btn-full">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            &nbsp;Back to Dashboard
+        </a>
+    </div>
+    <main role="main">
+        <div>&nbsp;</div>
+        <div class="panel-title text-center">
+            <h1>Administer Users</h1>
+        </div>
+        <div class="row">
+            <button class="btn btn-success game-detail-btn"
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#modal_new_user">
+                Create Offline User
+            </button>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr class="row text-center">
+                        <th scope="col" class="col-md-2">First Name</th>
+                        <th scope="col" class="col-md-2">Last Name</th>
+                        <th scope="col" class="col-md-4">Email</th>
+                        <th scope="col" class="col-md-1">Offline User</th>
+                        <th scope="col" class="col-md-1">Prognosticator</th>
+                        <th scope="col" class="col-md-2"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr class="row">
+                        <th class="col-md-2">{{ user.f_name }}</th>
+                        <td class="col-md-2">{{ user.l_name }}</td>
+                        <td class="col-md-4">{{ user.email }}</td>
+                        <td class="col-md-1">{{ user.admin_created }}</td>
+                        <td class="col-md-1">{{ user.prognosticator }}</td>
+                        <td class="col-md-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="{{ url_for('users.admin_edit_user', user_id=user._id) }}" type="button"
+                                       class='btn btn-hokie'>
+                                        Edit
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal fade"
+             id="modal_new_user"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="modal_new_user_label"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal_new_user_label">Create Offline User</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post"
+                              action="{{ url_for('users.user_administration') }}">
+
+                            <div class="form-group col-md-8">
+                                <label for="fname">First Name</label>
+                                <input class="form-control" type="text" name="fname"
+                                       id="fname"
+                                       placeholder="First Name">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="lname">Last Name</label>
+                                <input class="form-control" type="text" name="lname"
+                                       id="lname"
+                                       placeholder="Last Name">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" name="email" id="email"
+                                       placeholder="email@domain.com">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="prognosticator">Prognosticator</label>
+                                <div class=" btn-group" data-toggle="buttons">
+                                    <label class="btn btn-hokie-group active">
+                                        <input type="radio" name="prognosticator" id="prognosticator" value="Yes"
+                                               autocomplete="off"
+                                               checked>On
+                                    </label>
+                                    <label class="btn btn-hokie-group btn-sm">
+                                        <input type="radio" name="prognosticator" id="prognosticator" value="No"
+                                               autocomplete="off"
+                                               >Off
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-success" type="submit" name="add_admin_user">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

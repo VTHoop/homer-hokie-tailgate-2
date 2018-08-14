@@ -18,12 +18,45 @@ from flask import Blueprint, request, session, render_template, redirect, url_fo
 users_blueprint = Blueprint('users', __name__)
 
 
+@users_blueprint.route('/admin/<string:user_id>', methods=['GET', 'POST'])
+def admin_edit_user(user_id):
+    if request.method == 'POST':
+        user = User.get_user_by_id(user_id)
+        user.f_name = request.form['first_name']
+        user.l_name = request.form['last_name']
+        user.email = request.form['email']
+        user.prognosticator = request.form['prognosticator']
+        user.save_to_mongo()
+        users = User.get_all_users()
+        return render_template('users/admin_dashboard.jinja2', users=users)
+    else:
+        user = User.get_user_by_id(user_id)
+        return render_template('users/admin_edit_user.jinja2', user=user)
+
+
+@users_blueprint.route('/admin/delete/<string:user_id>', methods=['GET'])
+def admin_delete_user(user_id):
+    user = User.get_user_by_id(user_id)
+    alerts = Alert.get_alerts_by_user(user_id)
+    attendance = UserGame.get_all_attendance_by_user(user_id)
+    user.remove_user()
+    for alert in alerts:
+        alert.remove_alerts()
+
+    for atten in attendance:
+        atten.remove_user_games()
+
+    users = User.get_all_users()
+    return render_template('users/admin_dashboard.jinja2', users=users)
+
+
 @users_blueprint.route('/admin', methods=['GET', 'POST'])
 def user_administration():
     if request.method == 'POST':
         user = User(f_name=request.form['fname'],
                     l_name=request.form['lname'],
                     email=request.form['email'],
+                    prognosticator=request.form['prognosticator'],
                     admin_created='Yes'
                     )
         alerts, attendance = User.user_default_values()
@@ -38,7 +71,8 @@ def user_administration():
                                       attendance=attendance[na], home_score=0,
                                       away_score=0, game_date=0)
             new_attendance.save_to_mongo()
-    return render_template('users/create_user.jinja2')
+    users = User.get_all_users()
+    return render_template('users/admin_dashboard.jinja2', users=users)
 
 
 @users_blueprint.route('/login', methods=['GET', 'POST'])
@@ -224,5 +258,3 @@ def profile():
 
     return render_template("users/user_profile.jinja2", user=user, active_page=active,
                            alerts=Alert.get_alerts_by_user(session['user']), a_constants=AlertConstants.ALERTS)
-
-

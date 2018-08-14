@@ -29,6 +29,9 @@ class Alert(object):
     def save_to_mongo(self):
         Database.update(AlertConstants.COLLECTION, {"_id": self._id}, self.json())
 
+    def remove_alerts(self):
+        Database.delete(AlertConstants.COLLECTION, {"_id": self._id})
+
     def json(self):
         return {
             "_id": self._id,
