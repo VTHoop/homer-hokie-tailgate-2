@@ -50,12 +50,12 @@ def init_db():
     Game.load_game_details()
     TeamYear.update_teams()
 
-    for ug in UserGame.get_all_usergames():
-        # ug.score_updated_on = datetime.datetime.now()
-        ug.points_updated_on = None
-        ug.save_to_mongo()
-
-    UserGame.update_user_points()
+    # for ug in UserGame.get_all_usergames():
+    #     # ug.score_updated_on = datetime.datetime.now()
+    #     ug.points_updated_on = None
+    #     ug.save_to_mongo()
+    #
+    # UserGame.update_user_points()
 
     # dev cleanup work
     # game_foods = Food.get_all_food()
@@ -71,8 +71,8 @@ def init_db():
     #     ug.save_to_mongo()
     # for ty in TeamYear.get_all_teamyears():
     #     ty.save_to_mongo()
-    for u in User.get_all_users():
-        u.save_to_mongo()
+    # for u in User.get_all_users():
+    #     u.save_to_mongo()
 
 
 @app.route('/')
