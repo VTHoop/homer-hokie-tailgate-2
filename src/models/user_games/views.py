@@ -30,7 +30,9 @@ def user_dashboard():
             a.save_to_mongo()
 
     attendance = UserGame.get_attendance_by_user(session['user'], year.start_date, year.end_date)
-    return render_template("users/dashboard.jinja2", attendance=attendance, now=datetime.datetime.now())
+    return render_template("users/dashboard.jinja2",
+                           attendance=attendance,
+                           cutoff=datetime.datetime.now()-datetime.timedelta(days=3))
 
 
 @user_games_blueprint.route('/admin/editscores/<string:game_id>', methods=['GET', 'POST'])
