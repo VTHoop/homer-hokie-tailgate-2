@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/user_games/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user_games/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,100 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="database.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/common/database.py">
+      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="370">
+              <caret line="125" column="73" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team_updater.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/services/team_updater.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="612">
+              <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
               <folding>
-                <element signature="e#25#65#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="team_year.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/team_years/team_year.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="79" column="78" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game_updater.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/services/game_updater.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preview.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/game_preview/preview.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="63" column="68" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1018">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alert.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/alerts/constants.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/game_preview/constants.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -195,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/templates/games/edit_preview.jinja2" />
         <option value="$PROJECT_DIR$/src/models/game_preview/views.py" />
         <option value="$PROJECT_DIR$/src/models/years/views.py" />
-        <option value="$PROJECT_DIR$/src/models/users/decorators.py" />
         <option value="$PROJECT_DIR$/src/models/games/views.py" />
         <option value="$PROJECT_DIR$/src/templates/users/login.jinja2" />
         <option value="$PROJECT_DIR$/requirements.txt" />
@@ -218,13 +140,14 @@
         <option value="$PROJECT_DIR$/src/templates/base_welcome.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/base_no_nav.jinja2" />
         <option value="$PROJECT_DIR$/src/templates/base_logged_in.jinja2" />
-        <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
         <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/src/models/game_preview/constants.py" />
         <option value="$PROJECT_DIR$/src/models/users/user.py" />
         <option value="$PROJECT_DIR$/src/models/alerts/alert.py" />
         <option value="$PROJECT_DIR$/src/models/game_preview/preview.py" />
+        <option value="$PROJECT_DIR$/src/models/users/decorators.py" />
         <option value="$PROJECT_DIR$/src/common/database.py" />
+        <option value="$PROJECT_DIR$/src/models/user_games/views.py" />
       </list>
     </option>
   </component>
@@ -281,13 +204,6 @@
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -295,27 +211,19 @@
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="alerts" type="462c0819:PsiDirectoryNode" />
+              <item name="user_games" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="game_preview" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="teams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -563,7 +471,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534465214271</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="envrionment condition for database connection">
+      <created>1534466060786</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1534466060786</updated>
+    </task>
+    <task id="LOCAL-00017" summary="learn how to spell environment">
+      <created>1534466212913</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1534466212913</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -577,14 +499,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1819" height="1178" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19304153" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19304153" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917467" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005612" side_tool="true" weight="0.32821497" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32821497" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49551067" visible="true" weight="0.32725528" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.62457913" weight="0.32917467" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49551067" weight="0.32725528" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.62457913" visible="true" weight="0.32917467" />
       <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.49943882" weight="0.32821497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24966322" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49607182" weight="0.32917467" />
@@ -618,7 +539,9 @@
     <MESSAGE value="favicon" />
     <MESSAGE value="change cutoff to minus 3 days" />
     <MESSAGE value="dynmaic email user list" />
-    <option name="LAST_COMMIT_MESSAGE" value="dynmaic email user list" />
+    <MESSAGE value="envrionment condition for database connection" />
+    <MESSAGE value="learn how to spell environment" />
+    <option name="LAST_COMMIT_MESSAGE" value="learn how to spell environment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -626,20 +549,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/users/reset_password.jinja2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -658,13 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret column="393822" lean-forward="true" selection-start-column="393822" selection-end-column="393822" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/security.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -870,25 +772,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="125" column="73" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/teams/team.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -977,10 +862,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/security.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/users/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="125" column="73" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
