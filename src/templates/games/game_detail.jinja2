@@ -373,10 +373,11 @@
                                role="button">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
-                            <button type="button" class="btn btn-ghost btn-ticket-others btn-sm">
+                            <a role="button" class="btn btn-ghost btn-ticket-others btn-sm"
+                            href="mailto:{{ ht.user.email }}?subject=Interested in your Homer Hokie Tickets!">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email
-                            </button>
+                            </a>
                             {% endif %}
                         </td>
                     </tr>
@@ -454,10 +455,10 @@
                                role="button">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
-                            <button type="button" class="btn btn-ghost btn-ticket-others btn-sm">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <a role="button" class="btn btn-ghost btn-ticket-others btn-sm"
+                            href="mailto:{{ wt.user.email }}?subject=I Have Homer Hokie tickets you can use!"></i>
                                 Email
-                            </button>
+                            </a>
                             {% endif %}
                         </td>
                     </tr>
