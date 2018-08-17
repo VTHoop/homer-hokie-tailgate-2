@@ -12,7 +12,7 @@ class Alert(object):
     def __init__(self, user, alert, yes_no, _id=None):
         self.user = User.get_user_by_id(user)
         self.alert = alert
-        self.yes_no = yes_no  # this can include maybe
+        self.yes_no = yes_no
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def __repr__(self):
@@ -20,11 +20,16 @@ class Alert(object):
 
     @classmethod
     def get_alerts_by_user(cls, user):
-        return [cls (**elem) for elem in Database.find(AlertConstants.COLLECTION, {"user": user})]
+        return [cls(**elem) for elem in Database.find(AlertConstants.COLLECTION, {"user": user})]
 
     @classmethod
     def get_alert_by_id(cls, id):
         return cls(**Database.find_one(AlertConstants.COLLECTION, {"_id": id}))
+
+    @classmethod
+    def get_alerts_by_alert_type(cls, alert_type, on_or_off):
+        return [cls(**elem) for elem in Database.find(AlertConstants.COLLECTION,
+                                                      {"alert": alert_type, "yes_no": on_or_off})]
 
     def save_to_mongo(self):
         Database.update(AlertConstants.COLLECTION, {"_id": self._id}, self.json())
@@ -39,4 +44,3 @@ class Alert(object):
             "yes_no": self.yes_no,
             "user": self.user._id
         }
-

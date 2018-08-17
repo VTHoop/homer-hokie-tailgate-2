@@ -4,6 +4,7 @@ import requests
 from flask import session
 
 from src.common.database import Database
+from src.models.alerts.alert import Alert
 from src.models.games.game import Game
 from src.models.users.user import User
 import src.models.game_preview.constants as PreviewConstants
@@ -35,6 +36,16 @@ class Preview(object):
     def save_to_mongo(self):
         Database.update(PreviewConstants.COLLECTION, {"_id": self._id}, self.json())
 
+
+    @staticmethod
+    def get_preview_user_list():
+        alert_user_list = Alert.get_alerts_by_alert_type('HHT_preview', 'On')
+        email_alert_users = []
+        for alert in alert_user_list:
+            email_alert_users.append(alert.user.email)
+        return ",".join(email_alert_users)
+
+
     def json(self):
         return {
             "game": self.game._id,
@@ -50,7 +61,7 @@ class Preview(object):
                              auth=('api', PreviewConstants.API_KEY),
                              data={
                                  "from": PreviewConstants.FROM,
-                                 "to": "pat.hooper83@gmail.com; jrhooper@att.net",
+                                 "to": self.get_preview_user_list(),
                                  "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
                                  "html": self.preview
                              })
