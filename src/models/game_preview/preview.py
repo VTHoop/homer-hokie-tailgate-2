@@ -1,3 +1,4 @@
+import os
 import uuid
 
 import requests
@@ -36,7 +37,6 @@ class Preview(object):
     def save_to_mongo(self):
         Database.update(PreviewConstants.COLLECTION, {"_id": self._id}, self.json())
 
-
     @staticmethod
     def get_preview_user_list():
         alert_user_list = Alert.get_alerts_by_alert_type('HHT_preview', 'On')
@@ -44,7 +44,6 @@ class Preview(object):
         for alert in alert_user_list:
             email_alert_users.append(alert.user.email)
         return ",".join(email_alert_users)
-
 
     def json(self):
         return {
@@ -57,12 +56,17 @@ class Preview(object):
         }
 
     def send(self):
+        if os.environ.get("environment") in ['QA', 'DEV']:
+            email_to = 'pat.hooper83@gmail.com,jrhooper@att.net'
+        else:
+            email_to = self.get_preview_user_list()
+
         response = requests.post(PreviewConstants.URL,
-                             auth=('api', PreviewConstants.API_KEY),
-                             data={
-                                 "from": PreviewConstants.FROM,
-                                 "to": self.get_preview_user_list(),
-                                 "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
-                                 "html": self.preview
-                             })
+                                 auth=('api', PreviewConstants.API_KEY),
+                                 data={
+                                     "from": PreviewConstants.FROM,
+                                     "to": email_to,
+                                     "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
+                                     "html": self.preview
+                                 })
         response.raise_for_status()
