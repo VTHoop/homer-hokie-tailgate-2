@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/services/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game_updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/services/game_updater.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/alerts/alert.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/alerts/alert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/game_preview/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/game_preview/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/game_preview/preview.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/game_preview/preview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team_updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/services/team_updater.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/database.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/user_games/views.py">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/common/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="125" column="73" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
+            <state relative-caret-position="252">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -73,8 +56,8 @@
       <file leaf-file-name="preview.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/game_preview/preview.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="455">
+              <caret line="63" column="68" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -94,7 +77,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alert.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alert.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
@@ -109,6 +92,15 @@
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/alerts/constants.py">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="828">
+              <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
@@ -220,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/models/user_games/user_game.py" />
         <option value="$PROJECT_DIR$/src/models/users/views.py" />
         <option value="$PROJECT_DIR$/src/templates/users/admin_edit_user.jinja2" />
-        <option value="$PROJECT_DIR$/src/common/database.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/home.html" />
         <option value="$PROJECT_DIR$/src/templates/base_logged_out.jinja2" />
@@ -231,8 +222,9 @@
         <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/src/models/game_preview/constants.py" />
         <option value="$PROJECT_DIR$/src/models/users/user.py" />
-        <option value="$PROJECT_DIR$/src/models/game_preview/preview.py" />
         <option value="$PROJECT_DIR$/src/models/alerts/alert.py" />
+        <option value="$PROJECT_DIR$/src/models/game_preview/preview.py" />
+        <option value="$PROJECT_DIR$/src/common/database.py" />
       </list>
     </option>
   </component>
@@ -564,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534461116650</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="dynmaic email user list">
+      <created>1534465214271</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1534465214271</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -578,14 +577,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1819" height="1178" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19304153" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19304153" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917467" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005612" side_tool="true" weight="0.32821497" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32821497" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49551067" weight="0.32725528" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49551067" visible="true" weight="0.32725528" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.62457913" weight="0.32917467" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="8" sideWeight="0.49943882" visible="true" weight="0.32821497" />
+      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.49943882" weight="0.32821497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24966322" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49607182" weight="0.32917467" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989521" />
@@ -617,7 +617,8 @@
     <MESSAGE value="cleanup initialization" />
     <MESSAGE value="favicon" />
     <MESSAGE value="change cutoff to minus 3 days" />
-    <option name="LAST_COMMIT_MESSAGE" value="change cutoff to minus 3 days" />
+    <MESSAGE value="dynmaic email user list" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynmaic email user list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -827,20 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -953,16 +940,6 @@
     <entry file="file://$PROJECT_DIR$/src/models/alerts/constants.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/game_preview/preview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1018">
@@ -980,6 +957,30 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/game_preview/preview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="63" column="68" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
         </state>
       </provider>
     </entry>

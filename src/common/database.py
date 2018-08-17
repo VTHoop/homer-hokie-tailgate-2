@@ -12,7 +12,10 @@ class Database(object):
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client['homerhokie']
+        if os.environ.get("envrionment") == 'QA':
+            Database.DATABASE = client.get_default_database()
+        else:
+            Database.DATABASE = client['homerhokie']
 
     @staticmethod
     def insert(collection, data):
