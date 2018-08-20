@@ -189,9 +189,6 @@ def new_user():
                     user.created_on = datetime.datetime.utcnow()
                     user.save_to_mongo()
 
-                    session['user'] = user._id
-                    session['useradmin'] = user.admin
-                    return redirect(url_for('dashboard.user_dashboard'))
                 else:
                     user = User(fname, lname, email, pword, phone=phone, location=location,
                                 created_on=datetime.datetime.utcnow())
@@ -205,9 +202,10 @@ def new_user():
                                  game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
                                  attendance=attendance[na], home_score=0,
                                  away_score=0, game_date=0).save_to_mongo()
-                    session['user'] = user._id
-                    session['useradmin'] = user.admin
-                    return redirect(url_for('alerts.manage_alerts'))
+
+                session['user'] = user._id
+                session['useradmin'] = user.admin
+                return redirect(url_for('alerts.manage_alerts'))
         except UserErrors.UserError as e:
             return render_template("users/new_user.jinja2", error=e.message)
     else:
