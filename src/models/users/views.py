@@ -85,7 +85,6 @@ def login_user():
             if User.is_login_valid(email, password):
                 session['user'] = User.get_user_by_email(email)._id
                 session['useradmin'] = User.get_user_by_email(email).admin
-                print(session['useradmin'])
                 return redirect(url_for("dashboard.user_dashboard"))
 
         except UserErrors.UserError as e:
@@ -144,6 +143,7 @@ def reset_with_token(token):
 @users_blueprint.route('/logout')
 def logout():
     session['user'] = None
+    session['useradmin'] = None
     return redirect(url_for('home'))
 
 
@@ -164,78 +164,54 @@ def update_profile():
 @users_blueprint.route('/new', methods=['GET', 'POST'])
 def new_user():
     """
-    This method handles both the original GET and all subsequent POST requests
-
-    The registration of a new user is handled through three different pages and the information on those pages will
-    be saved and rendered on the page if the that is the appropriate page otherwise it will be saved in a hidden
-    form element.  Password will not be re-rendered, however.
-
-    On GET, function will go build default values for a new user and keep those hidden until they get to those pages.
-
-    All form elements are re-saved on each submit regardless of page, however the buttons will determine the appropriate
-    page to render.
 
     :return:
     """
-    if request.method == 'GET':
-        alerts, attendance = User.user_default_values()
-        return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
-                               a_constants=AlertConstants.ALERTS)
-    elif request.method == 'POST':
-        fname = request.form['fname']
-        lname = request.form['lname']
+    if request.method == 'POST':
         email = request.form['email']
-        pword = request.form['pword']
-        confirmpword = request.form['confirmpword']
-        phone = request.form['phone']
-        location = request.form['location']
         try:
-            if User.new_user_valid(email, pword, confirmpword):
-                # admin = 'No'
-                user = User(fname, lname, email, pword, phone=phone, location=location)
-                # set the values of the alert dict based on user entries
-                alerts = {}
-                for a in AlertConstants.ALERTS:
-                    alerts[a] = request.form['alerts_' + a]
-                games = Game.get_games_by_year(Year.get_current_year()._id)
-                # set the values of the attendance dict based on user entries
-                attendance = {}
-                for i in games:
-                    attendance[i.game_num] = request.form['attendance' + str(i.game_num)]
-                # render correct page based on button clicked
-                if 'notification_settings' in request.form:
-                    return render_template("users/notification_settings.jinja2", user=user, alerts=alerts,
-                                           attendance=attendance, games=games, a_constants=AlertConstants.ALERTS)
-                elif 'basic_details' in request.form:
-                    return render_template("users/new_user.jinja2", user=user, alerts=alerts, attendance=attendance,
-                                           games=games, a_constants=AlertConstants.ALERTS)
-                elif 'game_attendance' in request.form:
-                    return render_template("users/game_attendance.jinja2", user=user, alerts=alerts,
-                                           attendance=attendance,
-                                           games=games, a_constants=AlertConstants.ALERTS)
-                elif 'register_user' in request.form:
-                    pword = Utils.hash_password(request.form['pword'])
-                    user = User(fname, lname, email, pword, phone=phone, location=location,
-                                created_on=datetime.datetime.utcnow())
-                    user.insert_new_user()
-
-                    for alert in alerts:
-                        new_alert = Alert(user._id, alert, alerts[alert])
-                        new_alert.save_to_mongo()
-                    for na in attendance:
-                        print(Game.get_game_by_num(na, Year.get_current_year()._id)._id)
-                        new_attendance = UserGame(user=user.json(),
-                                                  game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
-                                                  attendance=attendance[na], home_score=0,
-                                                  away_score=0, game_date=0)
-                        new_attendance.save_to_mongo()
+            if User.new_user_valid(email, request.form['pword'], request.form['confirmpword']):
+                fname = request.form['fname']
+                lname = request.form['lname']
+                pword = Utils.hash_password(request.form['pword'])
+                phone = request.form['phone']
+                location = request.form['location']
+                if User.check_offline_user_exist(email) is not None:
+                    user = User.get_user_by_email(email)
+                    user.f_name = fname
+                    user.l_name = lname
+                    user.password = pword
+                    user.admin_created = 'No'
+                    user.prognosticator = 'Yes'
+                    user.admin = 'No'
+                    user.phone = phone
+                    user.location = location
+                    user.created_on = datetime.datetime.utcnow()
+                    user.save_to_mongo()
 
                     session['user'] = user._id
+                    session['useradmin'] = user.admin
                     return redirect(url_for('dashboard.user_dashboard'))
+                else:
+                    user = User(fname, lname, email, pword, phone=phone, location=location,
+                                created_on=datetime.datetime.utcnow())
+                    user.save_to_mongo()
+
+                    alerts, attendance = User.user_default_values()
+                    for alert in alerts:
+                        Alert(user._id, alert, "On").save_to_mongo()
+                    for na in attendance:
+                        UserGame(user=user.json(),
+                                 game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
+                                 attendance=attendance[na], home_score=0,
+                                 away_score=0, game_date=0).save_to_mongo()
+                    session['user'] = user._id
+                    session['useradmin'] = user.admin
+                    return redirect(url_for('alerts.manage_alerts'))
         except UserErrors.UserError as e:
-            alerts, attendance = User.user_default_values()
-            return render_template("users/new_user.jinja2", user=None, alerts=alerts, attendance=attendance,
-                                   a_constants=AlertConstants.ALERTS, error=e.message)
+            return render_template("users/new_user.jinja2", error=e.message)
+    else:
+        return render_template("users/new_user.jinja2")
 
 
 @users_blueprint.route('/profile', methods=['GET', 'POST'])

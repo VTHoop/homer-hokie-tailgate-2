@@ -21,11 +21,14 @@
                     {{ error }}
                 </div>
                 {% endif %}
-                <div class="form-group required">
-                    <label class="control-label"><strong>Email</strong></label>
-                    <div class="input-group">
-                        <input type="email" name="email" id="email" readonly class="form-control-plaintext"
-                               aria-describedby="emailsuccess" value="{{ user.email }}" required>
+                <div class="form-row">
+
+                    <div class="form-group col-md-12 required">
+                        <label class="control-label"><strong>Email</strong></label>
+                        <div class="input-group">
+                            <input type="email" name="email" id="email" readonly class="form-control-plaintext"
+                                   size=75 aria-describedby="emailsuccess" value="{{ user.email }}" required>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
@@ -73,14 +76,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#">
-                            <i class="fa fa-envelope" aria-hidden="true"></i> Update Email
-                        </button>
-                        <button type="button" class="btn btn-warning" data-toggle="modal"
-                                data-target="#">
-                            <i class="fa fa-key" aria-hidden="true"></i> Reset Password
-                        </button>
+                        <!--<button type="button" class="btn btn-primary" data-toggle="modal"-->
+                        <!--data-target="#">-->
+                        <!--<i class="fa fa-envelope" aria-hidden="true"></i> Update Email-->
+                        <!--</button>-->
+                        <!--<button type="button" class="btn btn-warning" data-toggle="modal"-->
+                        <!--data-target="#">-->
+                        <!--<i class="fa fa-key" aria-hidden="true"></i> Reset Password-->
+                        <!--</button>-->
                         <button class='btn btn-outline-success btn-lg float-right' name='profile'
                                 type='submit'>
                             <i class="fa fa-floppy-o" aria-hidden="true"></i> Save changes

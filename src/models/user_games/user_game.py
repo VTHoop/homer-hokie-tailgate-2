@@ -120,6 +120,10 @@ class UserGame(object):
     def remove_user_games(self):
         Database.delete(UserGameConstants.COLLECTION, {"_id": self._id})
 
+    @staticmethod
+    def remove_user_games_by_user(email):
+        Database.delete(UserGameConstants.COLLECTION, {"user.email": email})
+
     def json(self):
         return {
             "user": self.user.json(),

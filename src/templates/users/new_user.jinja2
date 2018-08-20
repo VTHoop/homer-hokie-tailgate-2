@@ -6,11 +6,6 @@
     </nav>
 </header>
 
-<ul id="breadcrumb">
-    <li><a href="#">Basic Details</a></li>
-    <li><a href="#">Notification Settings</a></li>
-    <li><a href="#">Game Attendance</a></li>
-</ul>
 
 <br>
 <div class="panel-title text-center">
@@ -31,7 +26,7 @@
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
                 <input type="email" name="email" id="email" class="form-control" aria-describedby="emailsuccess"
-                       placeholder="youremail@domain.com" value="{{ user.email }}" required>
+                       placeholder="youremail@domain.com" required>
             </div>
         </div>
         <div class="form-row">
@@ -42,7 +37,7 @@
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 </span>
                     <input type="text" name="fname" id="fname" class="form-control"
-                           aria-describedby="fnamesuccess" placeholder="First Name" value="{{ user.f_name }}" required>
+                           aria-describedby="fnamesuccess" placeholder="First Name" required>
                 </div>
             </div>
             <div class="form-group col-md-6 required">
@@ -52,7 +47,7 @@
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 </span>
                     <input type="text" name="lname" id="lname" class="form-control"
-                           aria-describedby="lnamesuccess" placeholder="Last Name" value="{{ user.l_name }}" required>
+                           aria-describedby="lnamesuccess" placeholder="Last Name" required>
                 </div>
             </div>
         </div>
@@ -88,8 +83,7 @@
                         </span>
                 <input type="text" name="phone" id="phone" class="form-control"
                        aria-describedby="phonesuccess"
-                       placeholder="Enter if you would like people in your tailgate to quickly text/call about something such as tickets"
-                       value="{{ user.phone }}">
+                       placeholder="Enter if you would like people in your tailgate to quickly text/call about something such as tickets">
             </div>
         </div>
         <div class="form-group">
@@ -99,25 +93,21 @@
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </span>
                 <input type="text" name="location" id="location" class="form-control" aria-describedby="locationsuccess"
-                       placeholder="Where are you coming from?, e.g. Richmond, VA; Bourbontown, USA; Deep in Enemy Territory"
-                       value="{{ user.location }}">
+                       placeholder="Where are you coming from?, e.g. Richmond, VA; Bourbontown, USA; Deep in Enemy Territory">
             </div>
         </div>
-
-
-        {% for a in alerts %}
-        <input type="hidden" name="alerts_{{ a }}" value="{{ alerts[a] }}">
-        {% endfor %}
-        <input type="hidden" name="user_id" value="{{ user._id }}">
-        {% for i in attendance %}
-        <input type="hidden" name="attendance{{ i }}" value="{{ attendance[i] }}">
-        {% endfor %}
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class='btn btn-lg btn-full center' name='save' type='submit'><i
+                        class="fa fa-floppy-o" aria-hidden="true"></i> Create Account
+                </button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
     </div>
-    <div class="main-bottom-buttons">
-        <button type="submit" name="notification_settings" class="btn btn-full btn-right">
-            Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-        </button>
-    </div>
+
 </form>
 
 {% endblock %}

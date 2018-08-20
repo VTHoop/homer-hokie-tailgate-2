@@ -37,6 +37,10 @@ class Alert(object):
     def remove_alerts(self):
         Database.delete(AlertConstants.COLLECTION, {"_id": self._id})
 
+    @staticmethod
+    def remove_alerts_by_user(user_id):
+        Database.delete(AlertConstants.COLLECTION, {"user": user_id})
+
     def json(self):
         return {
             "_id": self._id,

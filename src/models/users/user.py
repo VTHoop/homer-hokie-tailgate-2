@@ -82,7 +82,7 @@ class User(object):
 
     @staticmethod
     def new_user_valid(email, password, password2):
-        user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
+        user_data = Database.find_one(UserConstants.COLLECTION, {"email": email, "admin_created": "No"})
         if user_data is not None:
             raise UserErrors.UserAlreadyRegisteredError(
                 "This email is already registered. Please log in.  You can reset your password here if needed.")
@@ -96,6 +96,10 @@ class User(object):
         if len(password) < 6:
             UserErrors.PasswordStrength('Your password should be at least 6 characters long.')
         return True
+
+    @staticmethod
+    def check_offline_user_exist(email):
+        return Database.find_one(UserConstants.COLLECTION, {"email": email, "admin_created": "Yes"})
 
     @staticmethod
     def user_default_values():

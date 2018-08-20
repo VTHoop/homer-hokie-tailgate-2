@@ -15,23 +15,23 @@
         {% for a in alerts %}
         <div class="row center-row">
             <div class="col-9 text-right">
-                {{ a_constants[a] }}
+                {{ a_constants[a.alert] }}
             </div>
             <div class="col-3">
                 <div class=" btn-group" data-toggle="buttons">
-                    {% if alerts[a] == 'On' %}
+                    {% if a.yes_no == 'On' %}
                     <label class="btn btn-hokie-group btn-sm active">
-                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On" checked> On
+                        <input type="radio" name="alerts_{{ a._id }}" id="preview_on" value="On" checked> On
                     </label>
                     <label class="btn btn-hokie-group btn-sm">
-                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off"> Off
+                        <input type="radio" name="alerts_{{ a._id }}" value="Off" id="preview_off"> Off
                     </label>
                     {% else %}
                     <label class="btn btn-hokie-group btn-sm">
-                        <input type="radio" name="alerts_{{ a }}" id="preview_on" value="On"> On
+                        <input type="radio" name="alerts_{{ a._id }}" id="preview_on" value="On"> On
                     </label>
                     <label class="btn btn-hokie-group btn-sm active">
-                        <input type="radio" name="alerts_{{ a }}" value="Off" id="preview_off" checked> Off
+                        <input type="radio" name="alerts_{{ a._id }}" value="Off" id="preview_off" checked> Off
                     </label>
                     {% endif %}
                 </div>
@@ -39,17 +39,18 @@
         </div>
         {% endfor %}
 
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class='btn btn-lg btn-full center' name='save' type='submit'><i
+                        class="fa fa-floppy-o" aria-hidden="true"></i> Save Preferences
+                </button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
 
-    </div>
-    <div class="main-bottom-buttons">
-        <button type="submit" name="basic_details" class="btn btn-ghost btn-left">
-            <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
-            Prev
-        </button>
-        <button type="submit" name="game_attendance" class="btn btn-full btn-right">
-            Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-        </button>
-    </div>
 </form>
 
 {% endblock %}
