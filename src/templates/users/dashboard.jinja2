@@ -32,7 +32,7 @@
                             <col style="width:10%"/>
                             <col style="width:17%"/>
                             <col style="width:23%"/>
-                            <col style="width:10%"/>
+                            <col class="attendance-buttons" style="width:10%"/>
                             <col style="width:10%"/>
                         </colgroup>
                         <thead>
@@ -41,7 +41,7 @@
                             <th>Time</th>
                             <th>Opponent</th>
                             <th>Score Prediction</th>
-                            <th>Attending?</th>
+                            <th class="attendance-buttons">Attending?</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -128,7 +128,7 @@
                                 </div>
                             </td>
                             {% endif %}
-                            <td>
+                            <td class="attendance-buttons">
                                 <div class="btn-group" data-toggle="buttons">
                                     {% if game.attendance == 'Yes' %}
                                     <label class="btn btn-hokie-group active">

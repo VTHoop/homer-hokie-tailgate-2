@@ -7,8 +7,9 @@
         top: 20%;
         left: 50%;
     }
-    .view-details,
-     .dashboard-label{
+     .view-details,
+     .dashboard-label,
+     .attendance-buttons{
         display: none;
     }
 }
@@ -25,7 +26,9 @@
         width: 80%;
     }
 
-    .view-details {
+     .view-details,
+     .dashboard-label,
+     .attendance-buttons{
         display: none;
     }
 }
@@ -35,7 +38,9 @@
     h1 {font-size: 200%;}
     h2 {font-size: 175%;}    
 
-    .view-details {
+     .view-details,
+     .dashboard-label,
+     .attendance-buttons{
         display: none;
     }
 
@@ -71,7 +76,9 @@
         font-size: 16px;
     }
 
-    .view-details {
+     .view-details,
+     .dashboard-label,
+     .attendance-buttons{
         display: none;
     }
 
