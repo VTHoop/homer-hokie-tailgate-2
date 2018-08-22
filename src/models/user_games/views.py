@@ -8,12 +8,15 @@ from src.models.games.game import Game
 from src.models.user_games.user_game import UserGame
 from src.models.years.year import Year
 
+import src.models.users.decorators as user_decorators
+
 __author__ = 'hooper-p'
 
 user_games_blueprint = Blueprint('dashboard', __name__)
 
 
 @user_games_blueprint.route('/', methods=['GET', 'POST'])
+@user_decorators.requires_login
 def user_dashboard():
     year = Year.get_current_year()
 
