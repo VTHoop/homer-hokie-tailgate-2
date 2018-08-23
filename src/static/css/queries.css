@@ -8,7 +8,6 @@
         left: 50%;
     }
      .view-details,
-     .dashboard-label,
      .attendance-buttons {
         display: none;
     }
