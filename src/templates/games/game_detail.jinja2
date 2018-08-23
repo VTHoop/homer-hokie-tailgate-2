@@ -3,8 +3,11 @@
 {% block content %}
 
 <section class="game-detail-top js--game-detail-top">
-
     <div class="container">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
         <div class="row btn-back center">
             <a href="{{ url_for('dashboard.user_dashboard') }}" class="btn btn-full">
                 <i class="fas fa-arrow-alt-circle-left"></i>
@@ -37,8 +40,8 @@
                 <a href="#" class="btn a-btn-ghost js--scroll-to-tickets">Check it out</a>
             </div>
         </div>
-
-        <section class="game-details js--game-details">
+</section>
+<section class="game-detail-section-dark js--game-details">
             <div class="row game-header">
                 <div class="col-12">
                     <h1 class="game-detail-title">{{ game.date }} @ {{ game.time }}</h1>
@@ -90,11 +93,10 @@
                     <!--<p class="details"> {{ game.tv }}</p> <br>-->
                 </div>
             </div>
-        </section>
     </div>
 </section>
 <!--PREVIEW SECION -->
-<section class="game-detail-section-dark js--section-preview">
+<section class="game-detail-section-light js--section-preview">
 
     <div class="row game-detail-header">
         <div class="col-12 text-center">
@@ -114,7 +116,7 @@
     </div>
 </section>
 <!--ATTENDANCE SECTION-->
-<section class="game-detail-section-light js--section-attendance">
+<section class="game-detail-section-dark js--section-attendance">
 
     <div class="row game-detail-header">
         <div class="col-12 text-center">
@@ -160,7 +162,7 @@
 
 </section>
 <!--MENU SECTION-->
-<section class="game-detail-section-dark js--section-menu">
+<section class="game-detail-section-light js--section-menu">
 
     <div class="row game-detail-header">
         <div class="col-12 text-center">
@@ -237,7 +239,7 @@
 
 </section>
 <!--TICKETS SECTION-->
-<section class="game-detail-section-light js--section-tickets">
+<section class="game-detail-section-dark js--section-tickets">
 
     <div class="modal fade" id="gameWantTickets" tabindex="-1" role="dialog"
          aria-labelledby="wantTicketsLabel" aria-hidden="true">
