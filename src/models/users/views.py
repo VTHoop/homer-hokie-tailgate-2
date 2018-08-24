@@ -196,7 +196,7 @@ def new_user():
 
                     alerts, attendance = User.user_default_values()
                     for alert in alerts:
-                        Alert(user._id, alert, "On").save_to_mongo()
+                        Alert(user=user._id, alert=alert, yes_no='On').save_to_mongo()
                     for na in attendance:
                         UserGame(user=user.json(),
                                  game=Game.get_game_by_num(na, Year.get_current_year()._id)._id,
