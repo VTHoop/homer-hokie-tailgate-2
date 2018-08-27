@@ -48,7 +48,7 @@ body {
 
 .sticky .scroll-navbar li{
     display: inline-block;
-    margin-left: 16%;
+    margin-left: 11%;
 }
 
 .sticky .scroll-navbar li:first-child{
@@ -247,7 +247,8 @@ a.btn.btn-full{
 
 .game-detail p{
     text-align: center;
-    height: 70px;
+    height: 100px;
+    margin-top: 15px;
 }
 
 .game-details {

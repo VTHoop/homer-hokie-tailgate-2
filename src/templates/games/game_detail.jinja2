@@ -15,84 +15,90 @@
             </a>
         </div>
         <div class="row game-detail">
-            <div class="col-md-3 center">
+            <div class="col-md-2 center">
                 <i class="far fa-newspaper icon-big"></i>
                 <h3 id="hht-preview-dashboard-title" class="dashboard-title">HHT Preview</h3>
                 <p>What does your fearless leader have to say about the upcoming game?</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-preview">Check it out</a>
             </div>
-            <div class="col-md-3 center">
+            <div class="col-md-2 center">
                 <i class="fas fa-users icon-big"></i>
                 <h3 class="dashboard-title">Attendence</h3>
                 <p>See who you will be sharing the upcoming Victory Bourbon Toast with</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-attendance">Check it out</a>
             </div>
-            <div class="col-md-3 center">
+            <div class="col-md-2 center">
                 <i class="fas fa-utensils icon-big"></i>
                 <h3 class="dashboard-title">Menu Planner</h3>
                 <p>Tell your tailgate what you plan on bringing</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-menu">Check it out</a>
             </div>
-            <div class="col-md-3 center">
+            <div class="col-md-2 center">
                 <i class="fas fa-ticket-alt icon-big"></i>
                 <h3 class="dashboard-title">Ticket Marketplace</h3>
                 <p>Help your buddies get from the tailgate to inside the stadium</p>
                 <a href="#" class="btn a-btn-ghost js--scroll-to-tickets">Check it out</a>
             </div>
+            <div class="col-md-2 center">
+                <i class="fas fa-comments icon-big"></i>
+                <h3 class="dashboard-title">Conversation</h3>
+                <p>Discuss the gossip on this game!</p>
+                <a href="#" class="btn a-btn-ghost js--scroll-to-convo">Check it out</a>
+            </div>
         </div>
+    </div>
 </section>
 <section class="game-detail-section-dark js--game-details">
-            <div class="row game-header">
-                <div class="col-12">
-                    <h1 class="game-detail-title">{{ game.date }} @ {{ game.time }}</h1>
-                </div>
-            </div>
-            <div class="row game-logos text-center">
-                <div class="col-5">
-                    <img src="../../static/images/teams/{{ game.away_team.team.logo }}"/>
-                </div>
-                <div class="col-2"></div>
-                <div class="col-5 game-logo">
-                    <img src="../../static/images/teams/{{ game.home_team.team.logo }}"/>
-                </div>
-            </div>
-            <div class="row text-center game-teams">
-                <div class="col-5"><h2>{{ game.away_team.team.school_name }}</h2></div>
-                <div class="col-2"><h2></h2></div>
-                <div class="col-5"><h2>{{ game.home_team.team.school_name }}</h2></div>
-            </div>
-            <div class="row text-center collapse-at">
-                <div class="col-5"><h3>{{ game.away_team.team.mascot }}</h3></div>
-                <div class="col-2"><h2><i class="fa fa-at fa-2x" aria-hidden="true"></i></h2></div>
-                <div class="col-5"><h3>{{ game.home_team.team.mascot }}</h3></div>
-            </div>
-            <div class="row text-center">
-                <div class="col-5"><h5><strong>Conference:</strong>{{ game.away_team.conference }}</h5>
-                </div>
-                <div class="col-2"><h2></h2></div>
-                <div class="col-5"><h5><strong>Conference:</strong>{{ game.home_team.conference }}</h5>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-5"><h5><strong>Record:</strong>{{ game.away_team.wins }}-{{ game.away_team.losses }}
-                </h5></div>
-                <div class="col-2"><h2></h2></div>
-                <div class="col-5"><h5><strong>Record:</strong>{{ game.home_team.wins }}-{{ game.home_team.losses }}
-                </h5></div>
-            </div>
-            <div class="row text-center game-details">
-                <div class="col-12">
-                    <p class="subject">Location:</p>
-                    <p class="details"> {{ game.location.city }}, {{ game.location.state
-                        }}</p> <br>
-                    <p class="subject">Stadium:</p>
-                    <p class="details"> {{ game.stadium }}</p><br>
-                    <!--<p class="subject">Spread:</p>-->
-                    <!--<p class="details"></p><br>-->
-                    <!--<p class="subject">TV:</p>-->
-                    <!--<p class="details"> {{ game.tv }}</p> <br>-->
-                </div>
-            </div>
+    <div class="row game-header">
+        <div class="col-12">
+            <h1 class="game-detail-title">{{ game.date }} @ {{ game.time }}</h1>
+        </div>
+    </div>
+    <div class="row game-logos text-center">
+        <div class="col-5">
+            <img src="../../static/images/teams/{{ game.away_team.team.logo }}"/>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5 game-logo">
+            <img src="../../static/images/teams/{{ game.home_team.team.logo }}"/>
+        </div>
+    </div>
+    <div class="row text-center game-teams">
+        <div class="col-5"><h2>{{ game.away_team.team.school_name }}</h2></div>
+        <div class="col-2"><h2></h2></div>
+        <div class="col-5"><h2>{{ game.home_team.team.school_name }}</h2></div>
+    </div>
+    <div class="row text-center collapse-at">
+        <div class="col-5"><h3>{{ game.away_team.team.mascot }}</h3></div>
+        <div class="col-2"><h2><i class="fa fa-at fa-2x" aria-hidden="true"></i></h2></div>
+        <div class="col-5"><h3>{{ game.home_team.team.mascot }}</h3></div>
+    </div>
+    <div class="row text-center">
+        <div class="col-5"><h5><strong>Conference:</strong>{{ game.away_team.conference }}</h5>
+        </div>
+        <div class="col-2"><h2></h2></div>
+        <div class="col-5"><h5><strong>Conference:</strong>{{ game.home_team.conference }}</h5>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-5"><h5><strong>Record:</strong>{{ game.away_team.wins }}-{{ game.away_team.losses }}
+        </h5></div>
+        <div class="col-2"><h2></h2></div>
+        <div class="col-5"><h5><strong>Record:</strong>{{ game.home_team.wins }}-{{ game.home_team.losses }}
+        </h5></div>
+    </div>
+    <div class="row text-center game-details">
+        <div class="col-12">
+            <p class="subject">Location:</p>
+            <p class="details"> {{ game.location.city }}, {{ game.location.state
+                }}</p> <br>
+            <p class="subject">Stadium:</p>
+            <p class="details"> {{ game.stadium }}</p><br>
+            <!--<p class="subject">Spread:</p>-->
+            <!--<p class="details"></p><br>-->
+            <!--<p class="subject">TV:</p>-->
+            <!--<p class="details"> {{ game.tv }}</p> <br>-->
+        </div>
     </div>
 </section>
 <!--PREVIEW SECION -->
@@ -127,15 +133,15 @@
         <div class="col-12">
             <div class="row attendence-listing-headers">
                 <!--<div class="card">-->
-                    <div class="col-4 attendance-yes">
-                        <i class="fas fa-thumbs-up icon-big icon-big-yes"></i>
-                        <p>Hokie, Hokie, Hokie, Hy!</p>
-                        <ul class="list-unstyled">
-                            {% for yes in yes_attendance %}
-                            <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                <div class="col-4 attendance-yes">
+                    <i class="fas fa-thumbs-up icon-big icon-big-yes"></i>
+                    <p>Hokie, Hokie, Hokie, Hy!</p>
+                    <ul class="list-unstyled">
+                        {% for yes in yes_attendance %}
+                        <li>{{ yes.user.f_name + ' ' + yes.user.l_name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <!--</div>-->
                 <div class="col-4 attendance-maybe">
                     <i class="fas fa-meh icon-big icon-big-maybe"></i>
@@ -370,7 +376,7 @@
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
                             <a role="button" class="btn btn-ghost btn-ticket-others btn-sm"
-                            href="mailto:{{ ht.user.email }}?subject=Interested in your Homer Hokie Tickets!">
+                               href="mailto:{{ ht.user.email }}?subject=Interested in your Homer Hokie Tickets!">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 Email
                             </a>
@@ -452,7 +458,7 @@
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             {% else %}
                             <a role="button" class="btn btn-ghost btn-ticket-others btn-sm"
-                            href="mailto:{{ wt.user.email }}?subject=I Have Homer Hokie tickets you can use!"></i>
+                               href="mailto:{{ wt.user.email }}?subject=I Have Homer Hokie tickets you can use!"></i>
                                 Email
                             </a>
                             {% endif %}
@@ -465,6 +471,85 @@
             </div>
         </div>
     </div>
+</section>
+<!--CONVERSATION SECTION-->
+<section class="game-detail-section-dark js--section-convo">
+
+    <div class="row game-detail-header">
+        <div class="col-12 text-center">
+            <h1>Conversation</h1>
+        </div>
+    </div>
+    <!-- Modal for Adding Comment-->
+    <div class="modal fade" id="convoModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCommentLabel">Add Comment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post"
+                          action="{{ url_for('convo.add_convo', game_id=game._id) }}">
+                        <div class="form-group">
+                            <textarea class="form-control" name="convo" id="convo" rows="8"></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit" name="AddComment">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success game-detail-btn" type="button" data-toggle="modal"
+                    data-target="#convoModal">
+                <i class="fas fa-comment"></i> Add Comment
+            </button>
+            <table class="table table-striped">
+                <colgroup>
+                    <col style="width:15%"/>
+                    <col style="width:10%"/>
+                    <col style="width:10%"/>
+                    <col style="width:55%"/>
+                    <col style="width:10%"/>
+                </colgroup>
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">HHTer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col" style="width: 10px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for convo in convos %}
+                <tr>
+                    <td>{{ convo.user.f_name[:1] }}. {{ convo.user.l_name }}</td>
+                    <td>{{ convo.created_on.strftime('%m-%d-%Y') }}</td>
+                    <td>{{ convo.created_on.strftime('%I:%M %p') }}</td>
+                    <td>{{ convo.conversation }}</td>
+                    <td style="width: 10px">
+                        {% if convo.user._id == user %}
+                        <a class="btn btn-danger btn-sm"
+                           href="{{ url_for('convo.delete_convo', convo=convo._id) }}"
+                           role="button">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </section>
 
 

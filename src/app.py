@@ -25,6 +25,7 @@ from src.models.years.views import years_blueprint
 from src.models.locations.views import locations_blueprint
 from src.models.teams.views import teams_blueprint
 from src.models.team_years.views import team_years_blueprint
+from src.models.game_conversations.views import convo_blueprint
 
 app = Flask(__name__)
 app.config.from_object('src.config')
@@ -41,6 +42,7 @@ app.register_blueprint(years_blueprint, url_prefix='/year')
 app.register_blueprint(locations_blueprint, url_prefix='/location')
 app.register_blueprint(teams_blueprint, url_prefix='/team')
 app.register_blueprint(team_years_blueprint, url_prefix='/teamyear')
+app.register_blueprint(convo_blueprint, url_prefix='/convo')
 
 
 @app.before_first_request

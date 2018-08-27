@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from src.models.game_conversations.game_conversation import GameConversation
 from src.models.game_food.food import Food
 from src.models.game_preview.preview import Preview
 from src.models.games.game import Game
@@ -46,10 +47,13 @@ def detail(game_id):
     # get want_tickets for game
     want_tickets_for_game = WantTicket.get_wanttickets_by_game(game_id)
 
+    # get convo for game
+    convos = GameConversation.get_convo_by_game(game_id)
+
     return render_template("games/game_detail.jinja2", game=this_game, preview=preview, yes_attendance=yes_attendance,
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,
                            have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game,
-                           user=user)
+                           convos=convos, user=user)
 
 
 @games_blueprint.route('/admin/schedule', methods=['GET'])

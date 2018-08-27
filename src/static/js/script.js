@@ -28,6 +28,10 @@ $(document).ready(function() {
        $('html, body').animate({scrollTop: $('.js--section-tickets').offset().top -100}, 1000); 
     });
 
+    $('.js--scroll-to-convo').click(function () {
+       $('html, body').animate({scrollTop: $('.js--section-convo').offset().top -100}, 1000);
+    });
+
     $("#dashboardScores input[type='text']").on("click", function () {
         $(this).select();
     });
