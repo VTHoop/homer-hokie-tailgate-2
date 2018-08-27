@@ -9,8 +9,13 @@ havetickets_blueprint = Blueprint('have_tickets', __name__)
 
 @havetickets_blueprint.route('/add/<string:game_id>', methods=['POST'])
 def add(game_id):
-    have_ticket = HaveTicket(session['user'], request.form['total_num'],request.form['section'],request.form['seats'],
-                             game_id,None,request.form['price'])
+    have_ticket = HaveTicket(user=session['user'],
+                             number=request.form['total_num'],
+                             section=request.form['section'],
+                             seats=request.form['seats'],
+                             game=game_id,
+                             sold_flag=None,
+                             price=None)
     have_ticket.save_to_mongo()
     return redirect(url_for('games.detail', game_id=game_id, active='tickets'))
 

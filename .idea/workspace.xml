@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c79917-c5e8-4690-99b8-e77ca7cefd4c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/alerts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/alerts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/have_tickets/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/have_tickets/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,12 +18,10 @@
       <file leaf-file-name="game_detail.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/games/game_detail.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="3204">
+              <caret line="371" column="91" lean-forward="true" selection-start-line="371" selection-start-column="91" selection-end-line="371" selection-end-column="91" />
               <folding>
                 <element signature="e#153#159#1" expanded="true" />
-                <element signature="e#154#160#1" expanded="true" />
-                <element signature="e#176#182#1" expanded="true" />
                 <element signature="n#section#1;n#!!top" />
                 <element signature="n#section#2;n#!!top" />
                 <element signature="n#section#3;n#!!top" />
@@ -33,11 +31,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="have_ticket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/have_tickets/have_ticket.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/have_tickets/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
+            <state relative-caret-position="490">
+              <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -48,7 +64,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="360">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -60,17 +76,8 @@
       <file leaf-file-name="alerts.jinja2" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/alerts/alerts.jinja2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
+            <state relative-caret-position="900">
               <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/static/css/app_style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -78,7 +85,7 @@
       <file leaf-file-name="decorators.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/users/decorators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="108">
               <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
@@ -90,7 +97,7 @@
       <file leaf-file-name="alert.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="108">
               <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -99,22 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.jinja2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#col#4;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#main#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
+            <state relative-caret-position="1656">
               <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -190,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/static/js/register_validator.js" />
         <option value="$PROJECT_DIR$/src/static/css/login_style.css" />
         <option value="$PROJECT_DIR$/src/templates/users/game_attendance.jinja2" />
         <option value="$PROJECT_DIR$/src/models/games/game.py" />
@@ -238,9 +232,10 @@
         <option value="$PROJECT_DIR$/src/templates/users/dashboard.jinja2" />
         <option value="$PROJECT_DIR$/src/static/css/queries.css" />
         <option value="$PROJECT_DIR$/src/static/css/app_style.css" />
-        <option value="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" />
         <option value="$PROJECT_DIR$/src/models/alerts/views.py" />
         <option value="$PROJECT_DIR$/src/models/users/views.py" />
+        <option value="$PROJECT_DIR$/src/templates/games/game_detail.jinja2" />
+        <option value="$PROJECT_DIR$/src/models/have_tickets/views.py" />
       </list>
     </option>
   </component>
@@ -275,6 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,14 +294,7 @@
               <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="alerts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homer-hokie-tailgate-2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="have_tickets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homer-hokie-tailgate-2" type="b2602c69:ProjectViewProjectNode" />
@@ -330,7 +319,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -669,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535049705416</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="cleanup game detail">
+      <created>1535153993578</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1535153993578</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -687,7 +682,6 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19304153" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917467" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005612" side_tool="true" weight="0.32821497" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32821497" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49551067" weight="0.32725528" />
       <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.62457913" visible="true" weight="0.32917467" />
       <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.49943882" weight="0.32821497" />
@@ -704,6 +698,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32821497" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -743,27 +738,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/templates/games/edit_game.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="27" lean-forward="true" selection-end-line="115" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/admin_dashboard.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="44" column="67" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/game_food/food.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="51" lean-forward="true" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -827,13 +805,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/teams/team.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/services/team_updater.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -864,13 +836,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -883,9 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -893,13 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/have_tickets/have_ticket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -952,9 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="98" selection-start-line="98" selection-end-line="107" selection-end-column="14" />
-          <folding>
-            <element signature="e#5328#5334#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -983,9 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1000,9 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,7 +969,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/static/css/app_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="252">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
@@ -1033,25 +980,9 @@
     <entry file="file://$PROJECT_DIR$/src/static/js/script.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/games/game_detail.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#153#159#1" expanded="true" />
-            <element signature="e#154#160#1" expanded="true" />
-            <element signature="e#176#182#1" expanded="true" />
-            <element signature="n#section#1;n#!!top" />
-            <element signature="n#section#2;n#!!top" />
-            <element signature="n#section#3;n#!!top" />
-            <element signature="n#section#4;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/users/dashboard.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
+        <state relative-caret-position="792">
           <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#col#4;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#main#0;n#form#0;n#div#0;n#!!top" expanded="true" />
@@ -1067,7 +998,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/users/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="108">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
@@ -1077,14 +1008,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/alerts/alerts.jinja2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
+        <state relative-caret-position="900">
           <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/alerts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="360">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -1092,20 +1023,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
+    <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+        <state relative-caret-position="108">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/alerts/alert.py">
+    <entry file="file://$PROJECT_DIR$/src/models/users/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="1656">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -1114,11 +1045,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="198" column="69" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
+        <state relative-caret-position="490">
+          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/want_tickets/want_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/games/game_detail.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3204">
+          <caret line="371" column="91" lean-forward="true" selection-start-line="371" selection-start-column="91" selection-end-line="371" selection-end-column="91" />
+          <folding>
+            <element signature="e#153#159#1" expanded="true" />
+            <element signature="n#section#1;n#!!top" />
+            <element signature="n#section#2;n#!!top" />
+            <element signature="n#section#3;n#!!top" />
+            <element signature="n#section#4;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/have_tickets/have_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/have_tickets/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
         </state>
       </provider>
     </entry>

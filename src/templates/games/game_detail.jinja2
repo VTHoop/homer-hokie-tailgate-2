@@ -306,12 +306,6 @@
                             <input class="form-control" type="text" name="seats" id="seats"
                                    placeholder="Ex: 28-30, 32">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="price">Face Value</label>
-                            <input class="form-control" type="text" name="price" id="price"
-                                   placeholder="Ex: 120">
-                        </div>
-
                         <button class="btn btn-success" type="submit" name="AddHaveTickets">
                             <i class="fas fa-save"></i> Save
                         </button>
@@ -350,7 +344,7 @@
                         <th scope="col" class="text-center">Total #</th>
                         <th scope="col">Section</th>
                         <th scope="col">Seats</th>
-                        <th scope="col">Face Value</th>
+                        <th scope="col"></th>
                         <th scope="col">Owner</th>
                         <th scope="col"></th>
                     </tr>
@@ -362,7 +356,7 @@
                         <td class="text-center">{{ ht.number }}</td>
                         <td class="text-center">{{ ht.section }}</td>
                         <td>{{ ht.seats }}</td>
-                        <td>{{ '${:,.2f}'.format(ht.price) }}</td>
+                        <td></td>
                         <td>{{ ht.user.f_name }} {{ ht.user.l_name }}</td>
                         <td>
                             {% if ht.user._id == user %}
@@ -395,7 +389,7 @@
                             <del>{{ ht.seats }}</del>
                         </td>
                         <td>
-                            <del>{{ '${:,.2f}'.format(ht.price) }}</del>
+                            <del></del>
                         </td>
                         <td>
                             <del>{{ ht.user.f_name }} {{ ht.user.l_name }}</del>
