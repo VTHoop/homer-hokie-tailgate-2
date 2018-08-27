@@ -53,7 +53,7 @@ def detail(game_id):
     return render_template("games/game_detail.jinja2", game=this_game, preview=preview, yes_attendance=yes_attendance,
                            maybe_attendance=maybe_attendance, no_attendance=no_attendance, food_for_game=food_for_game,
                            have_tickets_for_game=have_tickets_for_game, want_tickets_for_game=want_tickets_for_game,
-                           convos=convos, user=user, DoD=datetime.date.today()-datetime.date(2004,11,28)).days)
+                           convos=convos, user=user, DoD=(datetime.date.today()-datetime.date(2004,11,28)).days)
 
 
 @games_blueprint.route('/admin/schedule', methods=['GET'])
