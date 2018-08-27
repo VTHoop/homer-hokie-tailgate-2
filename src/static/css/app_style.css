@@ -294,6 +294,10 @@ a.btn.btn-full{
     box-shadow: 2px 2px 2px #ccc;
 }
 
+.section-attendance {
+    height: 180vh;
+}
+
 .game-detail-section-dark {
     background-color: rgba(221, 221, 221, 0.26);
 }
@@ -320,7 +324,7 @@ a.btn.btn-full{
 .attendance-maybe,
 .attendance-no {
     padding-top: 30px;
-    height: 60vh;
+    height: 150vh;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
