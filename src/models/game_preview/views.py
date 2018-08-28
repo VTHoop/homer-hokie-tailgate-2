@@ -23,7 +23,6 @@ def edit_preview(game_id):
             preview.updated_on = datetime.datetime.now()
             preview.save_to_mongo()
             if 'saveandemail' in request.form:
-                print('sendandemailclicked')
                 Preview.send(preview)
         else:
             preview = Preview(game_id,session['user'], content, datetime.datetime.now())

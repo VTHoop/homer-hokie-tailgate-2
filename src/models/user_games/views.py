@@ -1,4 +1,4 @@
-import datetime
+from datetime import timedelta
 import operator
 
 from collections import defaultdict
@@ -83,4 +83,5 @@ def get_leaderboard():
                                latest_user_games=latest_user_games, games_prior=games_prior, max_game=max_game)
     else:
         return render_template("user_games/no_games_played.jinja2")
+
 

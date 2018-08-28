@@ -78,6 +78,15 @@ class Game(object):
         return prior_games
 
     @classmethod
+    def get_next_game(cls):
+        games = [cls(**elem) for elem in
+                 Database.find_and_sort(GameConstants.COLLECTION, {"year": Year.get_current_year()._id},
+                                        [("date", 1)])]
+        for game in games:
+            if game.date > datetime.now():
+                return game
+
+    @classmethod
     def get_game_by_opponent(cls, opponent, year):
         """
         If only the opponent and year is known, retrieve game of that opponent.
