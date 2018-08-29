@@ -129,29 +129,31 @@ class UserGame(object):
 
     @staticmethod
     def send_reminder():
-        if os.environ.get("environment") in ['QA', 'DEV']:
-            print('DEV environment')
-            email_to = 'pat.hooper83@gmail.com'
-        else:
-            email_to = UserGame.get_reminder_user_list()
+        reminder_days_before_game = 5
+        if (Game.get_next_game().date.date() - datetime.datetime.now().date()).days == reminder_days_before_game:
+            if os.environ.get("environment") in ['QA', 'DEV']:
+                print('DEV environment')
+                email_to = 'pat.hooper83@gmail.com'
+            else:
+                email_to = UserGame.get_reminder_user_list()
 
-        next_game = Game.get_next_game()
+            next_game = Game.get_next_game()
 
-        html = render_template(
-            'email/score_reminder.html',
-            next_game=next_game,
-            deadline=next_game.date-datetime.timedelta(days=3))
+            html = render_template(
+                'email/score_reminder.html',
+                next_game=next_game,
+                deadline=next_game.date - datetime.timedelta(days=3))
 
-        response = requests.post(UserGameConstants.URL,
-                                 auth=('api', UserGameConstants.API_KEY),
-                                 data={
-                                     "from": UserGameConstants.FROM,
-                                     "to": email_to,
-                                     "subject": "Friendly Reminder to Submit Scores for {} Game"
-                                                .format(next_game.home_team.team.school_name),
-                                     "html": html
-                                 })
-        response.raise_for_status()
+            response = requests.post(UserGameConstants.URL,
+                                     auth=('api', UserGameConstants.API_KEY),
+                                     data={
+                                         "from": UserGameConstants.FROM,
+                                         "to": email_to,
+                                         "subject": "Friendly Reminder to Submit Scores for {} Game"
+                                     .format(next_game.home_team.team.school_name),
+                                         "html": html
+                                     })
+            response.raise_for_status()
 
     def save_to_mongo(self):
         Database.update(UserGameConstants.COLLECTION, {"_id": self._id}, self.json())
