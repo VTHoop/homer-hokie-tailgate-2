@@ -79,7 +79,6 @@ def init_db():
 
 @app.route('/')
 def home():
-    UserGame.send_reminder()
     return render_template('home.html')
 
 
