@@ -16,10 +16,13 @@
 /*--- tablets in portrait: from 768 to 1023px --*/
 @media only screen and (max-width: 1023px) {
     h1 {font-size: 225%;}
-    .center-logo {
+
+    .logo {
+        display: block;
         margin: auto;
         width: 175px;
     }
+
     .header-text-box {
         margin-top: 50px;
         width: 80%;
@@ -41,7 +44,8 @@
         display: none;
     }
 
-    .center-logo {
+    .logo {
+        display: block;
         margin: auto;
         width: 150px;
     }  
@@ -87,7 +91,7 @@
         line-height: 125%;
     }
     
-    .center-logo {
+    .logo {
         margin: auto;
         width: 100px;
         margin-bottom: 25px;
