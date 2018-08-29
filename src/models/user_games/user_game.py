@@ -129,7 +129,7 @@ class UserGame(object):
 
     @staticmethod
     def send_reminder():
-        reminder_days_before_game = 5
+        reminder_days_before_game = 4
         if (Game.get_next_game().date.date() - datetime.datetime.now().date()).days == reminder_days_before_game:
             if os.environ.get("environment") in ['QA', 'DEV']:
                 print('DEV environment')
