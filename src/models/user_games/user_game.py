@@ -3,7 +3,7 @@ import os
 import uuid
 
 import requests
-from flask import render_template
+from flask import render_template, Flask
 
 from src.common.database import Database
 from src.models.alerts.alert import Alert
@@ -138,11 +138,12 @@ class UserGame(object):
                 email_to = UserGame.get_reminder_user_list()
 
             next_game = Game.get_next_game()
-
-            html = render_template(
-                'email/score_reminder.html',
-                next_game=next_game,
-                deadline=next_game.date - datetime.timedelta(days=3))
+            
+            app = Flask(__name__)
+            
+            with app.app_context():
+                context = {'next_game': next_game, 'deadline': next_game.date - datetime.timedelta(days=3)}
+                html = render_template('email/score_reminder.html', **context)
 
             response = requests.post(UserGameConstants.URL,
                                      auth=('api', UserGameConstants.API_KEY),
