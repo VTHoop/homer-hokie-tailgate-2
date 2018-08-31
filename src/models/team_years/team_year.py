@@ -77,7 +77,7 @@ class TeamYear(object):
 
     @staticmethod
     def update_teams():
-        link = "https://www.sports-reference.com/cfb/years/2017-standings.html"
+        link = "https://www.sports-reference.com/cfb/years/2018-standings.html"
         request = requests.get(link)
         content = request.content
 
