@@ -1,6 +1,7 @@
 __author__ = 'hooper-p'
 
 from src.common.database import Database
-from src.models.teams.team import Team
+from src.models.team_years.team_year import TeamYear
 
-Team.update_teams()
+Database.initialize()
+TeamYear.update_teams()

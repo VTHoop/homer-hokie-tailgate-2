@@ -3,4 +3,5 @@ __author__ = 'hooper-p'
 from src.common.database import Database
 from src.models.games.game import Game
 
-Game.load_game_tv()
+Database.initialize()
+Game.load_game_details()

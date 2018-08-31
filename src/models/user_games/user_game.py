@@ -131,7 +131,7 @@ class UserGame(object):
     @staticmethod
     def send_reminder():
         reminder_days_before_game = 4
-        templateHtml = '<h1>Reminder to Submit Score for {{ next_game.home_team.team.school_name }} Game</h1><br><p>The {{ next_game.home_team.team.school_name }} is coming up on {{ next_game.date.strftime("%B %d") | replace(" 0", " ") }} and you will only be able to submit scores until Midnight on {{ deadline.strftime("%B %d")  | replace(" 0", " ") }}</p><br><p>Please login to <a href="homerhokietailgate.com">Homer Hokie Tailgate</a> to submit your scores before the deadline.</p><p>Surely you do not want zero points for the week!</p><br><p>Happy Prognosticating!</p><br><p>Please contact <a href="mailto:pat.hooper83@gmail.com">support</a> if you need assistance.</p>'
+
         if (Game.get_next_game().date.date() - datetime.datetime.now().date()).days == reminder_days_before_game:
             if os.environ.get("environment") in ['QA', 'DEV']:
                 print('DEV environment')
@@ -141,7 +141,7 @@ class UserGame(object):
 
             next_game = Game.get_next_game()
 
-            template = jinja2.Template(templateHtml)
+            template = jinja2.Template(UserGameConstants.templateHtml)
             html = template.render(next_game=next_game, deadline=next_game.date - datetime.timedelta(days=3))
             
             response = requests.post(UserGameConstants.URL,
