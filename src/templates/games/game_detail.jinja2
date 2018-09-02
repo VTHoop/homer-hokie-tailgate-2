@@ -93,6 +93,9 @@
     </div>
     <div class="row text-center game-details">
         <div class="col-12">
+            {% if game.theme %}
+            <h3>{{ game.theme }}</h3>
+            {% endif %}
             <p class="subject">Location:</p>
             <p class="details"> {{ game.location.city }}, {{ game.location.state
                 }}</p> <br>

@@ -129,9 +129,18 @@ class Game(object):
             return tv['alt']
 
     @staticmethod
+    def get_game_theme(o):
+        theme_tag = o.find("span", {"class": "sidearm-schedule-game-promotion-name"})
+        print(theme_tag)
+        return theme_tag.text.strip() if theme_tag else None
+        # if theme_tag:
+        #     return theme_tag.text
+        # else:
+        #     return None
+
+    @staticmethod
     def get_game_time(unformatted_time_tag):
         unformatted_time = unformatted_time_tag.text.strip()
-        print(unformatted_time)
         if unformatted_time == 'TBA':
             return 'TBA'
         elif len(unformatted_time) == 4:
@@ -188,6 +197,7 @@ class Game(object):
                             .find("span").find_next_sibling()
                         game.TV = Game.get_game_tv(o)
                         game.time = Game.get_game_time(unformatted_time_tag)
+                        game.theme = Game.get_game_theme(o)
                     if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now() \
                             and game.score_updated_on is None:
                         Game.get_game_score(opponent_name, game)
