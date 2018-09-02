@@ -61,6 +61,28 @@ class Game(object):
     def get_all_stadiums():
         return Database.DATABASE[TeamConstants.COLLECTION].distinct("stadium")
 
+    def save_to_mongo(self):
+        Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
+
+    def json(self):
+        return {
+            "game_num": int(self.game_num),
+            "home_team": self.home_team.team.hokie_sports_name,
+            "away_team": self.away_team.team.hokie_sports_name,
+            "year": self.year._id,
+            "date": self.date,
+            "time": self.time,
+            "location": self.location.json(),
+            "stadium": self.stadium,
+            "theme": self.theme,
+            "hht_theme": self.hht_theme,
+            "TV": self.TV,
+            "home_score": self.home_score,
+            "away_score": self.away_score,
+            "score_updated_on": self.score_updated_on,
+            "_id": self._id
+        }
+
     @classmethod
     def get_all_prior_games_in_current_year(cls):
         """
@@ -100,26 +122,22 @@ class Game(object):
             return cls(**Database.find_one(GameConstants.COLLECTION, {"away_team": opponent, "year": year}))
 
     @staticmethod
-    def get_game_tv(opponent_name, game):
-        get_parent_tag = opponent_name.parent.parent.parent
-        get_next_sibling = get_parent_tag.find_next_sibling()
-        if get_next_sibling.find("img"):
-            tv = get_next_sibling.find("img")
-            game.TV = tv['alt']
-            game.save_to_mongo()
+    def get_game_tv(o):
+        game_tv_tag = o.find("div", {"class": "sidearm-schedule-game-coverage"})
+        if game_tv_tag.find("img"):
+            tv = game_tv_tag.find("img")
+            return tv['alt']
 
     @staticmethod
-    def get_game_time(opponent_name, game):
-        get_parent_tag = opponent_name.parent.parent.parent
-        get_schedule_date = get_parent_tag.find("span", {"class": "schedule-date"})
-        unformatted_time = get_schedule_date.text[get_schedule_date.text.find("/") + 2:]
+    def get_game_time(unformatted_time_tag):
+        unformatted_time = unformatted_time_tag.text.strip()
+        print(unformatted_time)
         if unformatted_time == 'TBA':
-            game.time = 'TBA'
+            return 'TBA'
         elif len(unformatted_time) == 4:
-            game.time = datetime.strftime(datetime.strptime(unformatted_time, "%I %p"), "%I:%M %p")
+            return datetime.strftime(datetime.strptime(unformatted_time, "%I %p"), "%I:%M %p")
         else:
-            game.time = datetime.strftime(datetime.strptime(unformatted_time, "%I:%M %p"), "%I:%M %p")
-        game.save_to_mongo()
+            return datetime.strftime(datetime.strptime(unformatted_time, "%I:%M %p"), "%I:%M %p")
 
     @staticmethod
     def get_game_score(opponent_name, game):
@@ -135,7 +153,6 @@ class Game(object):
             game.home_score = game_score[:game_score.find("-")]
             game.away_score = game_score[game_score.find("-") + 1:]
         game.score_updated_on = datetime.now()
-        game.save_to_mongo()
 
     @staticmethod
     def load_game_details():
@@ -146,52 +163,33 @@ class Game(object):
         :return: None
         """
         # start date of current year object will determine the schedule pulled from hokiesports.com
-        year_for_link = Year.get_current_year().start_date.strftime('%Y')
-        link = "http://www.hokiesports.com/football/schedule/" + year_for_link
-        request = requests.get(link)
+        link = "https://hokiesports.com/schedule.aspx?path=football"
+        headers = {'Accept': 'text/html', 'User-Agent': 'Mozilla/5.0'}
+        request = requests.get(link, headers=headers)
         content = request.content
 
         soup = BeautifulSoup(content, "html.parser")
-
-        opponents = soup.find_all("span", {"class": "schedule-opponent"})
+        opponents = soup.find_all('li', {'class': 'sidearm-schedule-game'})
 
         for o in opponents:
             # get tag that has opponent name
-            if o.find("a"):
-                opponent_name = o.find("a")
+            if o.find("span", {"class": "sidearm-schedule-game-opponent-name"}):
+                opponent_name = o.find("span", {"class": "sidearm-schedule-game-opponent-name"})
 
                 # get game with opponent
                 # ignore spring game and other games not defined
                 if Database.DATABASE[GameConstants.COLLECTION].find_one(
-                                     {"$or": [{"home_team": opponent_name.text}, {"away_team": opponent_name.text}],
-                                      "year": Year.get_current_year()._id}):
-                    game = Game.get_game_by_opponent(opponent_name.text, Year.get_current_year()._id)
+                        {"$or": [{"home_team": opponent_name.text.strip()}, {"away_team": opponent_name.text.strip()}],
+                         "year": Year.get_current_year()._id}):
+                    game = Game.get_game_by_opponent(opponent_name.text.strip(), Year.get_current_year()._id)
 
                     if game.date > datetime.now():
-                        Game.get_game_tv(opponent_name, game)
-                        Game.get_game_time(opponent_name, game)
-                    if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now()\
+                        unformatted_time_tag = o.find("div", {"class": "sidearm-schedule-game-opponent-date"}) \
+                            .find("span").find_next_sibling()
+                        game.TV = Game.get_game_tv(o)
+                        game.time = Game.get_game_time(unformatted_time_tag)
+                    if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now() \
                             and game.score_updated_on is None:
                         Game.get_game_score(opponent_name, game)
 
-    def save_to_mongo(self):
-        Database.update(GameConstants.COLLECTION, {"_id": self._id}, self.json())
-
-    def json(self):
-        return {
-            "game_num": int(self.game_num),
-            "home_team": self.home_team.team.hokie_sports_name,
-            "away_team": self.away_team.team.hokie_sports_name,
-            "year": self.year._id,
-            "date": self.date,
-            "time": self.time,
-            "location": self.location.json(),
-            "stadium": self.stadium,
-            "theme": self.theme,
-            "hht_theme": self.hht_theme,
-            "TV": self.TV,
-            "home_score": self.home_score,
-            "away_score": self.away_score,
-            "score_updated_on": self.score_updated_on,
-            "_id": self._id
-        }
+                    game.save_to_mongo()
