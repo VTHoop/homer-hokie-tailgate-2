@@ -131,12 +131,7 @@ class Game(object):
     @staticmethod
     def get_game_theme(o):
         theme_tag = o.find("span", {"class": "sidearm-schedule-game-promotion-name"})
-        print(theme_tag)
         return theme_tag.text.strip() if theme_tag else None
-        # if theme_tag:
-        #     return theme_tag.text
-        # else:
-        #     return None
 
     @staticmethod
     def get_game_time(unformatted_time_tag):
@@ -149,19 +144,17 @@ class Game(object):
             return datetime.strftime(datetime.strptime(unformatted_time, "%I:%M %p"), "%I:%M %p")
 
     @staticmethod
-    def get_game_score(opponent_name, game):
-        get_parent_tag = opponent_name.parent.parent.parent
-        get_next_sibling = get_parent_tag.find_next_sibling().find_next_sibling()
-        raw_score = get_next_sibling.find("span", {"class": "schedule-score"})
-        game_score = raw_score.text[raw_score.text.find(",") + 2:]
+    def get_game_score(o, game):
+        game_score = o.find("div", {"class": "sidearm-schedule-game-result"}) \
+            .find("span").find_next_sibling().find_next_sibling().text
 
         if game.away_team.team.school_name == 'Virginia Tech':
-            game.away_score = game_score[:game_score.find("-")]
-            game.home_score = game_score[game_score.find("-") + 1:]
+            away_score = game_score[:game_score.find("-")]
+            home_score = game_score[game_score.find("-") + 1:]
         else:
-            game.home_score = game_score[:game_score.find("-")]
-            game.away_score = game_score[game_score.find("-") + 1:]
-        game.score_updated_on = datetime.now()
+            home_score = game_score[:game_score.find("-")]
+            away_score = game_score[game_score.find("-") + 1:]
+        return away_score, home_score
 
     @staticmethod
     def load_game_details():
@@ -198,8 +191,8 @@ class Game(object):
                         game.TV = Game.get_game_tv(o)
                         game.time = Game.get_game_time(unformatted_time_tag)
                         game.theme = Game.get_game_theme(o)
-                    if game.home_score == '0' and game.away_score == '0' and game.date < datetime.now() \
+                    if game.home_score == 0 and game.away_score == 0 and game.date < datetime.now() \
                             and game.score_updated_on is None:
-                        Game.get_game_score(opponent_name, game)
-
+                        game.away_score, game.home_score = Game.get_game_score(o, game)
+                        game.score_updated_on = datetime.now()
                     game.save_to_mongo()

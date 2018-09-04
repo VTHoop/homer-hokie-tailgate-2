@@ -77,7 +77,6 @@ def get_leaderboard():
         user_totals_sorted = sorted(user_totals.items(), key=operator.itemgetter(1), reverse=True)
         leaders = [x[0] for x in user_totals_sorted]
         points = [x[1] for x in user_totals_sorted]
-        print(leaders, points)
         latest_user_games = UserGame.get_attendance_by_game(max_game._id)
         return render_template("user_games/leaderboard.jinja2", leaders=leaders, points=points,
                                latest_user_games=latest_user_games, games_prior=games_prior, max_game=max_game)
