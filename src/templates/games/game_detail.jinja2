@@ -64,9 +64,17 @@
         </div>
     </div>
     <div class="row text-center game-teams">
-        <div class="col-5"><h2>{{ game.away_team.team.school_name }}</h2></div>
+        <div class="col-5"><h2>
+            {% if game.away_team.ap_rank != '' %}
+            #{{ game.away_team.ap_rank }}
+            {% endif %}
+            {{ game.away_team.team.school_name }}</h2></div>
         <div class="col-2"><h2></h2></div>
-        <div class="col-5"><h2>{{ game.home_team.team.school_name }}</h2></div>
+        <div class="col-5"><h2>
+            {% if game.home_team.ap_rank != '' %}
+            #{{ game.home_team.ap_rank }}
+            {% endif %}
+            {{ game.home_team.team.school_name }}</h2></div>
     </div>
     <div class="row text-center collapse-at">
         <div class="col-5"><h3>{{ game.away_team.team.mascot }}</h3></div>

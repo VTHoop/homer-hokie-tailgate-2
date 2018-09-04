@@ -60,13 +60,13 @@ class TeamYear(object):
 
     @classmethod
     def get_by_school_name_and_current_year(cls, sn):
-        if Database.find_one(TeamYearConstants.COLLECTION, {"team": sn,
+        if Database.find_one(TeamYearConstants.COLLECTION, {"team.school_name": sn,
                                                             "year.start_date": {
                                                                 '$lte': datetime.datetime.utcnow()},
                                                             "year.end_date": {
                                                                 '$gte': datetime.datetime.utcnow()}
                                                             }) is not None:
-            return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team": sn,
+            return cls(**Database.find_one(TeamYearConstants.COLLECTION, {"team.school_name": sn,
                                                                           "year.start_date": {
                                                                               '$lte': datetime.datetime.utcnow()},
                                                                           "year.end_date": {
@@ -85,7 +85,7 @@ class TeamYear(object):
 
         school_names = soup.find_all("td", {"data-stat": "school_name"})
         for school_name in school_names:
-            sn = school_name.text
+            sn = school_name.text.strip()
             conf = school_name.find_next_sibling()
             wins = conf.find_next_sibling()
             losses = wins.find_next_sibling()
@@ -97,11 +97,10 @@ class TeamYear(object):
 
             if TeamYear.get_by_school_name_and_current_year(sn):
                 team = TeamYear.get_by_school_name_and_current_year(sn)
-                team.conference = conf.text
-                team.wins = wins.text
-                team.losses = losses.text
-                team.conf_wins = conf_wins.text
-                team.conf_losses = conf_losses.text
-                team.ap_rank = ap_rank.text
+                team.conference = conf.text.strip()
+                team.wins = wins.text.strip()
+                team.losses = losses.text.strip()
+                team.conf_wins = conf_wins.text.strip()
+                team.conf_losses = conf_losses.text.strip()
+                team.ap_rank = ap_rank.text.strip()
                 team.save_to_mongo()
-                # team = Team(sn, conf, wins, losses, ap_rank=ap_rank, conf_wins=conf_wins, conf_losses=conf_losses)

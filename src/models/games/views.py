@@ -29,7 +29,7 @@ def detail(game_id):
 
     this_game = Game.get_game_by_id(game_id)
     # format the date for the detail screen
-    this_game.date = this_game.date.strftime("%B %d")
+    this_game.date = this_game.date.strftime('%B %d')
 
     # getting attendance for each type to pass along to template
     yes_attendance = UserGame.get_attendance_by_game_and_status(game_id, 'Yes')
