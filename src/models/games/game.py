@@ -99,6 +99,10 @@ class Game(object):
                 prior_games.append(g)
         return prior_games
 
+    def get_opponent(self):
+        return self.home_team.team.school_name if self.away_team.team.school_name == 'Virginia Tech'\
+            else self.away_team.team.school_name
+
     @classmethod
     def get_next_game(cls):
         games = [cls(**elem) for elem in
