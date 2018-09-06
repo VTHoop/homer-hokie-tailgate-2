@@ -101,7 +101,7 @@ class UserGame(object):
 
         for ug in user_games:
             # if score has been entered
-            if ug.score_updated_on is not None:
+            if ug.score_updated_on is not None or (ug.home_score != '0' and ug.away_score != '0'):
                 # if game has already happened and user somehow hasn't changed score (should be locked down after game
                 # after game has happened
                 if (ug.game.date < datetime.datetime.now()) and (
