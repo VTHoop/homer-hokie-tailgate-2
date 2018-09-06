@@ -117,7 +117,9 @@
                                 <td>{{ user_game.away_score }}</td>
                                 <td>{{ user_game.away_points }}</td>
                                 {% endif %}
-                                {% if user_game.admin_enter == 'Yes' or (user_game.home_score == '0' and user_game.away_score == '0') %}
+                                {% if user_game.admin_enter == 'Yes'
+                                or (user_game.home_score == '0' and user_game.away_score == '0')
+                                or (user_game.home_score == 0 and user_game.away_score == 0) %}
                                 <td>0</td>
                                 {% else %}
                                 <td>1</td>
