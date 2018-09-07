@@ -12,7 +12,8 @@
      .vt-points,
      .vt-predict,
      .oppt-predict,
-     .oppt-points {
+     .oppt-points,
+     .bonus{
         display: none;
     }
 }
@@ -37,7 +38,8 @@
      .vt-points,
      .vt-predict,
      .oppt-predict,
-     .oppt-points {
+     .oppt-points,
+     .bonus{
         display: none;
     }
 }
@@ -52,7 +54,8 @@
      .vt-points,
      .vt-predict,
      .oppt-predict,
-     .oppt-points {
+     .oppt-points,
+     .bonus{
         display: none;
     }
 
@@ -94,7 +97,8 @@
      .vt-points,
      .vt-predict,
      .oppt-predict,
-     .oppt-points {
+     .oppt-points,
+     .bonus{
         display: none;
     }
 
