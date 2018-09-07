@@ -8,7 +8,11 @@
         left: 50%;
     }
      .view-details,
-     .attendance-buttons {
+     .attendance-buttons,
+     .vt-points,
+     .vt-predict,
+     .oppt-predict,
+     .oppt-points {
         display: none;
     }
 }
@@ -29,7 +33,11 @@
     }
 
      .view-details,
-     .attendance-buttons{
+     .attendance-buttons,
+     .vt-points,
+     .vt-predict,
+     .oppt-predict,
+     .oppt-points {
         display: none;
     }
 }
@@ -40,7 +48,11 @@
     h2 {font-size: 175%;}    
 
      .view-details,
-     .attendance-buttons{
+     .attendance-buttons,
+     .vt-points,
+     .vt-predict,
+     .oppt-predict,
+     .oppt-points {
         display: none;
     }
 
@@ -78,7 +90,11 @@
     }
 
      .view-details,
-     .attendance-buttons{
+     .attendance-buttons,
+     .vt-points,
+     .vt-predict,
+     .oppt-predict,
+     .oppt-points {
         display: none;
     }
 

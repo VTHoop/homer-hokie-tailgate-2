@@ -88,15 +88,13 @@
                             <thead>
                             <tr class="text-center">
                                 <th>Name</th>
-                                <th>Predict</th>
-                                <!--<th>Actual</th>-->
-                                <th>Points</th>
-                                <th>Predict</th>
-                                <!--<th>Actual</th>-->
-                                <th>Points</th>
-                                <th>Bonus</th>
-                                <th>Week Total</th>
-                                <th>Overall Total</th>
+                                <th class="vt-predict">Predict</th>
+                                <th class="vt-points">Points</th>
+                                <th class="oppt-predict">Predict</th>
+                                <th class="oppt-points">Points</th>
+                                <th class="bonus">Bonus</th>
+                                <th class="week-points">Week Total</th>
+                                <th class="overall-points">Overall Total</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -107,25 +105,25 @@
                             <tr class="text-center">
                                 <td>{{ user_game.user.f_name }} {{ user_game.user.l_name }}</td>
                                 {% if latest_user_games[0].game.away_team.team.school_name == 'Virginia Tech' %}
-                                <td>{{ user_game.away_score }}</td>
-                                <td>{{ user_game.away_points }}</td>
-                                <td>{{ user_game.home_score }}</td>
-                                <td>{{ user_game.home_points }}</td>
+                                <td class="vt-predict">{{ user_game.away_score }}</td>
+                                <td class="vt-points">{{ user_game.away_points }}</td>
+                                <td class="oppt-predict">{{ user_game.home_score }}</td>
+                                <td class="oppt-points">{{ user_game.home_points }}</td>
                                 {% else %}
-                                <td>{{ user_game.home_score }}</td>
-                                <td>{{ user_game.home_points }}</td>
-                                <td>{{ user_game.away_score }}</td>
-                                <td>{{ user_game.away_points }}</td>
+                                <td class="vt-predict">{{ user_game.home_score }}</td>
+                                <td class="vt-points">{{ user_game.home_points }}</td>
+                                <td class="oppt-predict">{{ user_game.away_score }}</td>
+                                <td class="oppt-points">{{ user_game.away_points }}</td>
                                 {% endif %}
                                 {% if user_game.admin_enter == 'Yes'
                                 or (user_game.home_score == '0' and user_game.away_score == '0')
                                 or (user_game.home_score == 0 and user_game.away_score == 0) %}
-                                <td>0</td>
+                                <td class="bonus">0</td>
                                 {% else %}
-                                <td>1</td>
+                                <td class="bonus">1</td>
                                 {% endif %}
-                                <td>{{ user_game.total_points }}</td>
-                                <td>{{ leader_points }}</td>
+                                <td class="week-points">{{ user_game.total_points }}</td>
+                                <td class="overall-points">{{ leader_points }}</td>
                             </tr>
                             {% endif %}
                             {% endfor %}
