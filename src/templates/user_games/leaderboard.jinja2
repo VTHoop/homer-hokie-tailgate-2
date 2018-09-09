@@ -105,15 +105,15 @@
                             <tr class="text-center">
                                 <td>{{ user_game.user.f_name }} {{ user_game.user.l_name }}</td>
                                 {% if latest_user_games[0].game.away_team.team.school_name == 'Virginia Tech' %}
-                                <td class="vt-predict">{{ user_game.away_score }}</td>
-                                <td class="vt-points">{{ user_game.away_points }}</td>
-                                <td class="oppt-predict">{{ user_game.home_score }}</td>
-                                <td class="oppt-points">{{ user_game.home_points }}</td>
+                                <td class="vt-predict">{{ user_game.away_score | int }}</td>
+                                <td class="vt-points">{{ user_game.away_points | int }}</td>
+                                <td class="oppt-predict">{{ user_game.home_score | int }}</td>
+                                <td class="oppt-points">{{ user_game.home_points | int }}</td>
                                 {% else %}
-                                <td class="vt-predict">{{ user_game.home_score }}</td>
-                                <td class="vt-points">{{ user_game.home_points }}</td>
-                                <td class="oppt-predict">{{ user_game.away_score }}</td>
-                                <td class="oppt-points">{{ user_game.away_points }}</td>
+                                <td class="vt-predict">{{ user_game.home_score | int }}</td>
+                                <td class="vt-points">{{ user_game.home_points | int }}</td>
+                                <td class="oppt-predict">{{ user_game.away_score | int }}</td>
+                                <td class="oppt-points">{{ user_game.away_points | int }}</td>
                                 {% endif %}
                                 {% if user_game.admin_enter == 'Yes'
                                 or (user_game.home_score == '0' and user_game.away_score == '0')
@@ -122,8 +122,8 @@
                                 {% else %}
                                 <td class="bonus">1</td>
                                 {% endif %}
-                                <td class="week-points">{{ user_game.total_points }}</td>
-                                <td class="overall-points">{{ leader_points }}</td>
+                                <td class="week-points">{{ user_game.total_points | int }}</td>
+                                <td class="overall-points">{{ leader_points | int }}</td>
                             </tr>
                             {% endif %}
                             {% endfor %}
