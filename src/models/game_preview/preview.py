@@ -65,7 +65,8 @@ class Preview(object):
                                  auth=('api', PreviewConstants.API_KEY),
                                  data={
                                      "from": PreviewConstants.FROM,
-                                     "to": email_to,
+                                     "to": PreviewConstants.FROM,
+                                     "bcc": email_to,
                                      "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
                                      "html": self.preview
                                  })
