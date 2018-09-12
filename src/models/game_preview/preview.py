@@ -61,13 +61,15 @@ class Preview(object):
         else:
             email_to = self.get_preview_user_list()
 
+        next_game = Game.get_next_game()
+
         response = requests.post(PreviewConstants.URL,
                                  auth=('api', PreviewConstants.API_KEY),
                                  data={
                                      "from": PreviewConstants.FROM,
                                      "to": PreviewConstants.FROM,
                                      "bcc": email_to,
-                                     "subject": "HHT Preview for {} Game".format(self.game.home_team.team.school_name),
+                                     "subject": "HHT Preview for {} Game".format(next_game.get_opponent()),
                                      "html": self.preview
                                  })
         response.raise_for_status()
