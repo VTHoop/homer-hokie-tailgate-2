@@ -75,7 +75,8 @@ class UserGame(object):
     @classmethod
     def get_usergames_by_date(cls, beg_date, end_date):
         return [cls(**elem) for elem in Database.find_and_sort(UserGameConstants.COLLECTION,
-                                                               {"game_date": {'$lte': end_date, '$gte': beg_date}},
+                                                               {"prognosticator": "Yes",
+                                                                "game_date": {'$lte': end_date, '$gte': beg_date}},
                                                                [("game_date", 1)])]
 
     @staticmethod
