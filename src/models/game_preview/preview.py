@@ -31,6 +31,11 @@ class Preview(object):
         return [cls(**elem) for elem in Database.find(PreviewConstants.COLLECTION, {"game": game})]
 
     @classmethod
+    def get_pops_preview_by_game(cls, game):
+        return cls(**Database.find_one(PreviewConstants.COLLECTION,
+                                       {"game": game, "author": User.get_user_by_email('jrhooper@att.net')._id}))
+
+    @classmethod
     def get_preview_by_game_and_user(cls, game, user):
         return cls(**Database.find_one(PreviewConstants.COLLECTION, {"game": game, "author": user}))
 

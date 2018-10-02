@@ -16,23 +16,23 @@ preview_blueprint = Blueprint('preview', __name__)
 def edit_preview(game_id):
     if request.method == 'POST':
         content = request.form['content']
-        if Database.find_one(PreviewConstants.COLLECTION, {"game": game_id, "author": session['user']}):
-            preview = Preview.get_preview_by_game_and_user(game_id, session['user'])
+        if Database.find_one(PreviewConstants.COLLECTION,
+                             {"game": game_id, "author": User.get_user_by_email('jrhooper@att.net')._id}):
+            preview = Preview.get_pops_preview_by_game(game_id)
             preview.preview = content
-            preview.author = User.get_user_by_id(session['user'])
+            preview.author = User.get_user_by_email('jrhooper@att.net')
             preview.updated_on = datetime.datetime.now()
             preview.save_to_mongo()
-            if 'saveandemail' in request.form:
-                Preview.send(preview)
         else:
-            preview = Preview(game_id,session['user'], content, datetime.datetime.now())
+            preview = Preview(game_id, User.get_user_by_email('jrhooper@att.net')._id, content, datetime.datetime.now())
             preview.save_to_mongo()
+        if 'saveandemail' in request.form:
+            Preview.send(preview)
         return render_template("games/edit_preview.jinja2", preview=preview)
     else:
-        if Database.find_one(PreviewConstants.COLLECTION, {"game": game_id, "author": session['user']}):
-            preview = Preview.get_preview_by_game_and_user(game_id, session['user'])
+        if Database.find_one(PreviewConstants.COLLECTION,
+                             {"game": game_id, "author": User.get_user_by_email('jrhooper@att.net')._id}):
+            preview = Preview.get_pops_preview_by_game(game_id)
             return render_template("games/edit_preview.jinja2", preview=preview)
         else:
             return render_template("games/create_preview.jinja2")
-
-
