@@ -290,8 +290,9 @@ a.btn.btn-full{
 
 .game-detail-section-light,
 .game-detail-section-dark {
-    height: 90vh;
+    min-height: 90vh;
     box-shadow: 2px 2px 2px #ccc;
+    padding-bottom: 30px;
 }
 
 .section-attendance,
@@ -325,7 +326,7 @@ a.btn.btn-full{
 .attendance-maybe,
 .attendance-no {
     padding-top: 30px;
-    height: 105vh;
+    min-height: 70vh;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
