@@ -49,6 +49,15 @@ def admin_delete_user(user_id):
     users = User.get_all_users()
     return render_template('users/admin_dashboard.jinja2', users=users)
 
+@users_blueprint.route('/email', methods=['GET', 'POST'])
+def email_all_users():
+    if request.method == 'POST':
+        subject = request.form['subject']
+        content = request.form['content']
+        User.send_email(subject, content)
+        users = User.get_all_users()
+        return render_template('users/admin_dashboard.jinja2', users=users)
+    return render_template('users/email.jinja2')
 
 @users_blueprint.route('/admin', methods=['GET', 'POST'])
 def user_administration():

@@ -1,3 +1,4 @@
+import os
 import uuid
 
 from passlib.hash import sha512_crypt
@@ -72,6 +73,33 @@ class User(object):
             raise UserErrors.IncorrectPasswordError("Password does not match the one registered.")
 
         return True
+
+    @staticmethod
+    def get_email_user_list():
+        all_users = User.get_all_users()
+        email_alert_users = []
+        for user in all_users:
+            email_alert_users.append(user.email)
+        return ",".join(email_alert_users)
+
+    @staticmethod
+    def send_email(subject, content):
+        if os.environ.get("environment") in ['QA', 'DEV']:
+            email_to = 'pat.hooper83@gmail.com,jrhooper@att.net'
+        else:
+            email_to = User.get_email_user_list()
+
+        response = requests.post(PreviewConstants.URL,
+                                 auth=('api', PreviewConstants.API_KEY),
+                                 data={
+                                     "from": "jrhooper@att.net",
+                                     "to": "jrhooper@att.net",
+                                     "cc": "pat.hooper83@gmail.com",
+                                     "bcc": email_to,
+                                     "subject": subject,
+                                     "html": content
+                                 })
+        response.raise_for_status()
 
     @staticmethod
     def check_user_exists(email):
