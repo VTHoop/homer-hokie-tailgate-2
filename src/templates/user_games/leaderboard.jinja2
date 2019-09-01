@@ -60,11 +60,11 @@
                             <tr class="text-center">
                                 <td>&nbsp;</td>
                                 {% if latest_user_games[0].game.away_team.team.school_name == 'Virginia Tech' %}
-                                <td><h2>{{ latest_user_games[0].game.away_score }} </h2></td>
-                                <td><h2>{{ latest_user_games[0].game.home_score }} </h2></td>
+                                <td><h2>{{ latest_user_games[0].game.away_score | round | int }} </h2></td>
+                                <td><h2>{{ latest_user_games[0].game.home_score | round | int }} </h2></td>
                                 {% else %}
-                                <td><h2>{{ latest_user_games[0].game.home_score }} </h2></td>
-                                <td><h2>{{ latest_user_games[0].game.away_score }} </h2></td>
+                                <td><h2>{{ latest_user_games[0].game.home_score | round | int }} </h2></td>
+                                <td><h2>{{ latest_user_games[0].game.away_score | round | int  }} </h2></td>
                                 {% endif %}
                                 <td>&nbsp;</td>
                             </tr>
